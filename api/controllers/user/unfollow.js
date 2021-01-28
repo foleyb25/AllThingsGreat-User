@@ -6,7 +6,7 @@ module.exports = async function(req, res) {
         userIdToUnfollow)
 
     // lets destroy all feed items for unfollowing id
-    await FeedItem.destroy({postOwner: userIdToUnfollow})
+    await FeedItem.destroy({blogOwner: userIdToUnfollow})
 
     await User.removeFromCollection(userIdToUnfollow, 'followers',
         currentUserId)

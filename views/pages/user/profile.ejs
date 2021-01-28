@@ -108,12 +108,12 @@
             </div>
         </div>
 
-        <!-- POSTS -->
+        <!-- BLOGS -->
         <div style="margin: 16px 0px; font-weight: bold">
-            Posts
+            Blogs
         </div>
-        <div v-for="p in user.posts">
-            <%- partial('../../partials/post') %>
+        <div v-for="blog in user.blogs">
+            <%- partial('../../partials/blog') %>
         </div>
 
     </div>
@@ -136,7 +136,7 @@
                     formData.append('fullName', this.user.fullName)
                     formData.append('bio', this.user.bio)
                     formData.append('imagefile', this.avatarFile)
-                    // fire off a post request to update user
+                    // fire off a blog request to update user
                     try {
                         await axios.post('/profile', formData)
                         location.reload()

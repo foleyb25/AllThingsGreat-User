@@ -1,7 +1,7 @@
 module.exports = {
     attributes: {
-        post: {
-            model: 'post', required: true
+        blog: {
+            model: 'blog', required: true
         },
 
         user: {

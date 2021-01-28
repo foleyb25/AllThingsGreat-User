@@ -36,9 +36,9 @@
   "main": "app.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/brianvoong/webapp-social.git"
+    "url": "git://github.com/foleyb25/AllThingsGreat-User.git"
   },
-  "author": "brianvoong",
+  "author": "brianfoley",
   "license": "",
   "engines": {
     "node": "^10.15"

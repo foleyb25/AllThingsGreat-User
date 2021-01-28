@@ -48,7 +48,7 @@
       <header id="page-header" class="navbar navbar-expand-sm navbar-dark bg-dark flex-column flex-md-row justify-content-between">
         <a class="navbar-brand mr-0" href="/"><img class="logo" alt="NEW_APP_NAME logo" src="/images/logo.png"/></a>
         <div class="navbar-nav flex-row">
-          <!-- LOGGED-IN NAVIGATION -->
+          <a class="nav-item nav-link ml-2 ml-md-0 mr-2 mr-md-0" href="/">Home</a>
           <% if(me) { %>
           <a class="nav-item nav-link ml-2 ml-md-0 mr-2 mr-md-0" href="/contact">Help</a>
           <!-- Only in desktop nav -->
@@ -64,7 +64,6 @@
           <a class="nav-item nav-link ml-2 mr-2 d-block d-sm-none" href="/logout">Sign out</a>
           <% } else { %>
           <!-- LOGGED-OUT NAVIGATION -->
-          <a class="nav-item nav-link ml-2 ml-md-0 mr-2" href="/faq">FAQ</a>
           <a class="nav-item nav-link ml-2 ml-md-0 mr-2" href="/login">Log in</a>
           <!-- Only in desktop nav -->
           <div class="form-inline d-none ml-2 d-md-block" >
@@ -75,6 +74,7 @@
           <% } %>
         </div>
       </header>
+      <%- partial('category-layout') %>
 
       <!-- Alert if email has not been confirmed -->
       <% if(me&&me.emailChangeCandidate) { %>

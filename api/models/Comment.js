@@ -4,8 +4,8 @@ module.exports = {
             type: 'string', required: true
         },
 
-        post: {
-            model: 'post', required: true,
+        Blog: {
+            model: 'blog', required: true,
         },
 
         user: {

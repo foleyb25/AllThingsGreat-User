@@ -1,9 +1,9 @@
 module.exports = async function(req, res) {
-    const postId = req.param('id')
+    const blogId = req.param('id')
 
     try {
         await FeedItem.destroy({
-            post: postId, 
+            blog: blogId, 
             user: req.session.userId
         })
         res.end()

@@ -44,7 +44,7 @@
 
         try {
             const response = await axios.put('/api/v1/entrance/login', formData)
-            document.location = "/post"
+            document.location = "/blog"
         } catch (err) {
             console.error(err)
             errorDiv.style.display = 'block'

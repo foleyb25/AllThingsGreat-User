@@ -13,8 +13,10 @@ module.exports.routes = {
   //  ╦ ╦╔═╗╔╗ ╔═╗╔═╗╔═╗╔═╗╔═╗
   //  ║║║║╣ ╠╩╗╠═╝╠═╣║ ╦║╣ ╚═╗
   //  ╚╩╝╚═╝╚═╝╩  ╩ ╩╚═╝╚═╝╚═╝
-  // 'GET /':                   { action: 'view-homepage-or-redirect' },
-  'GET /': 'post/home',
+  
+  //CUSTOM
+  'GET /':                   { action: 'view-homepage' },
+  'GET /blog/view/:blogId': { action: 'blog/view'},
   'GET /welcome/:unused?':   { action: 'dashboard/view-welcome' },
 
   'GET /faq':                { action:   'view-faq' },
@@ -66,19 +68,18 @@ module.exports.routes = {
 
   // CUSTOM ROUTING
   'GET /listusers': 'user/listusers',
-  'GET /post': {action: 'post/home', csrf: false},
-  'POST /post': 'post/create',
-  'DELETE /post/:postId': 'post/delete',
+  'GET /blog': {action: 'blog/home', csrf: false},
+  'POST /blog': 'blog/create',
 
-  'GET /post/:id': 'post/index',
-  'POST /comment/post/:id': 'comment/create',
+  'GET /blog/:id': 'blog/index',
+  'POST /comment/blog/:id': 'comment/create',
 
   'DELETE /feeditem/:id': 'feeditem/delete',
 
   'POST /like/:id': 'feeditem/like',
   'POST /dislike/:id': 'feeditem/dislike',
 
-  'GET /likes/:id': 'post/likes',
+  'GET /likes/:id': 'blog/likes',
 
   'GET /search': 'user/search',
   'POST /follow/:id': 'user/follow',

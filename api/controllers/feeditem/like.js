@@ -1,21 +1,21 @@
 module.exports = async function(req, res) {
-    const postId = req.param('id')
+    const blogId = req.param('id')
     try {
 
         await FeedItem.update({
-            post: postId,
+            blog: blogId,
             user: req.session.userId
         }).set({hasLiked: true})
 
         await Like.create({
-            post: postId,
+            blog: blogId,
             user: req.session.userId
         })
 
-        const numLikes = await Like.count({post: postId})
+        const numLikes = await Like.count({blog: blogId})
 
-        await Post.update({
-            id: postId
+        await Blog.update({
+            id: blogId
         }).set({numLikes: numLikes})
 
         res.end()

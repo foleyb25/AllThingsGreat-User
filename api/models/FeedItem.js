@@ -1,10 +1,10 @@
 module.exports = {
     attributes: {
-        post: {
-            model: 'post', required: true
+        blog: {
+            model: 'blog', required: true
         },
 
-        postOwner: {
+        blogOwner: {
             model: 'user'
         },
 
@@ -12,7 +12,7 @@ module.exports = {
             model: 'user'
         },
 
-        postCreatedAt: {
+        blogCreatedAt: {
             type: 'number'
         },
         
