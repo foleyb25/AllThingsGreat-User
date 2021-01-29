@@ -14,7 +14,7 @@
     </div>
 </div>
 
-<%- exposeLocalsToBrowser({keys: ['blogs', 'pct']}) %>
+<%- exposeLocalsToBrowser({keys: ['blogs']}) %>
 
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
@@ -27,7 +27,6 @@ console.log(window.SAILS_LOCALS.pct)
             shouldShowDeleteConfirmation: false,
             selectedBlotToDelete: null,
             isDeletingBlog: false,
-            colorpct: window.SAILS_LOCALS.pct,
 
             // Blog creation State variables
             isCreatingBlog: false,
@@ -37,11 +36,16 @@ console.log(window.SAILS_LOCALS.pct)
             shouldShowBlogForm: false,
         },
         methods: {
+            createBackgroundGradient(blog) {
+                const rating = blog.rating
+                const numberOfRatings = blog.numberOfRatings * 5
+                const colorpct = (rating / numberOfRatings) * 100
+                const styleString = `linear-gradient(to right, yellow ${colorpct}%, white ${colorpct}%)`;
+                return styleString
+            }
         },
         computed: {
-            createBackgroundGradient() {
-                return `linear-gradient(to right, yellow ${this.colorpct}%, white ${this.colorpct}%)`;
-            }
+            
         }
     })
 </script>

@@ -67,6 +67,8 @@ module.exports.routes = {
   'POST  /api/v1/deliver-contact-form-message':          { action: 'deliver-contact-form-message' },
 
   // CUSTOM ROUTING
+  'PUT /blog/submitrating': 'blog/submitrating',
+
   'GET /listusers': 'user/listusers',
   'GET /blog': {action: 'blog/home', csrf: false},
   'POST /blog': 'blog/create',
