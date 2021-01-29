@@ -22,6 +22,9 @@
 img {
   display: block;
 }
+.bg-dark {
+  background-color: #092a4b !important;
+}
 .btn,
 [type='button'] {
   -webkit-appearance: none;
