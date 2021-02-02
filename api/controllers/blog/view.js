@@ -27,8 +27,6 @@ module.exports = async function(req,res) {
         }
       }
       
-      
-      
       return res.view("pages/blog/view", {
           blog: sanitizedBlog,
           isRated: isRated,

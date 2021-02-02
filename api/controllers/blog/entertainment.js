@@ -4,7 +4,6 @@ module.exports = async function(req,res) {
         .sort('createdAt DESC')
         .populate('writer')
         const sanitizedBlogs = JSON.parse(JSON.stringify(blogs))
-        //compute pctg of blogs here and pass it to homepage
     
         return res.view("pages/homepage", {
           blogs: sanitizedBlogs,
