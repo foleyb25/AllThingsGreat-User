@@ -4,10 +4,10 @@ module.exports = async function(req, res) {
 
     // store a comment in our database
     await Comment.create({
-        text: req.body.text,
+        text: req.body.comment,
         blog: blogId,
         user: req.session.userId
     })
 
-    res.redirect('/blog/' + blogId)
+    res.redirect('/blog/view/' + blogId)
 }

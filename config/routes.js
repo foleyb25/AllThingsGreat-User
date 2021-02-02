@@ -69,11 +69,19 @@ module.exports.routes = {
   // CUSTOM ROUTING
   'PUT /blog/submitrating': 'blog/submitrating',
 
+  'GET /blog/allthingsgreat': 'blog/allthingsgreat',
+  'GET /blog/entertainment': 'blog/entertainment',
+  'GET /blog/gaming': 'blog/gaming',
+  'GET /blog/investments': 'blog/investments',
+  'GET /blog/outdoors': 'blog/outdoors',
+  'GET /blog/sports': 'blog/sports',
+  'GET /blog/history': 'blog/history',
+
   'GET /listusers': 'user/listusers',
   'GET /blog': {action: 'blog/home', csrf: false},
   'POST /blog': 'blog/create',
 
-  'GET /blog/:id': 'blog/index',
+  // 'GET /blog/:id': 'blog/index',
   'POST /comment/blog/:id': 'comment/create',
 
   'DELETE /feeditem/:id': 'feeditem/delete',

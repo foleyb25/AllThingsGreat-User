@@ -97,6 +97,13 @@ a {
     height: 100%;
     width: 25%;
     font-weight: 750;
+    display: table;
+}
+
+.author-p {
+    text-align:center; 
+    vertical-align: middle;
+    display: table-cell; 
 }
 
 .category-box {
@@ -104,7 +111,7 @@ a {
     background-color:#FFFFFF;
     height: 100%;
     width: 25%;
-    padding-left: 5px;
+    display: table;
 }
 
 .rating-box {
@@ -122,11 +129,11 @@ a {
     background-color: #FFFFFF;
     color: #818181;
     height: 100%;
-    width: auto;
+    width: 25%;
     overflow: hidden;
     font-weight: 150;
     font-style: italic;
-    text-align: center;
+    display: table;
 }
 
 .thumbnail-img {
@@ -148,8 +155,7 @@ a {
     text-overflow: ellipsis;
     word-wrap: break-word;
     overflow: hidden;
-    /* width: 75%; */
-    width: 343pt;
+    width: 78%;
     height: 90pt;
     background-color: #FFFFFF;
     font-weight: 750;
@@ -157,11 +163,18 @@ a {
 
 .title-box {
     float: left;
-    width: 100%;
+    width: 85%;
     height: 25pt;
     background-color: #FFFFFF;
     font-weight: 750;
 }
+
+.comment-indicator {
+    height: 25pt;
+    width: 15%;
+    float: left;
+}
+
 
 .preview-box {
     float: left;
@@ -182,6 +195,12 @@ a {
     font-weight: 150;
 }
 
+.timestamp-p {
+    text-align:center; 
+    vertical-align: middle;
+    display: table-cell; 
+}
+
 .line-clamp p{
   display: -webkit-box;
   -webkit-line-clamp: 4;
@@ -198,6 +217,12 @@ a {
         border: solid 1px rgb(94, 94, 94);
 }
 
+.category-p {
+    text-align:center; 
+  vertical-align: middle;
+  display: table-cell; 
+}
+
 @media (max-width: 475px) {
     .article-box {
         width: 100%;
@@ -208,7 +233,11 @@ a {
     }
     
     .title-box {
-        width: 100%;
+        width: 85%;
+    }
+
+    .comment-indicator {
+        width: 15%;
     }
 
     .title-container {
@@ -233,6 +262,30 @@ a {
 
     .under-box {
         height: 20pt;
+    }
+
+    .timestamp-box {
+        font-size: 12px;
+    }
+
+    .author-box {
+        font-size: 12px;
+    }
+
+    .author-p {
+        padding-top: 8px;  
+    }
+    
+    .timestamp-p {
+        padding-top: 8px;
+    }
+
+    .category-box {
+        font-size: 12px;
+    }
+
+    .category-p {
+        padding-top: 8px;
     }
 }
 </style>
