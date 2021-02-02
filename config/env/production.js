@@ -70,7 +70,7 @@ module.exports = {
       * https://sailsjs.com/config/datastores                                     *
       *                                                                           *
       ****************************************************************************/
-      // ssl: true,
+      ssl: true,
 
     },
 
@@ -372,7 +372,7 @@ module.exports = {
   ***************************************************************************/
   custom: {
     baseUrl: 'https://allthingsgreat.herokuapp.com',
-    internalEmailAddress: 'support@example.com',
+    internalEmailAddress: 'foleyb25@gmail.com',
 
     // mailgunDomain: 'mg.example.com',
     // mailgunSecret: 'key-prod_fake_bd32301385130a0bafe030c',
