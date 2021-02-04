@@ -52,7 +52,7 @@
             style="background-color: white; padding: 16px; margin-bottom: 16px">
 
                 <div style="display: flex">
-                    <img class="center-cropped" :src="!c.user.profileImageUrl ? '/images/startup.png' : c.user.profileImageUrl">
+                    <img class="center-cropped" id="center-cropped":src="!c.user.profileImageUrl ? '/images/startup.png' : c.user.profileImageUrl">
                     <div style="margin-left: 16px; justify-content: center">
                         <div style="font-weight: bold">
                                 {{c.user.fullName}}
@@ -181,6 +181,19 @@
 
     .comment-box {
         margin-top: 15px;
+    }
+
+    iframe[width] {
+        width: 100%;
+    }
+
+    iframe[height] {
+        height: 196px;
+    }
+
+    img[style] {
+        width: 100% !important;
+        height:auto !important;
     }
 }
 </style>
