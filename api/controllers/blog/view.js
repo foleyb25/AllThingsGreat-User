@@ -12,7 +12,8 @@ module.exports = async function(req,res) {
       sanitizedBlog.comments = sanitizedComments
       await Blog.updateOne({id: blogId})
       .set({
-        numComments: sanitizedComments.length
+        numComments: sanitizedComments.length,
+        updatedAt: sanitizedBlog.updatedAt
       });
       if(req.session.userId) {
         loggedIn = true
