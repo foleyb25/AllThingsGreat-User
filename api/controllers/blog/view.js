@@ -10,11 +10,6 @@ module.exports = async function(req,res) {
       }).sort('updatedAt DESC').populate('user')
       const sanitizedComments = JSON.parse(JSON.stringify(comments))
       sanitizedBlog.comments = sanitizedComments
-      await Blog.updateOne({id: blogId})
-      .set({
-        numComments: sanitizedComments.length,
-        updatedAt: sanitizedBlog.updatedAt
-      });
       if(req.session.userId) {
         loggedIn = true
         const userWithBlog = await User.findOne({id: req.session.userId}).populate('ratedBlogs', {
