@@ -66,6 +66,16 @@
                 <div class="c-text">
                     {{c.text}}
                 </div>
+                <div class="vote-box" :disabled=true>
+                    <Button class="btn btn-info btn-sm" v-on:click="upvote(c.id)" :id="'upvote'+c.id" style="margin-top: 8px; margin-right:8px">
+                        <span class="fas fa-thumbs-up btn-info" aria-hidden="true"></span>
+                        <div :id="'upvotecount'+c.id" style="display: inline-block;">{{c.upVotes}}</div>
+                    </Button>
+                    <Button class="btn btn-info btn-sm" v-on:click="downvote(c.id)" :id="'downvote'+c.id" style="margin-top: 8px; margin-right:8px">
+                        <span class="fas fa-thumbs-down btn-info" aria-hidden="true"></span>
+                        <div :id="'downvotecount'+c.id" style="display: inline-block;">{{c.downVotes}}</div>
+                    </Button>
+                </div>
             </div>
         </div>
     </div>
@@ -80,7 +90,6 @@
                 blog: window.SAILS_LOCALS.blog,
                 isRated: window.SAILS_LOCALS.isRated,
                 isLoggedIn: window.SAILS_LOCALS.isLoggedIn,
-
             },
             methods: {
                 submitRating: async function() {
@@ -104,7 +113,6 @@
                         $("#rating-container :input").attr("disabled", this.isRated);
                         location.reload()
                     } catch (err) {
-                        this.isCreatingPost = false
                         console.error(err.toString())
                     }
                 },
@@ -112,7 +120,36 @@
                     $('#rating-container').find('input').each(function () {
                         this.checked = false
                     });
+                },
+                upvote: async function(commentid) {
+                    const formData = new FormData()
+                    formData.append('commentid', commentid)
+                    try {
+                        await axios.put('/comment/upvote', formData)
+                        $("#upvote"+commentid).attr("disabled", true);
+                        const downval = $("#upvotecount"+commentid).text();
+                        var val = parseInt(downval)
+                        val += 1
+                        $("#upvotecount"+commentid).text(val);
+                    } catch (err) {
+                        console.error(err.toString())
+                    }
+                },
+                downvote: async function(commentid) {
+                    const formData = new FormData()
+                    formData.append('commentid', commentid)
+                    try {
+                        await axios.put('/comment/downvote', formData)
+                        $("#downvote"+commentid).attr("disabled", true);
+                        const downval = $("#downvotecount"+commentid).text();
+                        var val = parseInt(downval)
+                        val += 1
+                        $("#downvotecount"+commentid).text(val);
+                    } catch (err) {
+                        console.error(err.toString())
+                    }
                 }
+
             },
             computed: {
             }
@@ -120,6 +157,10 @@
     </script>
 
 <style>
+.vote-box {
+    margin-top: 8px;
+}
+
 .submit-box {
     display: block;
     justify-content: center;

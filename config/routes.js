@@ -68,6 +68,8 @@ module.exports.routes = {
 
   // CUSTOM ROUTING
   'PUT /blog/submitrating': 'blog/submitrating',
+  'PUT /comment/upvote': 'comment/upvote',
+  'PUT /comment/downvote': 'comment/downvote',
 
   'GET /blog/allthingsgreat': 'blog/allthingsgreat',
   'GET /blog/entertainment': 'blog/entertainment',

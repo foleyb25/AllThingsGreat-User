@@ -10,6 +10,8 @@ module.exports = {
             user: this.user,
             reply: this.reply,
             text: this.text,
+            upVotes: this.upVotes,
+            downVotes: this.downVotes,
           }
     },
 
@@ -29,5 +31,13 @@ module.exports = {
         reply: {
             model: 'comment'
         },
+
+        upVotes: {
+            type: 'number', defaultsTo: 0,
+        },
+
+        downVotes: {
+            type: 'number', defaultsTo: 0,
+        }
     }
 }
