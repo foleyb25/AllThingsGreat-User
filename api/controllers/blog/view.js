@@ -7,7 +7,7 @@ module.exports = async function(req,res) {
       const sanitizedBlog = JSON.parse(JSON.stringify(blog))
       const comments = await Comment.find({
           blog: blogId
-      }).sort('createdAt DESC').populate('user')
+      }).sort('updatedAt DESC').populate('user')
       const sanitizedComments = JSON.parse(JSON.stringify(comments))
       sanitizedBlog.comments = sanitizedComments
       await Blog.updateOne({id: blogId})
