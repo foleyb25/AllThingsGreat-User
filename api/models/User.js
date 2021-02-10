@@ -8,13 +8,13 @@ module.exports = {
 
   // custom JSON printout function
   customToJSON: function() {
-    return {id: this.id, fullName: this.fullName,
-      emailAddress: this.emailAddress,
+    return {id: this.id,
       bio: this.bio,
       profileImageUrl: this.profileImageUrl,
       following: this.following,
       followers: this.followers,
       ratedBlogs: this.ratedBlogs,
+      username: this.username,
     }
   },
 
@@ -86,6 +86,14 @@ email status until they click the link in the confirmation email.`
       description: 'Full representation of the user\'s name.',
       maxLength: 120,
       example: 'Mary Sue van der McHenst'
+    },
+
+    username: {
+      type: 'string',
+      required: false,
+      description: 'Users username.',
+      maxLength: 120,
+      example: 'BFo123'
     },
 
     isSuperAdmin: {

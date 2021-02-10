@@ -10,7 +10,7 @@ module.exports = {
   extendedDescription:
 `This creates a new user record in the database, signs in the requesting user agent
 by modifying its [session](https://sailsjs.com/documentation/concepts/sessions), and
-(if emailing with Mailgun is enabled) sends an account verification email.
+(if emailing with Sendgrid is enabled) sends an account verification email.
 
 If a verification email is sent, the new user's account is put in an "unconfirmed" state
 until they confirm they are using a legitimate email address (by clicking the link in
@@ -40,6 +40,13 @@ the account verification message.)`,
       type: 'string',
       example: 'Frida Kahlo de Rivera',
       description: 'The user\'s full name.',
+    },
+
+    username: {
+      required: true,
+      type: 'string',
+      example: 'jdoe54',
+      descirption: 'users username',
     }
 
   },
@@ -63,6 +70,8 @@ the account verification message.)`,
       description: 'The provided email address is already in use.',
     },
 
+
+
   },
 
 
@@ -76,7 +85,8 @@ the account verification message.)`,
       emailAddress: newEmailAddress,
       password: await sails.helpers.passwords.hashPassword(inputs.password),
       fullName: inputs.fullName,
-      tosAcceptedByIp: this.req.ip
+      tosAcceptedByIp: this.req.ip,
+      username: inputs.username,
     }, sails.config.custom.verifyEmailAddresses? {
       emailProofToken: await sails.helpers.strings.random('url-friendly'),
       emailProofTokenExpiresAt: Date.now() + sails.config.custom.emailProofTokenTTL,

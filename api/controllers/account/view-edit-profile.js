@@ -6,9 +6,10 @@ module.exports = async function(req, res) {
   if (req.wantsJSON) {
       return res.send(currentUser)
   }
-
+  const email = currentUser.emailAddress
   // customToJSON
   const sanitizedUser = JSON.parse(JSON.stringify(currentUser))
+  sanitizedUser.emailAddress = email
 
   res.view('pages/user/profile', {
       user: sanitizedUser
