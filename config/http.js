@@ -19,14 +19,6 @@ module.exports.http = {
   * https://sailsjs.com/documentation/concepts/middleware                     *
   *                                                                           *
   ****************************************************************************/
- requireHttps: function(req, res, next) {
-  if (!req.secure) {
-    console.log("Not Secure connection, Updating")
-    return res.redirect('https://' + req.get('host') + req.url);
-  }
-
-  return next();
-},
   middleware: {
 
     /***************************************************************************
@@ -36,17 +28,28 @@ module.exports.http = {
     *                                                                          *
     ***************************************************************************/
 
-    //order: [
-    //   'cookieParser',
-    //   'session',
-    //   'bodyParser',
-    //   'compress',
-    //   'poweredBy',
-    //   'router',
-    //   'www',
-    //   'favicon',
-    //'requireHttps'
-    //],
+   order: [
+    'cookieParser',
+    'session',
+    'bodyParser',
+    'compress',
+    'poweredBy',
+    'router',
+    'www',
+    'favicon',
+    'forceSSL'
+  ],
+
+  forceSSL: function (req, res, next) {
+
+    if (req.isSocket) {
+        return res.redirect('wss://' + req.headers.host + req.url);
+    } else if (req.headers["x-forwarded-proto"] == "http") {
+        return res.redirect('https://' + req.headers.host + req.url);
+    } else {
+        next(); //it's already secure
+    }
+  }
 
 
     /***************************************************************************
