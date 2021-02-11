@@ -67,9 +67,9 @@
 
                 <div  class="form-item">
                     <div class='form-item-label'>
-                        Full name:
+                        Username:
                     </div>
-                    <input type="text" v-model="user.fullName"
+                    <input type="text" v-model="user.username"
                         class="fullname-input">
                 </div>
 
@@ -126,7 +126,7 @@
                     console.log(this.user.fullName)
 
                     const formData = new FormData()
-                    formData.append('fullName', this.user.fullName)
+                    formData.append('username', this.user.username)
                     formData.append('bio', this.user.bio)
                     formData.append('imagefile', this.avatarFile)
                     // fire off a blog request to update user

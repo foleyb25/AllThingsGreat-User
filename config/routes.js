@@ -56,20 +56,20 @@ module.exports.routes = {
   // Note that, in this app, these API endpoints may be accessed using the `Cloud.*()` methods
   // from the Parasails library, or by using those method names as the `action` in <ajax-form>.
   '/api/v1/account/logout':                           { action: 'account/logout' },
-  'PUT   /api/v1/account/update-password':            { action: 'account/update-password' },
-  'PUT   /api/v1/account/update-profile':             { action: 'account/update-profile' },
-  'PUT   /api/v1/account/update-billing-card':        { action: 'account/update-billing-card' },
-  'PUT   /api/v1/entrance/login':                        { action: 'entrance/login' },
+  'PUT   /api/v1/account/update-password':            { action: 'account/update-password', csrf: false },
+  'PUT   /api/v1/account/update-profile':             { action: 'account/update-profile', csrf: false },
+  'PUT   /api/v1/account/update-billing-card':        { action: 'account/update-billing-card', csrf: false },
+  'PUT   /api/v1/entrance/login':                        { action: 'entrance/login', csrf: false },
   // 'POST   /api/v1/entrance/login':                        { action: 'entrance/login' },
-  'POST  /api/v1/entrance/signup':                       { action: 'entrance/signup' },
-  'POST  /api/v1/entrance/send-password-recovery-email': { action: 'entrance/send-password-recovery-email' },
-  'POST  /api/v1/entrance/update-password-and-login':    { action: 'entrance/update-password-and-login' },
-  'POST  /api/v1/deliver-contact-form-message':          { action: 'deliver-contact-form-message' },
+  'POST  /api/v1/entrance/signup':                       { action: 'entrance/signup', csrf: false },
+  'POST  /api/v1/entrance/send-password-recovery-email': { action: 'entrance/send-password-recovery-email', csrf: false },
+  'POST  /api/v1/entrance/update-password-and-login':    { action: 'entrance/update-password-and-login', csrf: false },
+  'POST  /api/v1/deliver-contact-form-message':          { action: 'deliver-contact-form-message', csrf: false },
 
   // CUSTOM ROUTING
-  'PUT /blog/submitrating': 'blog/submitrating',
-  'PUT /comment/upvote': 'comment/upvote',
-  'PUT /comment/downvote': 'comment/downvote',
+  'PUT /blog/submitrating': {actiion: 'blog/submitrating', csrf: false},
+  'PUT /comment/upvote': {action: 'comment/upvote', csrf: false},
+  'PUT /comment/downvote': {action: 'comment/downvote', csrf: false},
 
   'GET /blog/allthingsgreat': 'blog/allthingsgreat',
   'GET /blog/entertainment': 'blog/entertainment',
@@ -79,12 +79,10 @@ module.exports.routes = {
   'GET /blog/sports': 'blog/sports',
   'GET /blog/history': 'blog/history',
 
-  'GET /listusers': 'user/listusers',
   'GET /blog': {action: 'blog/home', csrf: false},
-  'POST /blog': 'blog/create',
 
   // 'GET /blog/:id': 'blog/index',
-  'POST /comment/blog/:id': 'comment/create',
+  'POST /comment/blog/:id': {action: 'comment/create', csrf: false},
 
   'DELETE /feeditem/:id': 'feeditem/delete',
 
@@ -100,13 +98,6 @@ module.exports.routes = {
   'GET /profile': 'user/profile',
   'GET /user/:id': 'user/publicprofile',
 
-  'POST /profile': 'user/update',
-
-  'GET /customauth/login': {
-    view: 'pages/customauth/custom-login',
-    locals: {
-      layout: 'layouts/auth-layout'
-    }
-  }
+  'POST /profile': {action: 'user/update', csrf: false},
 
 };
