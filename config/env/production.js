@@ -149,7 +149,7 @@ module.exports = {
     ***************************************************************************/
     cors: {
       allowOrigins: [
-        'https://allthingsgreat.herokuapp.com',
+        'https://www.atgr8.com.com',
       ]
     },
 
@@ -371,7 +371,7 @@ module.exports = {
   *                                                                         *
   ***************************************************************************/
   custom: {
-    baseUrl: 'https://allthingsgreat.herokuapp.com',
+    baseUrl: 'https://www.atgr8.com',
     internalEmailAddress: 'customer.service@atgr8.com',
 
     // sendgridSecret: 'SG.fake.3e0Bn0qSQVnwb1E4qNPz9JZP5vLZYqjh7sn8S93oSHU',
