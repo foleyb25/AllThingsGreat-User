@@ -21,6 +21,7 @@ module.exports.http = {
   ****************************************************************************/
  requireHttps: function(req, res, next) {
   if (!req.secure) {
+    console.log("Not Secure connection, Updating")
     return res.redirect('https://' + req.get('host') + req.url);
   }
 
@@ -44,7 +45,7 @@ module.exports.http = {
     //   'router',
     //   'www',
     //   'favicon',
-    'requireHttps'
+    //'requireHttps'
     ],
 
 
