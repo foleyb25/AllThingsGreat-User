@@ -5,7 +5,7 @@
     <div id="app" v-cloak style="padding: 24px">
         <!-- Blog posts -->
         <div>
-            <div v-for="blog in blogs" style="margin: auto; width: 472pt;">
+            <div v-for="blog in blogs" class="article-container">
                 <a :href="'/blog/view/'+blog.id">
                     <%- partial('../partials/blog') %>
                 </a>
@@ -52,6 +52,11 @@ console.log(window.SAILS_LOCALS.pct)
 
 <style>
     [v-cloak] { display:none; }
+
+.article-container {
+    margin: auto; 
+    width: 472pt;
+}
 
 .article-box {
     margin: 10px auto;
@@ -226,6 +231,11 @@ a {
 }
 
 @media (max-width: 475px) {
+
+    .article-container {
+    width: 100%;
+    }
+    
     .article-box {
         width: 100%;
     }
