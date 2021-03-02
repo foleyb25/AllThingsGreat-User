@@ -1,6 +1,40 @@
+
+    
     <div id="app" v-cloak style="padding: 24px">
         <!-- Blog posts -->
-        <div class="container-fluid pt-5 pb-5">
+        <div class="blog-header">
+            <div class="author-image">
+                <img class="profile-center-cropped" :src="blog.writer.profileImageUrl" alt="profile-image">
+            </div>
+            <div class="author-namebox">
+                <div v-if="!blog.writer.nickName == '' ">{{blog.writer.nickName}}</div>
+                <div v-if="blog.writer.nickName == '' ">{{blog.writer.fullName}}</div>
+                <div class="mobile-timestamp">{{date}} {{time}}</div>
+            </div>
+            <div class="score-box">
+                <div v-if="blog.numberOfRatings > 0">
+                    {{score}}/5 <span class="fa fa-star checked"></span>
+                </div>
+                <div v-if="!(blog.numberOfRatings > 0)">
+                    Be the first to <a href="#submit-id">rate this post</a>
+                </div>
+                
+            </div>
+            <div class="share-box">
+                <a :href="'https://twitter.com/intent/tweet?text=' +blog.title +'\n&url=https://www.atgr8.com/blog/view/' +blog.id +' %23allthingsgreat'"
+                    data-url='https://www.atgr8.com/blog/view/' 
+                    class="fab fa-twitter-square fa-2x"></a>
+                <a src="" alt="" class="facebook">
+                <a src="" alt="" class="link-share">
+            </div>
+            <div class="timestamp-box">
+                {{date}} {{time}}
+            </div>
+        </div>
+
+        <hr style="border: 1px solid rgb(190, 190, 190);">
+
+        <div class="container-fluid pt-5 pb-5">  
             <H1>{{blog.title}}</H1>
             <div id="preview">
                 <%- blog.bodyHTML %>
@@ -23,7 +57,7 @@
                 </Button>
             </div>
         </div>
-        <div class="submit-box">
+        <div class="submit-box" id="submit-id">
             <div v-if="isRated">
                 <p>Rating Submitted</p>
             </div>
@@ -90,6 +124,9 @@
                 blog: window.SAILS_LOCALS.blog,
                 isRated: window.SAILS_LOCALS.isRated,
                 isLoggedIn: window.SAILS_LOCALS.isLoggedIn,
+                date: new Date(window.SAILS_LOCALS.blog.updatedAt).toLocaleDateString(),
+                time: new Date(window.SAILS_LOCALS.blog.updatedAt).toLocaleTimeString(),
+                score: window.SAILS_LOCALS.blog.rating / window.SAILS_LOCALS.blog.numberOfRatings
             },
             methods: {
                 submitRating: async function() {
@@ -157,6 +194,77 @@
     </script>
 
 <style>
+
+.mobile-timestamp {
+    display: none;
+}
+
+.author-image {
+    height: 100%;
+    width: 35pt;
+    float: left;
+}
+
+.author-namebox {
+    height: 100%;
+    width: 150pt;
+    float: left;
+    padding-top: 8pt;
+    text-align: left;
+    padding-left: 8px;
+    font-style: italic;
+    font-weight: 200;
+}
+
+.timestamp-box {
+    font-style: italic;
+    font-weight: 200;
+    height: 100%;
+    width: 150pt;
+    float: right;
+    padding-top: 8pt;
+    color: rgb(134, 134, 134);
+}
+
+.share-box {
+    padding-top: 8pt;
+    height: 100%;
+    width: 150pt;
+    float: right;
+}
+
+.blog-header {
+    height: 35pt;
+    width: 100%;
+    margin: auto;
+    text-align: center;
+    overflow: hidden;
+}
+
+.score-box {
+    height: 100%;
+    width: 150pt;
+    display: inline-block;
+    padding-top: 8pt;
+    font-style: italic;
+    font-weight: 200;
+}
+
+.profile-center-cropped {
+    object-position: center; /*Center the image within the element*/
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    border-radius: 18pt;
+    border: solid 1px rgb(94, 94, 94);
+    float: left;
+}
+
+.share-box > * {
+    height: 25px;
+    width: 25px;
+}
+
 .vote-box {
     margin-top: 8px;
 }
@@ -211,11 +319,56 @@
     border: solid 1px rgb(94, 94, 94);
 }
 
+.checked {
+    color: rgb(248, 211, 3);
+    border-color: black;
+    border-width: 1px;
+}
+
 .c-text {
     margin-top: 16px
 }
 
     @media (max-width: 475px) {
+    .mobile-timestamp {
+        display: block;
+        height: 65pt;
+        width: 80pt;
+        font-weight: 200;
+        font-style: italic;
+        font-size: .65em;
+        padding-top: 2pt;
+    }
+
+    .author-namebox {
+        padding-top: 0pt;
+        width: 80pt;
+    }
+
+    .score-box {
+    height: 100%;
+    width: 50pt;
+    float: left;
+    padding-top: 8pt;
+    font-style: italic;
+    font-weight: 200;
+    font-size: 0.65em;
+    margin-left: 8pt;
+}
+
+    .timestamp-box {
+        display: none;
+    }
+
+    .share-box {
+        padding-top: 8pt;
+        height: 100%;
+        width: 100pt;
+        float: right;
+    }
+
+
+
     .submit-box {
         margin-top: 15px
     }
