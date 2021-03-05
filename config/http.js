@@ -34,6 +34,7 @@ module.exports.http = {
     'bodyParser',
     'compress',
     'poweredBy',
+    // 'appRequestLogger',
     'router',
     'www',
     'favicon',
@@ -49,7 +50,8 @@ module.exports.http = {
     } else {
         next(); //it's already secure
     }
-  }
+  },
+
 
 
     /***************************************************************************

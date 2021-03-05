@@ -147,8 +147,8 @@
                     formData.append('blogId', this.blog.id)
                     try {
                         await axios.put('/blog/submitrating', formData)
-                        $("#rating-container :input").attr("disabled", this.isRated);
                         location.reload()
+                        $("#rating-container :input").attr("disabled", this.isRated);
                     } catch (err) {
                         console.error(err.toString())
                     }

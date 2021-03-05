@@ -67,7 +67,7 @@ module.exports.routes = {
   'POST  /api/v1/deliver-contact-form-message':          { action: 'deliver-contact-form-message', csrf: false },
 
   // CUSTOM ROUTING
-  'PUT /blog/submitrating': {actiion: 'blog/submitrating', csrf: false},
+  'PUT /blog/submitrating': {action: 'blog/submitrating', csrf: false},
   'PUT /comment/upvote': {action: 'comment/upvote', csrf: false},
   'PUT /comment/downvote': {action: 'comment/downvote', csrf: false},
 

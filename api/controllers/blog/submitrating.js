@@ -7,7 +7,8 @@ module.exports = async function(req,res) {
     numberOfRatings += 1
 
     try {
-        await Blog.update({id: blogId}).set({numberOfRatings: numberOfRatings, rating: newRating})
+        const blog = await Blog.findOne({id: blogId})
+        await Blog.update({id: blogId}).set({numberOfRatings: numberOfRatings, rating: newRating, updatedAt: blog.updatedAt})
         await User.addToCollection(req.session.userId, 'ratedBlogs', blogId)
     } catch(error) {
         console.log(error)

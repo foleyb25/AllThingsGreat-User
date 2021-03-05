@@ -148,9 +148,7 @@ module.exports = {
     *                                                                          *
     ***************************************************************************/
     cors: {
-      allowOrigins: [
-        'https://www.atgr8.com.com',
-      ]
+      allowOrigins: []
     },
 
   },
