@@ -1,6 +1,6 @@
 module.exports = async function (req,res) {
   try {
-    const blogs = await Blog.find({isReviewed: true})
+    const blogs = await Blog.find({isReviewed: true, isArchived: false})
     .sort('updatedAt DESC')
     .populate('writer')
     const sanitizedBlogs = JSON.parse(JSON.stringify(blogs))
