@@ -64,7 +64,9 @@
             <div v-if="!isRated">
                 <button class="btn btn-info" v-on:click="submitRating()" :disabled="!isLoggedIn || isRated">Submit</button>
             </div>
-            <span v-if="!isLoggedIn"><a href="/signup">Sign up</a> or <a href="/login">Log in</a> to submit a rating</span>
+            <div v-if="!isLoggedIn">
+                <span><a href="/signup">Sign up</a> or <a href="/login">Log in</a> to submit a rating {{isLoggedIn}}</span>
+            </div>
         </div>
         
         
