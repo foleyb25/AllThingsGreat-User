@@ -34,7 +34,6 @@ module.exports.http = {
     'bodyParser',
     'compress',
     'poweredBy',
-    // 'appRequestLogger',
     'router',
     'www',
     'favicon',

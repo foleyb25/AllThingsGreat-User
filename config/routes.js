@@ -15,8 +15,9 @@ module.exports.routes = {
   //  ╚╩╝╚═╝╚═╝╩  ╩ ╩╚═╝╚═╝╚═╝
   
   //CUSTOM
-  'GET /':                   { action: 'view-homepage' },
-  'GET /blog/view/:blogId': { action: 'blog/view'},
+  'GET /':                   { action: 'view-homepage', csrf: false, cors: false},
+  'PUT /paginate':           { action: 'view-homepage-paginate', csrf: false, cors: false},
+  'GET /blog/view/:blogId':  { action: 'blog/view'},
   'GET /welcome/:unused?':   { action: 'dashboard/view-welcome' },
 
   'GET /faq':                { action:   'view-faq' },

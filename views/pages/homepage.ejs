@@ -10,30 +10,26 @@
                     <%- partial('../partials/blog') %>
                 </a>
             </div>
+            <div v-if="isMore" style="margin: auto; text-align: center;">
+                <button class="btn btn-info" v-on:click="paginate()">Load More</button>
+            </div>
         </div>
     </div>
 </div>
 
-<%- exposeLocalsToBrowser({keys: ['blogs']}) %>
+<%- exposeLocalsToBrowser({keys: ['blogs', 'pageNum', 'moreBlogs', 'isMore']}) %>
 
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
 <script>
-console.log(window.SAILS_LOCALS.pct)
     const App = new Vue({
         el: '#app',
         data: {
             blogs: window.SAILS_LOCALS.blogs,
-            shouldShowDeleteConfirmation: false,
-            selectedBlotToDelete: null,
-            isDeletingBlog: false,
+            pageNum: window.SAILS_LOCALS.pageNum,
+            moreBlogs: window.SAILS_LOCALS.moreBlogs,
+            isMore: window.SAILS_LOCALS.isMore,
 
-            // Blog creation State variables
-            isCreatingBlog: false,
-            blogBodyText: null,
-            blogFileImageSource: null,
-            selectedFile: null,
-            shouldShowBlogForm: false,
         },
         methods: {
             createBackgroundGradient(blog) {
@@ -42,6 +38,20 @@ console.log(window.SAILS_LOCALS.pct)
                 const colorpct = (rating / numberOfRatings) * 100
                 const styleString = `linear-gradient(to right, yellow ${colorpct}%, white ${colorpct}%)`;
                 return styleString
+            },
+            paginate: async function()  {
+                console.log("Paginate")
+                const nextPage = this.pageNum + 1
+                const formData = new FormData()
+                formData.append('pageNum', nextPage)
+                try {
+                    const res = await axios.put('/paginate', formData)
+                    this.isMore = res.data.isMore
+                    this.blogs.push.apply(this.blogs, res.data.moreBlogs)
+                    this.pageNum = nextPage
+                } catch (err) {
+                    console.error(err.toString())
+                }
             }
         },
         computed: {
