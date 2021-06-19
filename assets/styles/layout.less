@@ -3,6 +3,20 @@
 
 [v-cloak] { display: none; }
 
+@font-face {
+  font-family: 'Reisenberg';
+  src: url('/fonts/Reisenberg.otf') format('embedded-opentype') local('Reisenberg');
+  font-weight: normal;
+  font-style: normal;
+  }
+
+@font-face {
+  font-family: 'Revans-medium';
+  src: url('/fonts/Revans-Medium.otf') format('embedded-opentype') local('Revans-Medium');
+  font-weight: normal;
+  font-style: normal;
+  }
+
 html, body {
   height: 100%;
   margin: 0;
@@ -91,6 +105,35 @@ body.detected-mobile {
       .xs-only {
         display: block;
       }
+    }
+  }
+}
+
+#category-layout {
+  .allthingstext {
+    background-color: black; 
+    color:white; 
+    text-align: center;
+    font-family: 'Revans-medium';
+  }
+
+  .allthingstext-mobile {
+    background-color: black; 
+    color:white; 
+    text-align: center;
+    display: none;
+    font-family: 'Revans-medium';
+  }
+
+  @media (max-width: 475px) {
+    .allthingstext {
+      display: none;
+      
+    }
+
+    .allthingstext-mobile {
+      display: block;
+      
     }
   }
 }

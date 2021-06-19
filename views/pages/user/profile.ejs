@@ -1,45 +1,4 @@
-<style>
-    [v-cloak] { display:none; }
-
-    .center-cropped {
-        object-position: center; /* Center the image within the element */
-        object-fit: cover;
-        width: 64px;
-        height: 64px;
-        border-radius: 100px;
-        border: solid 1px rgb(94, 94, 94);
-    }
-
-    .blue-button {
-        background-color: dodgerblue
-    }
-
-    .disabled-button {
-        background-color: rgb(201, 201, 201)
-    }
-
-    .form-item-label {
-        font-size: 15px; font-weight: bold; margin-right: 16px; 
-        width: 140px; text-align: right
-    }
-
-    .save-button {
-        flex: 1; width: 100%; 
-        color: white; font-weight: bold;
-        padding: 8px; border: solid; border-radius: 5px; font-size: 16px
-    }
-
-    .form-item {
-        display: flex; align-items: center; margin-bottom: 16px
-    }
-
-    .fullname-input {
-        font-size: 14px; padding: 8px; border-radius: 5px; 
-        border: solid 1px rgb(206, 206, 206)
-    }
-</style>
-
-<div>
+<div id="profile-page">
 
     <%- exposeLocalsToBrowser({keys: ['user']}) %>
 
@@ -144,5 +103,4 @@
             }
         })
     </script>
-
 </div>
