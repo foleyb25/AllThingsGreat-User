@@ -110,30 +110,51 @@ body.detected-mobile {
 }
 
 #category-layout {
+
+  .divider {
+     background-color: rgb(61, 61, 61);
+     width: 97%;
+     height: 2px;
+     margin: 0 auto;
+  }
+
+  .divider-desktop {
+    background-color: rgb(61, 61, 61);
+    width: 10%;
+    height: 2px;
+    margin: 0 auto;
+ }
+
   .allthingstext {
     background-color: black; 
     color:white; 
     text-align: center;
     font-family: 'Revans-medium';
+    display: block;
+    margin-bottom: 0px;
   }
 
   .allthingstext-mobile {
-    background-color: black; 
-    color:white; 
-    text-align: center;
-    display: none;
+    background-color: rgb(0, 0, 0); 
+    color:#ffffff; 
+    text-align: left;
     font-family: 'Revans-medium';
+    padding-top: 8px;
+    padding-left: 8px;
+  }
+
+  .mobile-wrapper {
+    display:none;
   }
 
   @media (max-width: 475px) {
-    .allthingstext {
+
+    .desktop-wrapper {
       display: none;
-      
     }
 
-    .allthingstext-mobile {
-      display: block;
-      
+    .mobile-wrapper {
+      display: block; 
     }
   }
 }

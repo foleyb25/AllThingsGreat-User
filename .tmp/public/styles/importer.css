@@ -289,24 +289,42 @@ body {
     display: block;
   }
 }
+#category-layout .divider {
+  background-color: #3d3d3d;
+  width: 97%;
+  height: 2px;
+  margin: 0 auto;
+}
+#category-layout .divider-desktop {
+  background-color: #3d3d3d;
+  width: 10%;
+  height: 2px;
+  margin: 0 auto;
+}
 #category-layout .allthingstext {
   background-color: black;
   color: white;
   text-align: center;
   font-family: 'Revans-medium';
+  display: block;
+  margin-bottom: 0px;
 }
 #category-layout .allthingstext-mobile {
-  background-color: black;
-  color: white;
-  text-align: center;
-  display: none;
+  background-color: #000000;
+  color: #ffffff;
+  text-align: left;
   font-family: 'Revans-medium';
+  padding-top: 8px;
+  padding-left: 8px;
+}
+#category-layout .mobile-wrapper {
+  display: none;
 }
 @media (max-width: 475px) {
-  #category-layout .allthingstext {
+  #category-layout .desktop-wrapper {
     display: none;
   }
-  #category-layout .allthingstext-mobile {
+  #category-layout .mobile-wrapper {
     display: block;
   }
 }
