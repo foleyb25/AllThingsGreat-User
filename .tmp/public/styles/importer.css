@@ -889,6 +889,9 @@ body {
     width: 100% !important;
     height: auto !important;
   }
+  #view-blog table {
+    width: 100% !important;
+  }
 }
 #welcome {
   padding-top: 75px;
