@@ -1,204 +1,204 @@
-#view-blog {
-    p {
-        font-family: 'Revans-medium';
-    }
+// #view-blog {
+//     p {
+//         font-family: 'Revans-medium';
+//     }
 
-    .mobile-timestamp {
-        display: none;
-    }
+//     .mobile-timestamp {
+//         display: none;
+//     }
     
-    .author-image {
-        height: 100%;
-        width: 35pt;
-        float: left;
-    }
+//     .author-image {
+//         height: 100%;
+//         width: 35pt;
+//         float: left;
+//     }
     
-    .author-namebox {
-        height: 100%;
-        width: 150pt;
-        float: left;
-        padding-top: 8pt;
-        text-align: left;
-        padding-left: 8px;
-        font-style: italic;
-        font-weight: 200;
-    }
+//     .author-namebox {
+//         height: 100%;
+//         width: 150pt;
+//         float: left;
+//         padding-top: 8pt;
+//         text-align: left;
+//         padding-left: 8px;
+//         font-style: italic;
+//         font-weight: 200;
+//     }
     
-    .timestamp-box {
-        font-style: italic;
-        font-weight: 200;
-        height: 100%;
-        width: 150pt;
-        float: right;
-        padding-top: 8pt;
-        color: rgb(134, 134, 134);
-    }
+//     .timestamp-box {
+//         font-style: italic;
+//         font-weight: 200;
+//         height: 100%;
+//         width: 150pt;
+//         float: right;
+//         padding-top: 8pt;
+//         color: rgb(134, 134, 134);
+//     }
     
-    .share-box {
-        padding-top: 8pt;
-        height: 100%;
-        width: 150pt;
-        float: right;
-    }
+//     .share-box {
+//         padding-top: 8pt;
+//         height: 100%;
+//         width: 150pt;
+//         float: right;
+//     }
     
-    .blog-header {
-        height: 35pt;
-        width: 100%;
-        margin: auto;
-        text-align: center;
-        overflow: hidden;
-    }
+//     .blog-header {
+//         height: 35pt;
+//         width: 100%;
+//         margin: auto;
+//         text-align: center;
+//         overflow: hidden;
+//     }
     
-    .score-box {
-        height: 100%;
-        width: 150pt;
-        display: inline-block;
-        padding-top: 8pt;
-        font-style: italic;
-        font-weight: 200;
-    }
+//     .score-box {
+//         height: 100%;
+//         width: 150pt;
+//         display: inline-block;
+//         padding-top: 8pt;
+//         font-style: italic;
+//         font-weight: 200;
+//     }
     
-    .profile-center-cropped {
-        object-position: center; /*Center the image within the element*/
-        object-fit: cover;
-        width: 100%;
-        height: 100%;
-        border-radius: 18pt;
-        border: solid 1px rgb(94, 94, 94);
-        float: left;
-    }
+//     .profile-center-cropped {
+//         object-position: center; /*Center the image within the element*/
+//         object-fit: cover;
+//         width: 100%;
+//         height: 100%;
+//         border-radius: 18pt;
+//         border: solid 1px rgb(94, 94, 94);
+//         float: left;
+//     }
     
-    .share-box > * {
-        height: 25px;
-        width: 25px;
-    }
+//     .share-box > * {
+//         height: 25px;
+//         width: 25px;
+//     }
     
-    .vote-box {
-        margin-top: 8px;
-    }
+//     .vote-box {
+//         margin-top: 8px;
+//     }
     
-    .submit-box {
-        display: block;
-        justify-content: center;
-        text-align: center;
-    }
+//     .submit-box {
+//         display: block;
+//         justify-content: center;
+//         text-align: center;
+//     }
     
-    .rate {
-        float: left;
-        height: 46px;
-    }
-    .rate:not(:checked) > input {
-        display: none;
-    }
-    .rate:not(:checked) > label {
-        float:right;
-        width:1em;
-        overflow:hidden;
-        white-space:nowrap;
-        cursor:pointer;
-        font-size:30px;
-        color:#ccc;
-    }
-    .rate:not(:checked) > label:before {
-        content: '★ ';
-    }
+//     .rate {
+//         float: left;
+//         height: 46px;
+//     }
+//     .rate:not(:checked) > input {
+//         display: none;
+//     }
+//     .rate:not(:checked) > label {
+//         float:right;
+//         width:1em;
+//         overflow:hidden;
+//         white-space:nowrap;
+//         cursor:pointer;
+//         font-size:30px;
+//         color:#ccc;
+//     }
+//     .rate:not(:checked) > label:before {
+//         content: '★ ';
+//     }
     
-    .rate > input:checked ~ label {
-        color: #ffc700;    
-    }
-    .rate:not(:checked) > label:hover,
-    .rate:not(:checked) > label:hover ~ label {
-        color: #deb217;  
-    }
-    .rate > input:checked + label:hover,
-    .rate > input:checked + label:hover ~ label,
-    .rate > input:checked ~ label:hover,
-    .rate > input:checked ~ label:hover ~ label,
-    .rate > label:hover ~ input:checked ~ label {
-        color: #c59b08;
-    }
+//     .rate > input:checked ~ label {
+//         color: #ffc700;    
+//     }
+//     .rate:not(:checked) > label:hover,
+//     .rate:not(:checked) > label:hover ~ label {
+//         color: #deb217;  
+//     }
+//     .rate > input:checked + label:hover,
+//     .rate > input:checked + label:hover ~ label,
+//     .rate > input:checked ~ label:hover,
+//     .rate > input:checked ~ label:hover ~ label,
+//     .rate > label:hover ~ input:checked ~ label {
+//         color: #c59b08;
+//     }
     
-    .center-cropped {
-        object-position: center; /* Center the image within the element */
-        object-fit: cover;
-        width: 64px;
-        height: 64px;
-        border-radius: 100px;
-        border: solid 1px rgb(94, 94, 94);
-    }
+//     .center-cropped {
+//         object-position: center; /* Center the image within the element */
+//         object-fit: cover;
+//         width: 64px;
+//         height: 64px;
+//         border-radius: 100px;
+//         border: solid 1px rgb(94, 94, 94);
+//     }
     
-    .checked {
-        color: rgb(248, 211, 3);
-        border-color: black;
-        border-width: 1px;
-    }
+//     .checked {
+//         color: rgb(248, 211, 3);
+//         border-color: black;
+//         border-width: 1px;
+//     }
     
-    .c-text {
-        margin-top: 16px
-    }
+//     .c-text {
+//         margin-top: 16px
+//     }
     
-        @media (max-width: 475px) {
-        .mobile-timestamp {
-            display: block;
-            height: 65pt;
-            width: 80pt;
-            font-weight: 200;
-            font-style: italic;
-            font-size: .65em;
-            padding-top: 2pt;
-        }
+//         @media (max-width: 475px) {
+//         .mobile-timestamp {
+//             display: block;
+//             height: 65pt;
+//             width: 80pt;
+//             font-weight: 200;
+//             font-style: italic;
+//             font-size: .65em;
+//             padding-top: 2pt;
+//         }
     
-        .author-namebox {
-            padding-top: 0pt;
-            width: 80pt;
-        }
+//         .author-namebox {
+//             padding-top: 0pt;
+//             width: 80pt;
+//         }
     
-        .score-box {
-        height: 100%;
-        width: 50pt;
-        float: left;
-        padding-top: 8pt;
-        font-style: italic;
-        font-weight: 200;
-        font-size: 0.65em;
-        margin-left: 8pt;
-        }
+//         .score-box {
+//         height: 100%;
+//         width: 50pt;
+//         float: left;
+//         padding-top: 8pt;
+//         font-style: italic;
+//         font-weight: 200;
+//         font-size: 0.65em;
+//         margin-left: 8pt;
+//         }
     
-        .timestamp-box {
-            display: none;
-        }
+//         .timestamp-box {
+//             display: none;
+//         }
     
-        .share-box {
-            padding-top: 8pt;
-            height: 100%;
-            width: 100pt;
-            float: right;
-        }
+//         .share-box {
+//             padding-top: 8pt;
+//             height: 100%;
+//             width: 100pt;
+//             float: right;
+//         }
     
-        .submit-box {
-            margin-top: 15px
-        }
+//         .submit-box {
+//             margin-top: 15px
+//         }
     
-        .comment-box {
-            margin-top: 15px;
-        }
+//         .comment-box {
+//             margin-top: 15px;
+//         }
     
-        iframe[width] {
-            width: 100%;
-        }
+//         iframe[width] {
+//             width: 100%;
+//         }
     
-        iframe[height] {
-            height: 196px;
-        }
+//         iframe[height] {
+//             height: 196px;
+//         }
     
-        img[style] {
-            width: 100% !important;
-            height:auto !important;
-        }
+//         img[style] {
+//             width: 100% !important;
+//             height:auto !important;
+//         }
 
-        table {
-            width: 100% !important;
-            background-color: red;
-        }
-    }
-}
+//         table {
+//             width: 100% !important;
+//             background-color: red;
+//         }
+//     }
+// }
