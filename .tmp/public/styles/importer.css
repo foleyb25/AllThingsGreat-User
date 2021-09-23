@@ -891,6 +891,7 @@ body {
   }
   #view-blog table {
     width: 100% !important;
+    background-color: red;
   }
 }
 #welcome {
