@@ -1,0 +1,104 @@
+<div id="app" v-cloak style="padding: 24px">
+    <div v-for="writer in writers" class="bio-container">
+        <div class="namebox">
+            {{writer.nickName}}
+        </div>
+        <div class="pic-media-link-combo">
+            <div class="profile-image">
+                <img class="center-cropped" :src="!writer.profileImageUrl ? '/images/startup.png' : writer.profileImageUrl">
+            </div>
+            <div class="social-links">
+                <a v-if="writer.twitterLink != 'undefined'" :href="'https://twitter.com/' +writer.twitterLink"
+                    class="twitter-icon"><img src="/images/twitter_icon.png" class="social-icon" alt=""></a>
+                <a v-if="writer.instagramLink != 'undefined'" :href="'https://instagram.com/' +writer.instagramLink"><img src="/images/ig_icon.png" class="social-icon" alt=""></a>
+                <a src="/images/logo.png" alt="" class="link-share">
+            </div>
+        </div>
+
+        <div class="bio-box">
+            {{writer.bio}}
+        </div>
+    </div>
+</div>
+
+<%- exposeLocalsToBrowser({keys: ['writers']}) %>
+
+<script>
+    const App = new Vue({
+        el: '#app',
+        data: {
+            writers: window.SAILS_LOCALS.writers,
+        },
+        methods: {
+        },
+        
+    })
+</script>
+
+<style>
+.center-cropped {
+    object-position: center; /* Center the image within the element */
+    object-fit: cover;
+    width: 128px;
+    height: 128px;
+    border-radius: 100px;
+    border: solid 1px rgb(94, 94, 94);
+    float: left
+}
+
+.pic-media-link-combo {
+    display: block;
+    width: 145px;
+    float: left;
+    height: 75%;
+}
+
+.bio-container {
+    width: 800px;
+    height: 215px;
+    background-color: white; 
+    margin-top: 32px;
+    margin-bottom: 32px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.profile-image {
+    height: 80%;
+    width: 100%;
+}
+
+.social-links {
+    height: 20%;
+    width: 100%;
+    float: right;
+}
+
+.bio-box {
+    margin-left: 16px; 
+    justify-content: center;
+    float: left;
+    height: 75%;
+    width: 500px;
+    font-weight: bold;
+    display: block;
+}
+
+.namebox {
+  height: 20%;
+  width: 800px;
+  padding-left: 16px;
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.social-icon {
+    height: 25px;
+    width: 25px;
+    float: left;
+    margin: 3px;
+}
+
+
+</style>
