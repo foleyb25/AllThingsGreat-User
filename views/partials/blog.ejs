@@ -20,8 +20,11 @@
                 <p v-if='blog.writer.nickName != ""'class="author-p">{{blog.writer.nickName}}</p>
             
         </div>
-        <div class="rating-box" v-bind:style="{background: createBackgroundGradient(blog)}">
-            <img class="star-img" src="/images/stars.png" alt="">
+        <div class="rating-box" div v-if="blog.numberOfRatings > 0">
+            <p class="rating-p">{{ (blog.rating) / (blog.numberOfRatings)}}/5 <span class="fa fa-star rated"></span></p>
+        </div>
+        <div class="rating-box" div v-if="blog.numberOfRatings == 0">
+            <p class="rating-p">0/5 <span class="fa fa-star unrated"></span></p>
         </div>
         <div class="category-box">
             <p class="category-p">#{{blog.category}}</p>

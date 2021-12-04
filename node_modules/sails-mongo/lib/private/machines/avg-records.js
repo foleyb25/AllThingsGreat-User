@@ -64,7 +64,7 @@ module.exports = {
     //  ╚═╝╚═╝╩ ╩╩ ╩╚═╝╝╚╝╩╚═╝╩ ╩ ╩ ╚═╝  └┴┘┴ ┴ ┴ ┴  ─┴┘└─┘
     var db = inputs.connection;
     var mongoCollection = db.collection(tableName);
-    var cursor = mongoCollection.aggregate([
+    mongoCollection.aggregate([
       { $match: mongoWhere },
       {
         $group: {
@@ -74,9 +74,7 @@ module.exports = {
           }
         }
       }
-    ], { cursor: {} });
-
-    cursor.toArray(function aggregateCb(err, nativeResult) {
+    ], function aggregateCb(err, nativeResult) {
       if (err) { return exits.error(err); }
 
       var mean = 0;

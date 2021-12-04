@@ -512,7 +512,6 @@ body {
 }
 #blog-list .category-box {
   float: left;
-  background-color: #FFFFFF;
   height: 100%;
   width: 25%;
   display: table;
@@ -521,6 +520,24 @@ body {
   float: left;
   height: 100%;
   width: 25%;
+  text-align: center;
+  display: table;
+}
+#blog-list .rating-p {
+  text-align: center;
+  vertical-align: middle;
+  display: table-cell;
+  font-style: italic;
+}
+#blog-list .rated {
+  color: #f8d303;
+  border-color: black;
+  border-width: 1px;
+}
+#blog-list .unrated {
+  color: #2e2b2b;
+  border-color: black;
+  border-width: 1px;
 }
 #blog-list .star-img {
   width: 100%;
@@ -670,52 +687,6 @@ body {
   #blog-list .category-p {
     padding-top: 8px;
   }
-}
-#profile-page [v-cloak] {
-  display: none;
-}
-#profile-page .center-cropped {
-  object-position: center;
-  /* Center the image within the element */
-  object-fit: cover;
-  width: 64px;
-  height: 64px;
-  border-radius: 100px;
-  border: solid 1px #5e5e5e;
-}
-#profile-page .blue-button {
-  background-color: dodgerblue;
-}
-#profile-page .disabled-button {
-  background-color: #c9c9c9;
-}
-#profile-page .form-item-label {
-  font-size: 15px;
-  font-weight: bold;
-  margin-right: 16px;
-  width: 140px;
-  text-align: right;
-}
-#profile-page .save-button {
-  flex: 1;
-  width: 100%;
-  color: white;
-  font-weight: bold;
-  padding: 8px;
-  border: solid;
-  border-radius: 5px;
-  font-size: 16px;
-}
-#profile-page .form-item {
-  display: flex;
-  align-items: center;
-  margin-bottom: 16px;
-}
-#profile-page .fullname-input {
-  font-size: 14px;
-  padding: 8px;
-  border-radius: 5px;
-  border: solid 1px #cecece;
 }
 #view-blog p {
   font-family: 'Revans-medium';
@@ -984,6 +955,52 @@ body {
 #edit-profile {
   padding-top: 75px;
   padding-bottom: 75px;
+}
+#profile-page [v-cloak] {
+  display: none;
+}
+#profile-page .center-cropped {
+  object-position: center;
+  /* Center the image within the element */
+  object-fit: cover;
+  width: 64px;
+  height: 64px;
+  border-radius: 100px;
+  border: solid 1px #5e5e5e;
+}
+#profile-page .blue-button {
+  background-color: dodgerblue;
+}
+#profile-page .disabled-button {
+  background-color: #c9c9c9;
+}
+#profile-page .form-item-label {
+  font-size: 15px;
+  font-weight: bold;
+  margin-right: 16px;
+  width: 140px;
+  text-align: right;
+}
+#profile-page .save-button {
+  flex: 1;
+  width: 100%;
+  color: white;
+  font-weight: bold;
+  padding: 8px;
+  border: solid;
+  border-radius: 5px;
+  font-size: 16px;
+}
+#profile-page .form-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+#profile-page .fullname-input {
+  font-size: 14px;
+  padding: 8px;
+  border-radius: 5px;
+  border: solid 1px #cecece;
 }
 #terms {
   padding-top: 75px;
