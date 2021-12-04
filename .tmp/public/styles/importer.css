@@ -634,7 +634,7 @@ body {
 }
 @media (max-width: 475px) {
   #blog-list .article-container {
-    width: 100%;
+    width: 97%;
   }
   #blog-list .filter-box {
     width: 100%;
