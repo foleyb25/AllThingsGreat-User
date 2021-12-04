@@ -678,6 +678,9 @@ body {
   #blog-list .author-p {
     padding-top: 8px;
   }
+  #blog-list .rating-p {
+    padding-top: 6px;
+  }
   #blog-list .timestamp-p {
     padding-top: 8px;
   }
