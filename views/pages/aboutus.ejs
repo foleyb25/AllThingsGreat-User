@@ -11,7 +11,8 @@
                 <a v-if="writer.twitterLink != 'undefined'" :href="'https://twitter.com/' +writer.twitterLink"
                     class="twitter-icon"><img src="/images/twitter_icon.png" class="social-icon" alt=""></a>
                 <a v-if="writer.instagramLink != 'undefined'" :href="'https://instagram.com/' +writer.instagramLink"><img src="/images/ig_icon.png" class="social-icon" alt=""></a>
-                <a src="/images/logo.png" alt="" class="link-share">
+                <a v-if="writer.snapchatLink != 'undefined'" :href="'https://snapchat.com/add/' +writer.snapchatLink"><img src="/images/snapchat_icon.png" class="social-icon" alt=""></a>
+                <a v-if="writer.tiktokLink != 'undefined'" :href="'https://tiktok.com/@' +writer.tiktokLink"><img src="/images/tiktok_icon.png" class="social-icon" alt=""></a>
             </div>
         </div>
 
@@ -43,7 +44,7 @@
     height: 128px;
     border-radius: 100px;
     border: solid 1px rgb(94, 94, 94);
-    float: left
+    float: left;
 }
 
 .pic-media-link-combo {
@@ -87,7 +88,6 @@
 .namebox {
   height: 20%;
   width: 800px;
-  padding-left: 16px;
   font-size: 36px;
   font-weight: 700;
   margin-bottom: 8px;
@@ -100,5 +100,69 @@
     margin: 3px;
 }
 
+@media (max-width: 475px) {
 
+    .bio-container {
+        width: 100%;
+        height: 465px;
+        background-color: white; 
+        margin-top: 32px;
+        margin-bottom: 32px;
+        display: block;
+        justify-content: center;
+    }
+
+    .namebox {
+        height: 50px;
+        width: 100%;
+        padding-left: 0px;
+        font-size: 36px;
+        font-weight: 700;
+        margin-bottom: 8px;
+        text-align: center;
+    }
+
+    .center-cropped {
+        object-position: center; /* Center the image within the element */
+        object-fit: cover;
+        width: 128px;
+        height: 128px;
+        border-radius: 100px;
+        border: solid 1px rgb(94, 94, 94);
+    }
+
+    .pic-media-link-combo {
+        width: 100%;
+        height: 165px;
+        margin-bottom: 50px;
+    }
+
+    .profile-image {
+        height: 128px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .social-links {
+        height: 37px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .bio-box {
+        margin-left: 0px; 
+        height: 200px;
+        width: 100%;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    .social-icon {
+        height: 25px;
+        width: 25px;
+        margin: 6px;
+    }
+}
 </style>
