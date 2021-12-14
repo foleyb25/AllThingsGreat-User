@@ -4,6 +4,9 @@ module.exports = async function(req,res) {
     var loggedIn = false
     try {
       const blog = await Blog.findOne({id: blogId}).populate("writer")
+      if(blog.isArchived) {
+        return res.view("404")
+      }
       const sanitizedBlog = JSON.parse(JSON.stringify(blog))
       const comments = await Comment.find({
           blog: blogId
@@ -22,6 +25,7 @@ module.exports = async function(req,res) {
           isRated = true
         }
       }
+
       await Blog.updateOne({id: blogId}).set({views: sanitizedBlog.views+1, updatedAt: sanitizedBlog.updatedAt})
       return res.view("pages/blog/view", {
           blog: sanitizedBlog,
