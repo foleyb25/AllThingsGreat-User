@@ -1,25 +1,20 @@
 <div id="app" v-cloak style="padding: 24px">
-    <div v-for="writer in writers" class="bio-container">
-        <div class="namebox">
-            {{writer.nickName}}
-        </div>
-        <div class="pic-media-link-combo">
-            <div class="profile-image">
-                <img class="center-cropped" :src="!writer.profileImageUrl ? '/images/startup.png' : writer.profileImageUrl">
-            </div>
-            <div class="social-links">
-                <a v-if="writer.twitterLink != 'undefined'" :href="'https://twitter.com/' +writer.twitterLink"
-                    class="twitter-icon" target="_blank"><img src="/images/twitter_icon.png" class="social-icon" alt=""></a>
-                <a v-if="writer.instagramLink != 'undefined'" :href="'https://instagram.com/' +writer.instagramLink" target="_blank"><img src="/images/ig_icon.png" class="social-icon" alt=""></a>
-                <a v-if="writer.snapchatLink != 'undefined'" :href="'https://snapchat.com/add/' +writer.snapchatLink" target="_blank"><img src="/images/snapchat_icon.png" class="social-icon" alt=""></a>
-                <a v-if="writer.tiktokLink != 'undefined'" :href="'https://tiktok.com/@' +writer.tiktokLink" target="_blank"><img src="/images/tiktok_icon.png" class="social-icon" alt=""></a>
-            </div>
-        </div>
-
-        <div class="bio-box">
-            {{writer.bio}}
-        </div>
-    </div>
+    <h1 class="main-header">Representing</h1>
+    <p>
+        The State of Montana and the raw, crude, degenerate activities that 
+        take place here. Most of us are rooted college kids, either out of Montana 
+        State University or University of Montana. We love our state and our people.
+        We are bringing you the authentic, nitty-gritty, "get your piss hot" stories stretching
+        from Cat nation to Griz nation and everything in between (or just outside). Everyone has a story 
+        to tell and with each passing week a new story arises.
+    </p>
+    <p>
+        We also extend outside our state, capturing any blog worthy story out there 
+        that exists in the universe. Covering sports, history, outdoors, and entertainment just 
+        to name a few. Our goal is to never let a good story be unheard.
+    </p>
+    <h4 class="h4-modify">This is All Things Great.</h3>
+    <!-- <h5 class="blockquote-h">"We are the misfits, the blue-collar, the common man"</h5> -->
 </div>
 
 <%- exposeLocalsToBrowser({keys: ['writers']}) %>
@@ -37,132 +32,45 @@
 </script>
 
 <style>
-.center-cropped {
-    object-position: center; /* Center the image within the element */
-    object-fit: cover;
-    width: 128px;
-    height: 128px;
-    border-radius: 100px;
-    border: solid 1px rgb(94, 94, 94);
-    float: left;
-}
 
-.pic-media-link-combo {
-    display: block;
-    width: 145px;
-    float: left;
-    height: 75%;
-}
-
-.bio-container {
-    width: 800px;
-    height: 215px;
-    background-color: white; 
-    margin-top: 32px;
-    margin-bottom: 32px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.profile-image {
-    height: 80%;
+.main-header {
+    text-align: center;
+    margin: auto;
     width: 100%;
 }
 
-.social-links {
-    height: 20%;
+.blockquote-h {
+    text-align: center;
+    margin: 15px auto;
     width: 100%;
-    float: right;
+    font-style: italic;
 }
 
-.bio-box {
-    margin-left: 16px; 
-    justify-content: center;
-    float: left;
-    height: 75%;
+p {
     width: 500px;
-    font-weight: bold;
-    display: block;
+    margin:auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
-.namebox {
-  height: 20%;
-  width: 800px;
-  font-size: 36px;
-  font-weight: 700;
-  margin-bottom: 8px;
-}
-
-.social-icon {
-    height: 25px;
-    width: 25px;
-    float: left;
-    margin: 3px;
+.h4-modify {
+    width: 100%;
+    margin: auto;
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
 }
 
 @media (max-width: 475px) {
-
-    .bio-container {
+    .main-header {
         width: 100%;
-        height: 465px;
-        background-color: white; 
-        margin-top: 32px;
-        margin-bottom: 32px;
-        display: block;
-        justify-content: center;
     }
 
-    .namebox {
-        height: 50px;
+    p {
         width: 100%;
-        padding-left: 0px;
-        font-size: 36px;
-        font-weight: 700;
-        margin-bottom: 8px;
         text-align: center;
     }
 
-    .center-cropped {
-        object-position: center; /* Center the image within the element */
-        object-fit: cover;
-        width: 128px;
-        height: 128px;
-        border-radius: 100px;
-        border: solid 1px rgb(94, 94, 94);
-    }
 
-    .pic-media-link-combo {
-        width: 100%;
-        height: 165px;
-        margin-bottom: 50px;
-    }
-
-    .profile-image {
-        height: 128px;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-    }
-
-    .social-links {
-        height: 37px;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-    }
-
-    .bio-box {
-        margin-left: 0px; 
-        height: 200px;
-        width: 100%;
-        font-weight: bold;
-        text-align: center;
-    }
-
-    .social-icon {
-        height: 25px;
-        width: 25px;
-        margin: 6px;
-    }
 }
 </style>

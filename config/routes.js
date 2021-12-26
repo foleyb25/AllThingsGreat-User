@@ -25,6 +25,7 @@ module.exports.routes = {
   'GET /legal/privacy':      { action:   'legal/view-privacy' },
   'GET /contact':            { action:   'view-contact' },
   'GET /about':              { action:   'view-about-us' },
+  'GET /bloggers':           { action:   'view-bloggers' },
 
   'GET /signup':             { action: 'entrance/view-signup' },
   'GET /email/confirm':      { action: 'entrance/confirm-email' },
