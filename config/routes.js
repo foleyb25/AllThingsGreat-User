@@ -82,9 +82,6 @@ module.exports.routes = {
   'GET /blog/sports': 'blog/sports',
   'GET /blog/history': 'blog/history',
 
-  'GET /blog': {action: 'blog/home', csrf: false},
-
-  // 'GET /blog/:id': 'blog/index',
   'POST /comment/blog/:id': {action: 'comment/create', csrf: false},
 
   'DELETE /feeditem/:id': 'feeditem/delete',
@@ -98,9 +95,8 @@ module.exports.routes = {
   'POST /follow/:id': 'user/follow',
   'POST /unfollow/:id': 'user/unfollow',
 
-  'GET /profile': 'user/profile',
   'GET /user/:id': 'user/publicprofile',
 
-  'POST /profile': {action: 'user/update', csrf: false},
+  'POST /profile': {action: 'user/update'},
 
 };

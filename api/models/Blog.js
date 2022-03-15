@@ -71,5 +71,6 @@ module.exports = {
             type: 'string',
             defaultsTo: '',
         },
+
     }
 }
