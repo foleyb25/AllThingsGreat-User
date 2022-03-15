@@ -68,14 +68,14 @@ module.exports.custom = {
   //--------------------------------------------------------------------------
 
   // The sender that all outgoing emails will appear to come from.
-  fromEmailAddress: 'customer.service@atgr8.com',
+  fromEmailAddress: 'customer_service@allthingsgreat.com',
   fromName: 'The All Things Great Team',
 
   // Email address for receiving support messages & other correspondences.
   // > If you're using the default privacy policy, this will be referenced
   // > as the contact email of your "data protection officer" for the purpose
   // > of compliance with regulations such as GDPR.
-  internalEmailAddress: 'customer.service@atgr8.com',
+  internalEmailAddress: 'customer_service@allthingsgreat.com',
 
   // Whether to require proof of email address ownership any time a new user
   // signs up, or when an existing user attempts to change their email address.
