@@ -27,11 +27,17 @@ module.exports = async function(req,res) {
       }
 
       await Blog.updateOne({id: blogId}).set({views: sanitizedBlog.views+1, updatedAt: sanitizedBlog.updatedAt})
+
+      if (req.wantsJSON) {
+        return res.send(blog, isRated, isLoggedIn)
+      }
+
       return res.view("pages/blog/view", {
           blog: sanitizedBlog,
           isRated: isRated,
           isLoggedIn: loggedIn
       });
+      
     } catch(err) {
         res.serverError(err.toString())
     }
