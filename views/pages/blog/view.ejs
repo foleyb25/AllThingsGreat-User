@@ -9,7 +9,7 @@
             <div class="author-namebox">
                 <div v-if="!blog.writer.nickName == '' ">{{blog.writer.nickName}}</div>
                 <div v-if="blog.writer.nickName == '' ">{{blog.writer.fullName}}</div>
-                <div class="mobile-timestamp">{{date}} {{time}}</div>
+                <div class="mobile-timestamp">Updated {{blog.updatedFromNow}}</div>
             </div>
             <div class="score-box">
                 <div v-if="blog.numberOfRatings > 0">
@@ -28,7 +28,7 @@
                 <a src="" alt="" class="link-share">
             </div>
             <div class="timestamp-box">
-                {{date}} {{time}}
+                Updated {{blog.updatedFromNow}}
             </div>
         </div>
 
