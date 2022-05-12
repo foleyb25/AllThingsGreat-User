@@ -28,28 +28,28 @@ module.exports.http = {
     *                                                                          *
     ***************************************************************************/
 
-   order: [
-    'cookieParser',
-    'session',
-    'bodyParser',
-    'compress',
-    'poweredBy',
-    'router',
-    'www',
-    'favicon',
-    'forceSSL'
-  ],
+  //  order: [
+  //   'cookieParser',
+  //   'session',
+  //   'bodyParser',
+  //   'compress',
+  //   'poweredBy',
+  //   'router',
+  //   'www',
+  //   'favicon',
+  //   'forceSSL'
+  // ],
 
-  forceSSL: function (req, res, next) {
+  // forceSSL: function (req, res, next) {
 
-    if (!req.isSecure) {
-        return res.redirect('wss://' + req.headers.host + req.url);
-    } else if (req.headers["x-forwarded-proto"] == "http") {
-        return res.redirect('https://' + req.headers.host + req.url);
-    } else {
-        next(); //it's already secure
-    }
-  },
+  //   if (!req.isSecure) {
+  //       return res.redirect('wss://' + req.headers.host + req.url);
+  //   } else if (req.headers["x-forwarded-proto"] == "http") {
+  //       return res.redirect('https://' + req.headers.host + req.url);
+  //   } else {
+  //       next(); //it's already secure
+  //   }
+  // },
 
 
 
