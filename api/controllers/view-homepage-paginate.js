@@ -2,7 +2,7 @@ module.exports = async function (req,res) {
     const pageNum = req.param('pageNum');
     try {
       const blogs = await Blog.find({isReviewed: true, isArchived: false})
-      .sort('updatedAt DESC')
+      .sort('createdAt DESC')
       .populate('writer')
       .paginate(pageNum, 25)
       const sanitizedBlogs = JSON.parse(JSON.stringify(blogs))
