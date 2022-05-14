@@ -32,7 +32,7 @@ html, body {
 
   header {
     .logo {
-      height: 20px;
+      height: 35px;
       display: block;
     }
     a {
@@ -107,6 +107,39 @@ body.detected-mobile {
       }
     }
   }
+
+  header {
+    .logo {
+      height: 38px !important;
+      width: 100%;
+      display: block;
+    }
+  }
+}
+
+@media (max-width: 320px) {
+  #page-wrap {
+    padding-bottom: 85px;
+    #page-footer {
+      height: 85px;
+      .xs-only {
+        display: block;
+      }
+    }
+  }
+
+  header {
+    .logo {
+      height: 30px !important;
+      width: 100%;
+      display: block;
+    }
+  }
+
+  .nav-item {
+    font-size: .875rem;
+  }
+
 }
 
 #category-layout {
