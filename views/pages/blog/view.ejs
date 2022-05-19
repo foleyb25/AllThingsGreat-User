@@ -1,20 +1,22 @@
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="twitter:card" content="player" />
-    <meta name="twitter:site" content="@allthingsgrea_" />
-    <meta name="twitter:title" content="Sample Player Card" />
-    <meta name="twitter:description"
-        content="This is a sample video. When you implement, make sure all links are secure." />
-    <meta name="twitter:image" content={{blog.imageUrl}} />
-    <meta name="twitter:player" content="https://yoursite.com/container.html" />
-    <meta name="twitter:player:width" content="480" />
-    <meta name="twitter:player:height" content="480" />
-</head>
-
 
 <div id="view-blog">
     <div id="app" v-cloak style="padding: 24px">
+
+        <head>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <meta name="twitter:card" content="summary" />
+            <meta name="twitter:site" content="@allthingsgrea_" />
+            <meta name="twitter:title" content="Sample Player Card" />
+            <meta name="twitter:description"
+                content="This is a sample video. When you implement, make sure all links are secure." />
+            <meta name="twitter:image" content="blog.imageUrl"/>
+            <meta name="twitter:player" content="https://yoursite.com/container.html" />
+            <meta name="twitter:player:width" content="480" />
+            <meta name="twitter:player:height" content="480" />
+            <meta property="og:image" content="blog.imageUrl" />
+        </head>
+
         <!-- Blog posts -->
         <div class="blog-header">
             <div class="author-image">
