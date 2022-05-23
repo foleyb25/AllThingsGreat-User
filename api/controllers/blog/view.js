@@ -28,6 +28,8 @@ module.exports = async function(req,res) {
 
       await Blog.updateOne({id: blogId}).set({views: sanitizedBlog.views+1, updatedAt: sanitizedBlog.updatedAt})
 
+      res.set("Content-Type", 'text/html')
+
       if (req.wantsJSON) {
         return res.send(blog, isRated, isLoggedIn)
       }
