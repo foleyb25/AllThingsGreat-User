@@ -30,9 +30,9 @@ module.exports = async function(req,res) {
 
       // res.set("Content-Type", 'text/html')
 
-      if (req.wantsJSON) {
-        return res.send(blog, isRated, isLoggedIn)
-      }
+      // if (req.wantsJSON) {
+      //   return res.send(blog, isRated, isLoggedIn)
+      // }
 
       return res.view("pages/blog/view", {
           blog: sanitizedBlog,
