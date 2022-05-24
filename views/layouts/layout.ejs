@@ -9,15 +9,28 @@
 
     <% /* Viewport tag for sensible mobile support */ %>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="twitter:card" content="<%= summary %>" />
-    <meta property="og:title" content="<%= ogTitle %>" />
-    <meta property="og:description" content="<%= ogDesc %> " />
-    <meta property="og:image" content="<%= ogImage %> " />
-    <meta name="og:site" content="<%= ogSite %>" />
-    <meta name="og:url" content="<%= ogUrl %>" />
-    <meta name="twitter:creator" content="<%= ogCreator %>" /> 
-
-
+    <% if (typeof summary !== 'undefined') { %>
+      <meta name="twitter:card" content="<%= summary %>" />
+    <% } %>
+    <% if (typeof ogTitle !== 'undefined') { %>
+      <meta property="og:title" content="<%= ogTitle %>" />/>
+    <% } %>
+    <% if (typeof ogDesc !== 'undefined') { %>
+      <meta property="og:description" content="<%= ogDesc %> " />
+    <% } %>
+    <% if (typeof ogImage !== 'undefined') { %>
+      <meta property="og:image" content="<%= ogImage %> " />
+    <% } %>
+    <% if (typeof ogSite !== 'undefined') { %>
+      <meta name="og:site" content="<%= ogSite %>" />
+    <% } %>
+    <% if (typeof ogUrl !== 'undefined') { %>
+      <meta name="og:url" content="<%= ogUrl %>" />
+    <% } %>
+    <% if (typeof ogCreator !== 'undefined') { %>
+      <meta name="twitter:creator" content="<%= ogCreator %>" /> 
+    <% } %>
+    
     <% /* Script tags should normally be included further down the page- but any
     scripts that load fonts (e.g. Fontawesome ≥v5) are special exceptions to the
     rule. (Include them up here along with any hard-coded «link» tags for Typekit,
