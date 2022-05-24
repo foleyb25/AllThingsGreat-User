@@ -9,13 +9,13 @@
 
     <% /* Viewport tag for sensible mobile support */ %>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="twitter:card" content="summary" />
-    <meta property="og:title" content="This is All Things Great" />
-    <meta property="og:description" content="All Things Great is a multimedia entertainment company based in Montana. Bring on the challenges and no laws apply" />
-    <meta property="og:image" content="https://all-things-great.s3.us-west-2.amazonaws.com/AllThingsGreat.png" />
-    <meta name="og:site" content="@allthingsgrea_" />
-    <meta name="og:url" content="https://allthingsgreat.com" />
-    <meta name="twitter:creator" content="@allthingsgrea_" /> 
+    <meta name="twitter:card" content="<%= summary %>" />
+    <meta property="og:title" content="<%= ogTitle %>" />
+    <meta property="og:description" content="<%= ogDesc %> " />
+    <meta property="og:image" content="<%= ogImage %> " />
+    <meta name="og:site" content="<%= ogSite %>" />
+    <meta name="og:url" content="<%= ogUrl %>" />
+    <meta name="twitter:creator" content="<%= ogCreator %>" /> 
 
 
     <% /* Script tags should normally be included further down the page- but any

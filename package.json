@@ -23,7 +23,8 @@
     "sails-mongo": "^1.2.0",
     "skipper-better-s3": "^2.3.0",
     "skipper-s3": "^0.6.0",
-    "upgrade": "^1.1.0"
+    "upgrade": "^1.1.0",
+    "vue-meta": "^2.4.0"
   },
   "devDependencies": {
     "eslint": "5.16.0",

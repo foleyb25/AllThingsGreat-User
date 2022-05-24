@@ -10,7 +10,15 @@ module.exports = async function (req,res) {
     return res.view("pages/homepage", {
       blogs: sanitizedBlogs,
       pageNum: 0,
-      isMore: isMore
+      isMore: isMore,
+      summary: "summary",
+      ogTitle: "This is All Things Great",
+      ogDesc: "All Things Great is a multimedia entertainment company based in Montana. Bring on the challenges and no laws apply",
+      ogImage: "https://all-things-great.s3.us-west-2.amazonaws.com/AllThingsGreat.png",
+      ogSite: "@allthingsgrea_",
+      ogUrl: "https://allthingsgreat.com",
+      ogCreator: "@allthingsgrea_",
+
     });
   } catch(err) {
     res.serverError(error.toString())
