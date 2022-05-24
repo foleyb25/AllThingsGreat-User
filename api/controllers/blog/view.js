@@ -37,7 +37,14 @@ module.exports = async function(req,res) {
       return res.view("pages/blog/view", {
           blog: sanitizedBlog,
           isRated: isRated,
-          isLoggedIn: loggedIn
+          isLoggedIn: loggedIn,
+          summary: "summary",
+          ogTitle: sanitizedBlog.title,
+          ogDesc: sanitizedBlog.previewText,
+          ogImage: sanitizedBlog.imageUrl,
+          ogSite: "@allthingsgrea_",
+          ogUrl: "https://allthingsgreat.com/blog/view/"+blog.blogId,
+          ogCreator: "@allthingsgrea_",
       });
       
     } catch(err) {
