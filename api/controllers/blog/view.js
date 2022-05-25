@@ -40,9 +40,9 @@ module.exports = async function(req,res) {
           isLoggedIn: loggedIn,
           summary: "summary",
           ogTitle: sanitizedBlog.title,
-          ogDesc: "Author: "+sanitizedBlog.writer.nickName+"\n"+sanitizedBlog.previewText,
+          ogDesc: sanitizedBlog.previewText,
           ogImage: sanitizedBlog.imageUrl,
-          ogSite: "@allthingsgrea_",
+          ogSite: "Author: "+sanitizedBlog.writer.nickName,
           ogUrl: "https://allthingsgreat.com/blog/view/"+blog.blogId,
           ogCreator: "@allthingsgrea_",
       });
