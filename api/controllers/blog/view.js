@@ -44,7 +44,7 @@ module.exports = async function(req,res) {
           ogImage: sanitizedBlog.imageUrl,
           ogSite: "Author: "+sanitizedBlog.writer.nickName,
           ogUrl: "https://allthingsgreat.com/blog/view/"+blog.blogId,
-          ogCreator: "@allthingsgrea_",
+          ogCreator: "B Fo",
       });
       
     } catch(err) {
