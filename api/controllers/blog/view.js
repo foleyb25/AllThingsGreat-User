@@ -42,9 +42,9 @@ module.exports = async function(req,res) {
           ogTitle: sanitizedBlog.title,
           ogDesc: sanitizedBlog.previewText,
           ogImage: sanitizedBlog.imageUrl,
-          ogSite: "@"+sanitizedBlog.writer.nickName,
+          ogSite: "@allthingsgrea_",
           ogUrl: "https://allthingsgreat.com/blog/view/"+blog.blogId,
-          ogCreator: "@B Fo",
+          ogCreator: "@allthingsgrea_",
       });
       
     } catch(err) {
