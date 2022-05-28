@@ -97,7 +97,7 @@ module.exports = function(grunt) {
       options: {
         startTag: '<!--STYLES-->',
         endTag: '<!--STYLES END-->',
-        fileTmpl: '<link rel="stylesheet" href="%s">',
+        fileTmpl: '<link rel="stylesheet" href="%s?v='+time+'">',
         appRoot: '.tmp/public'
       },
 
@@ -112,7 +112,7 @@ module.exports = function(grunt) {
       options: {
         startTag: '<!--STYLES-->',
         endTag: '<!--STYLES END-->',
-        fileTmpl: '<link rel="stylesheet" href="%s">',
+        fileTmpl: '<link rel="stylesheet" href="%s?v='+time+'">',
         appRoot: '.tmp/public',
         // relative: true
         // ^^ Uncomment this if compiling assets for use in PhoneGap, CDN, etc.
@@ -130,7 +130,7 @@ module.exports = function(grunt) {
       options: {
         startTag: '<!--STYLES-->',
         endTag: '<!--STYLES END-->',
-        fileTmpl: '<link rel="stylesheet" href="%s">',
+        fileTmpl: '<link rel="stylesheet" href="%s?v='+time+'">',
         appRoot: '.tmp/public'
       },
       files: {
@@ -144,7 +144,7 @@ module.exports = function(grunt) {
       options: {
         startTag: '<!--STYLES-->',
         endTag: '<!--STYLES END-->',
-        fileTmpl: '<link rel="stylesheet" href="%s">',
+        fileTmpl: '<link rel="stylesheet" href="%s?v='+time+'">',
         appRoot: '.tmp/public',
         // relative: true
         // ^^ Uncomment this if compiling assets for use in PhoneGap, CDN, etc.
