@@ -13,8 +13,6 @@
  */
 module.exports = function(grunt) {
 
-  var time = new Date().getTime();
-
   grunt.config.set('sails-linker', {
 
 
@@ -28,9 +26,8 @@ module.exports = function(grunt) {
       options: {
         startTag: '<!--SCRIPTS-->',
         endTag: '<!--SCRIPTS END-->',
-        fileTmpl: '<script src="%s?v='+ time +'"></script>',
+        fileTmpl: '<script src="%s"></script>',
         appRoot: '.tmp/public'
-        
       },
       files: {
         '.tmp/public/**/*.html': require('../pipeline').jsFilesToInject,
@@ -43,7 +40,7 @@ module.exports = function(grunt) {
       options: {
         startTag: '<!--SCRIPTS-->',
         endTag: '<!--SCRIPTS END-->',
-        fileTmpl: '<script src="%s?v='+ time +'"></script>',
+        fileTmpl: '<script src="%s"></script>',
         appRoot: '.tmp/public',
         // relative: true
         // ^^ Uncomment this if compiling assets for use in PhoneGap, CDN, etc.
@@ -60,7 +57,7 @@ module.exports = function(grunt) {
       options: {
         startTag: '<!--SCRIPTS-->',
         endTag: '<!--SCRIPTS END-->',
-        fileTmpl: '<script src="%s?v='+ time +'"></script>',
+        fileTmpl: '<script src="%s"></script>',
         appRoot: '.tmp/public'
       },
       files: {
@@ -74,7 +71,7 @@ module.exports = function(grunt) {
       options: {
         startTag: '<!--SCRIPTS-->',
         endTag: '<!--SCRIPTS END-->',
-        fileTmpl: '<script src="%s?v='+ time +'"></script>',
+        fileTmpl: '<script src="%s"></script>',
         appRoot: '.tmp/public',
         // relative: true
         // ^^ Uncomment this if compiling assets for use in PhoneGap, CDN, etc.
@@ -98,7 +95,7 @@ module.exports = function(grunt) {
       options: {
         startTag: '<!--STYLES-->',
         endTag: '<!--STYLES END-->',
-        fileTmpl: '<link rel="stylesheet" href="%s?v='+time+'">',
+        fileTmpl: '<link rel="stylesheet" href="%s">',
         appRoot: '.tmp/public'
       },
 
@@ -113,7 +110,7 @@ module.exports = function(grunt) {
       options: {
         startTag: '<!--STYLES-->',
         endTag: '<!--STYLES END-->',
-        fileTmpl: '<link rel="stylesheet" href="%s?v='+time+'">',
+        fileTmpl: '<link rel="stylesheet" href="%s">',
         appRoot: '.tmp/public',
         // relative: true
         // ^^ Uncomment this if compiling assets for use in PhoneGap, CDN, etc.
@@ -131,7 +128,7 @@ module.exports = function(grunt) {
       options: {
         startTag: '<!--STYLES-->',
         endTag: '<!--STYLES END-->',
-        fileTmpl: '<link rel="stylesheet" href="%s?v='+time+'">',
+        fileTmpl: '<link rel="stylesheet" href="%s">',
         appRoot: '.tmp/public'
       },
       files: {
@@ -145,7 +142,7 @@ module.exports = function(grunt) {
       options: {
         startTag: '<!--STYLES-->',
         endTag: '<!--STYLES END-->',
-        fileTmpl: '<link rel="stylesheet" href="%s?v='+time+'">',
+        fileTmpl: '<link rel="stylesheet" href="%s">',
         appRoot: '.tmp/public',
         // relative: true
         // ^^ Uncomment this if compiling assets for use in PhoneGap, CDN, etc.
