@@ -30,6 +30,7 @@ module.exports = function(grunt) {
         endTag: '<!--SCRIPTS END-->',
         fileTmpl: '<script src="%s?v='+ time +'"></script>',
         appRoot: '.tmp/public'
+        
       },
       files: {
         '.tmp/public/**/*.html': require('../pipeline').jsFilesToInject,
