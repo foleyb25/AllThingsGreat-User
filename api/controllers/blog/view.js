@@ -33,7 +33,10 @@ module.exports = async function(req,res) {
       // if (req.wantsJSON) {
       //   return res.send(blog, isRated, isLoggedIn)
       // }
-      var strippedBlogHtml = sanitizedBlog.bodyHTML.replace(/<[^>]+>/g, '');
+      // var strippedBlogHtml = sanitizedBlog.bodyHTML.replace(/<[^>]+>/g, '');
+      // const maxLength = 210;
+      // strippedBlogHtml = strippedBlogHtml.substr(0, maxLength);
+      const strippedBlogHtml = htmlToText(sanitizedBlog.bodyHTML)
       const maxLength = 210;
       strippedBlogHtml = strippedBlogHtml.substr(0, maxLength);
       return res.view("pages/blog/view", {
