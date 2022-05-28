@@ -33,14 +33,14 @@ module.exports = async function(req,res) {
       // if (req.wantsJSON) {
       //   return res.send(blog, isRated, isLoggedIn)
       // }
-
+      var strippedBlogHtml = sanitizedBlog.bodyHTML.replace(/<[^>]+>/g, '');
       return res.view("pages/blog/view", {
           blog: sanitizedBlog,
           isRated: isRated,
           isLoggedIn: loggedIn,
           summary: "summary",
           ogTitle: sanitizedBlog.title,
-          ogDesc: sanitizedBlog.previewText,
+          ogDesc: strippedBlogHtml,
           ogImage: sanitizedBlog.imageUrl,
           ogSite: "@allthingsgrea_",
           ogUrl: "https://allthingsgreat.com/blog/view/"+blog.blogId,
