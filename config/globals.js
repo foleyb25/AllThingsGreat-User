@@ -49,4 +49,19 @@ module.exports.globals = {
 
   sails: true,
 
+  scores: true,
+
+  filteredMLB: true,
+
+  filteredNFL: true,
+
+  filteredNCAAF: true,
+
+  filteredMLS: true,
+
+  filteredNBA: true,
+
+  filteredNHL: true,
+
+
 };

@@ -1,11 +1,7 @@
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<div id="homepage" v-cloak>
 <div id="blog-list">
     <div class="container-fluid pt-5 pb-5">
-
-        <div id="app" v-cloak style="padding: 24px">
-            <!-- Blog posts -->
-            <!-- <div class="filter-box">
-
-            </div> -->
             <div>
                 <div v-for="blog in blogs" class="article-container">
                     <a :href="'/blog/view/'+blog.id">
@@ -16,48 +12,7 @@
                     <button class="btn btn-info" v-on:click="paginate()">Load More</button>
                 </div>
             </div>
-        </div>
     </div>
 </div>
+</div>
 <%- exposeLocalsToBrowser({keys: ['blogs', 'pageNum', 'moreBlogs', 'isMore']}) %>
-
-<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-
-<script>
-    const App = new Vue({
-        el: '#app',
-        data: {
-            blogs: window.SAILS_LOCALS.blogs,
-            pageNum: window.SAILS_LOCALS.pageNum,
-            moreBlogs: window.SAILS_LOCALS.moreBlogs,
-            isMore: window.SAILS_LOCALS.isMore,
-
-        },
-        methods: {
-            createBackgroundGradient(blog) {
-                const rating = blog.rating
-                const numberOfRatings = blog.numberOfRatings * 5
-                const colorpct = (rating / numberOfRatings) * 100
-                const styleString = `linear-gradient(to right, yellow ${colorpct}%, white ${colorpct}%)`;
-                return styleString
-            },
-            paginate: async function()  {
-                console.log("Paginate")
-                const nextPage = this.pageNum + 1
-                const formData = new FormData()
-                formData.append('pageNum', nextPage)
-                try {
-                    const res = await axios.put('/paginate', formData)
-                    this.isMore = res.data.isMore
-                    this.blogs.push.apply(this.blogs, res.data.moreBlogs)
-                    this.pageNum = nextPage
-                } catch (err) {
-                    console.error(err.toString())
-                }
-            }
-        },
-        computed: {
-            
-        }
-    })
-</script>
