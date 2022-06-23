@@ -1,6 +1,6 @@
 module.exports.cron = {
     myFirstJob: {
-      schedule: '*/15 */1 * * *',
+      schedule: '*/30 */1 * * *',
       onTick: async function () {
         console.log('You will see this every day at 6pm');
         console.log(`Also, sails object is available as this, e.g. ${this.config.environment}`);
