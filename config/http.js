@@ -8,8 +8,9 @@
  * For more information on configuration, check out:
  * https://sailsjs.com/config/http
  */
-const fs = require('fs-extra')
+
 module.exports.http = {
+
 
   /****************************************************************************
   *                                                                           *
@@ -19,6 +20,7 @@ module.exports.http = {
   * https://sailsjs.com/documentation/concepts/middleware                     *
   *                                                                           *
   ****************************************************************************/
+
   middleware: {
 
     /***************************************************************************
@@ -27,6 +29,7 @@ module.exports.http = {
     * (This Sails app's routes are handled by the "router" middleware below.)  *
     *                                                                          *
     ***************************************************************************/
+
 
    order: [
     'cookieParser',
@@ -37,20 +40,19 @@ module.exports.http = {
     'router',
     'www',
     'favicon',
-    'forceSSL',
+    // 'forceSSL'
   ],
 
-  forceSSL: function (req, res, next) {
+  // forceSSL: function (req, res, next) {
 
-    if (!req.isSecure) {
-        return res.redirect('wss://' + req.headers.host + req.url);
-    } else if (req.headers["x-forwarded-proto"] == "http") {
-        return res.redirect('https://' + req.headers.host + req.url);
-    } else {
-        next(); //it's already secure
-    }
-  },
-
+  //   if (!req.isSecure) {
+  //       return res.redirect('wss://' + req.headers.host + req.url);
+  //   } else if (req.headers["x-forwarded-proto"] == "http") {
+  //       return res.redirect('https://' + req.headers.host + req.url);
+  //   } else {
+  //       next(); //it's already secure
+  //   }
+  // },
 
 
     /***************************************************************************
