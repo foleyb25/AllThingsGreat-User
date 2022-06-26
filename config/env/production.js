@@ -249,7 +249,7 @@ module.exports = {
     *                                                                          *
     ***************************************************************************/
     onlyAllowOrigins: [
-      'https://allthingsgreat.com',
+      'www.allthingsgreat.com',
     ],
 
 
@@ -368,7 +368,7 @@ module.exports = {
   *                                                                         *
   ***************************************************************************/
   custom: {
-    baseUrl: 'https://allthingsgreat.com',
+    baseUrl: 'www.allthingsgreat.com',
     internalEmailAddress: 'customer_service@allthingsgreat.com',
 
     // sendgridSecret: 'SG.fake.3e0Bn0qSQVnwb1E4qNPz9JZP5vLZYqjh7sn8S93oSHU',
