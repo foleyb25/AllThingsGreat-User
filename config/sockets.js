@@ -11,7 +11,7 @@
 
 module.exports.sockets = {
 
-  onlyAllowOrigins: ['https://allthingsgreat.herokuapp.com', 'http://localhost:1337']
+  onlyAllowOrigins: ['https://allthingsgreat.com', 'http://localhost:1337']
   /***************************************************************************
   *                                                                          *
   * `transports`                                                             *
