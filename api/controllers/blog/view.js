@@ -51,12 +51,6 @@ module.exports = async function(req,res) {
           ogSite: "@allthingsgrea_",
           ogUrl: "https://allthingsgreat.com/blog/view/"+blog.blogId,
           ogCreator: "@allthingsgrea_",
-          NFLScores: sails.config.globals.filteredNFL,
-          MLBScores: sails.config.globals.filteredMLB,
-          NHLScores: sails.config.globals.filteredNHL,
-          NCAAFScores: sails.config.globals.filteredNCAAF,
-          MLSScores: sails.config.globals.filteredMLS,
-          NBAScores: sails.config.globals.filteredNBA,
       });
       
     } catch(err) {

@@ -8,7 +8,7 @@
  * For more information on configuration, check out:
  * https://sailsjs.com/config/http
  */
-
+const fs = require('fs-extra')
 module.exports.http = {
 
   /****************************************************************************
