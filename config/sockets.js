@@ -11,7 +11,7 @@
 
 module.exports.sockets = {
 
-  onlyAllowOrigins: ['www.allthingsgreat.com', 'http://localhost:1337']
+  onlyAllowOrigins: ['https://www.allthingsgreat.com', 'http://localhost:1337']
   /***************************************************************************
   *                                                                          *
   * `transports`                                                             *

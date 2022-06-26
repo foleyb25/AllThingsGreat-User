@@ -248,9 +248,9 @@ module.exports = {
     * > Be sure to use the right protocol!  ("http://" vs. "https://")         *
     *                                                                          *
     ***************************************************************************/
-    onlyAllowOrigins: [
-      'www.allthingsgreat.com',
-    ],
+    // onlyAllowOrigins: [
+    //   'www.allthingsgreat.com',
+    // ],
 
 
     /***************************************************************************
@@ -368,7 +368,7 @@ module.exports = {
   *                                                                         *
   ***************************************************************************/
   custom: {
-    baseUrl: 'www.allthingsgreat.com',
+    baseUrl: 'https://www.allthingsgreat.com',
     internalEmailAddress: 'customer_service@allthingsgreat.com',
 
     // sendgridSecret: 'SG.fake.3e0Bn0qSQVnwb1E4qNPz9JZP5vLZYqjh7sn8S93oSHU',
