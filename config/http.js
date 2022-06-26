@@ -37,20 +37,21 @@ module.exports.http = {
     'router',
     'www',
     'favicon',
-    // 'forceSSL',
+    'forceSSL',
   ],
 
-  // forceSSL: function (req, res, next) {
+  forceSSL: function (req, res, next) {
 
-  //   if (req.isSocket) {
-  //     return res.redirect('wss://' + req.headers.host + req.url);
-  // } else if (req.headers["x-forwarded-proto"] == "http") {
-  //     console.log("Forcing SSL")
-  //     return res.redirect('https://' + req.headers.host + req.url);
-  // } else {
-  //     next(); //it's already secure
-  // }
+    if (req.isSocket) {
+      return res.redirect('wss://' + req.headers.host + req.url);
+  } else if (req.headers["x-forwarded-proto"] == "http") {
+      console.log("Forcing SSL")
+      return res.redirect('https://' + req.headers.host + req.url);
+  } else {
+      next(); //it's already secure
+  }
   },
+}
 
 
 
