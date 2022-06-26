@@ -249,7 +249,7 @@ module.exports = {
     *                                                                          *
     ***************************************************************************/
     onlyAllowOrigins: [
-      'https://allthingsgreat.com',
+      'https://allthingsgreat-staging.herokuapp.com/',
     ],
 
 
@@ -368,7 +368,7 @@ module.exports = {
   *                                                                         *
   ***************************************************************************/
   custom: {
-    baseUrl: 'https://www.allthingsgreat-dev.herokuapp.com',
+    baseUrl: 'https://allthingsgreat-staging.herokuapp.com/',
     internalEmailAddress: 'customer_service@allthingsgreat.com',
 
     // sendgridSecret: 'SG.fake.3e0Bn0qSQVnwb1E4qNPz9JZP5vLZYqjh7sn8S93oSHU',
