@@ -2,7 +2,7 @@ const { stubFalse } = require("lodash");
 
 module.exports.cron = {
     myFirstJob: {
-      schedule: '*/75 * * * *',
+      schedule: '*/90 * * * *',
       onTick: async function () {
 
         var startTime = '10:00:00';
@@ -22,8 +22,7 @@ module.exports.cron = {
 
         valid = startDate < currentDate && endDate > currentDate
 
-        sails.log.info('You will see this 1 hour and 15 minutes')
-        console.log('You will see this 1 hour and 15 minutes');
+        console.log('You will see this every 90th minute past every hour');
         console.log(`Also, sails object is available as this, e.g. ${this.config.environment}`);
 
         if (valid) {
