@@ -5,8 +5,8 @@ module.exports.cron = {
       schedule: '*/75 * * * *',
       onTick: async function () {
 
-        var startTime = '10:00:00';
-        var endTime = '23:00:00';
+        var startTime = '23:00:00';
+        var endTime = '10:00:00';
 
         currentDate = new Date()   
 
