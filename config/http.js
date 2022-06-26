@@ -41,15 +41,11 @@ module.exports.http = {
   ],
 
   forceSSL: function (req, res, next) {
-
-  //Heroku stores the origin protocol in a header variable. The app itself is isolated within the dyno and all request objects have an HTTP protocol.
-  if (req.get('X-Forwarded-Proto')=='https') {
-    //Serve Angular App by passing control to the next middleware
-    next();
-} else if(req.get('X-Forwarded-Proto')!='https'){
-    //Redirect if not HTTP with original request URL
-    res.redirect('https://' + req.hostname + req.url);
-}
+    if (req.header('x-forwarded-proto') !== 'https') {
+      res.redirect(`https://${req.header('host')}${req.url}`)
+    } else {
+      next()
+    }
   },
 }
 
