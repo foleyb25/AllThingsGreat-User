@@ -369,7 +369,7 @@ module.exports = {
   *                                                                         *
   ***************************************************************************/
   custom: {
-    baseUrl: 'https://www.allthingsgreat.com',
+    baseUrl: 'https://www.allthingsgreat-dev.herokuapp.com',
     internalEmailAddress: 'customer_service@allthingsgreat.com',
 
     // sendgridSecret: 'SG.fake.3e0Bn0qSQVnwb1E4qNPz9JZP5vLZYqjh7sn8S93oSHU',
