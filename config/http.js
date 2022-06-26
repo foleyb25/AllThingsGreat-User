@@ -8,7 +8,7 @@
  * For more information on configuration, check out:
  * https://sailsjs.com/config/http
  */
-const fs = require('fs-extra')
+ var sslRedirect = require('heroku-ssl-redirect')
 module.exports.http = {
 
   /****************************************************************************
@@ -40,13 +40,10 @@ module.exports.http = {
     'forceSSL',
   ],
 
-  forceSSL: function (req, res, next) {
-    if (req.header('x-forwarded-proto') !== 'https') {
-      res.redirect(`https://${req.header('host')}${req.url}`)
-    } else {
-      next()
-    }
-  },
+  forceSSL: sslRedirect()
+
+
+
 }
 
 
