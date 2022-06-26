@@ -68,6 +68,4 @@ module.exports.http = {
     //   return middlewareFn;
     // })(),
 
-  },
-
 };
