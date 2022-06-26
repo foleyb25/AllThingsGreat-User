@@ -42,15 +42,12 @@
  
    forceSSL: function (req, res, next) {
  
-     if (req.headers["x-forwarded-proto"] == "https") {
-        next()
-     } else if (req.headers["x-forwarded-proto"] == "http") {
-        console.log("Is Not secure")
-        return res.redirect('https://' + req.headers.host + req.url);
-     } else {
-         next(); //it's already secure
-     }
-   },
+    if(req.headers['x-forwarded-proto']!='https') {
+      res.redirect('https://www.allthingsgeat.com'+req.url)
+    } else {
+      next()
+    }
+},
  
  
  
