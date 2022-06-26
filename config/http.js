@@ -37,23 +37,20 @@
      'router',
      'www',
      'favicon',
-    //  'forceSSL'
+     'forceSSL'
    ],
  
-  //  forceSSL: function (req, res, next) {
+   forceSSL: function (req, res, next) {
  
-  //    if (req.isSocket) {
-  //       console.log("Is Not Secure")
-  //       next()
-  //       //  return res.redirect('wss://' + req.headers.host + req.url);
-  //    } else if (req.headers["x-forwarded-proto"] == "http") {
-  //       console.log("Is Not SOcket")
-  //       //  return res.redirect('https://' + req.headers.host + req.url);
-  //        next()
-  //    } else {
-  //        next(); //it's already secure
-  //    }
-  //  },
+     if (req.headers["x-forwarded-proto"] == "https") {
+        next()
+     } else if (req.headers["x-forwarded-proto"] == "http") {
+        console.log("Is Not secure")
+        return res.redirect('https://' + req.headers.host + req.url);
+     } else {
+         next(); //it's already secure
+     }
+   },
  
  
  
