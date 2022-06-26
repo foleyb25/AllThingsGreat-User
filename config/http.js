@@ -8,7 +8,6 @@
  * For more information on configuration, check out:
  * https://sailsjs.com/config/http
  */
- var sslRedirect = require('heroku-ssl-redirect')
 module.exports.http = {
 
   /****************************************************************************
@@ -28,23 +27,18 @@ module.exports.http = {
     *                                                                          *
     ***************************************************************************/
 
-   order: [
-    'cookieParser',
-    'session',
-    'bodyParser',
-    'compress',
-    'poweredBy',
-    'router',
-    'www',
-    'favicon',
-    // 'forceSSL',
-  ],
+    order: [
+      'cookieParser',
+      'session',
+      'bodyParser',
+      'compress',
+      'poweredBy',
+      'router',
+      'www',
+      'favicon',
+    ],
 
-  // forceSSL: sslRedirect()
-
-
-
-}
+  }
 
 
 
