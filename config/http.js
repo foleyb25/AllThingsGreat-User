@@ -37,10 +37,10 @@ module.exports.http = {
     'router',
     'www',
     'favicon',
-    'forceSSL',
+    // 'forceSSL',
   ],
 
-  forceSSL: sslRedirect()
+  // forceSSL: sslRedirect()
 
 
 
