@@ -27,8 +27,8 @@ module.exports.cron = {
         console.log(`Also, sails object is available as this, e.g. ${this.config.environment}`);
 
         if (valid) {
-          sails.log.info('Lets call the sportsfeed API, we are between 10am and 11pm')
-          const status = await sails.helpers.getscores("MLB");
+          console.log('Lets call the sportsfeed API, we are between 10am and 11pm')
+          // const status = await sails.helpers.getscores("MLB");
         } else {
           sails.log.info('Eh...Its too late and most likely no sports are on. Lets skip the API call to sportsfeed.')
         }
