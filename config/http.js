@@ -8,8 +8,9 @@
  * For more information on configuration, check out:
  * https://sailsjs.com/config/http
  */
-const fs = require('fs-extra')
+
 module.exports.http = {
+
 
   /****************************************************************************
   *                                                                           *
@@ -19,6 +20,7 @@ module.exports.http = {
   * https://sailsjs.com/documentation/concepts/middleware                     *
   *                                                                           *
   ****************************************************************************/
+
   middleware: {
 
     /***************************************************************************
@@ -27,6 +29,7 @@ module.exports.http = {
     * (This Sails app's routes are handled by the "router" middleware below.)  *
     *                                                                          *
     ***************************************************************************/
+
 
    order: [
     'cookieParser',
@@ -50,7 +53,6 @@ module.exports.http = {
   //       next(); //it's already secure
   //   }
   // },
-
 
 
     /***************************************************************************
