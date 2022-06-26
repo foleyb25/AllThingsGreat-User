@@ -2,7 +2,7 @@ const { stubFalse } = require("lodash");
 
 module.exports.cron = {
     myFirstJob: {
-      schedule: '*/90 */1 * * *',
+      schedule: '*/90 * * * *',
       onTick: async function () {
 
         var startTime = '10:00:00';
