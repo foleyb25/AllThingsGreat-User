@@ -49,12 +49,14 @@
         console.log("Connection Is http, apend https://")
         console.log('https://'+req.headers.host + req.url)
         return res.redirect('https://' + req.headers.host + req.url);
+      } else if(req.headers["X-Forwarded-Proto"] != "https"){
+        console.log("Connection Is http, apend https://")
+        console.log('https://'+req.headers.host + req.url)
+        return res.redirect('https://' + req.headers.host + req.url);
       } else {
         console.log("Connection Is Secure, moving along...")
         next();
-      };
-      
-
+      }
     } 
   })(),
 
