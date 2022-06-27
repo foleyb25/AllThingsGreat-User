@@ -11,7 +11,7 @@
  const fs = require('fs-extra')
  module.exports.http = {
  
-  trustProxy: true,
+  // trustProxy: true,
    /****************************************************************************
    *                                                                           *
    * Sails/Express middleware to run for every HTTP request.                   *
