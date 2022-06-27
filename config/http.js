@@ -30,6 +30,7 @@
      ***************************************************************************/
  
     order: [
+     'forceSSL',
      'cookieParser',
      'session',
      'bodyParser',
@@ -38,17 +39,15 @@
      'router',
      'www',
      'favicon',
-     'forceSSL',
-    //  'forceSSLOnExpress'
    ],
 
   forceSSL: (function (){
     console.log("Inside of force SSL")
     return function (req,res,next) {
-      if(req.isSocket) {
-        console.log("Connection Is Websocket, apend wss://")
-        return res.redirect('wss://' + req.headers.host + req.url);
-      } else if (req.headers["x-forwarded-proto"] != "https") {
+      if(req.headers["x-forwarded-proto"] != "https") {
+        console.log("Connection Is http, apend https://")
+        return res.redirect('https://' + req.headers.host + req.url);
+      } else if(req.headers["X-Forwarded-Proto"] != "https"){ 
         console.log("Connection Is http, apend https://")
         return res.redirect('https://' + req.headers.host + req.url);
       } else {
@@ -58,20 +57,6 @@
       
     } 
   })(),
-
-  // forceSSLOnExpress: (function (){
-  //   console.log("force SSL on Express app")
-  //   return function(req,res,next) {
-  //     const app = express()
-  //     app.use((req, res, next) => {
-  //       if (req.header('x-forwarded-proto') !== 'https')
-  //         res.redirect(`https://${req.header('host')}${req.url}`)
-  //       else
-  //         next()
-  //     })
-  // }
-  // })(),
-
 
  
  
