@@ -10,6 +10,7 @@ module.exports = async function (req,res) {
     const isMore = sanitizedBlogs.length == 25 ? true : false
     console.log('x-forwarded-proto: '+req.headers["x-forwarded-protos"])
     console.log('X-Forwarded-Proto: '+req.headers["X-Forwarded-protos"])
+    console.log('headers '+req.headers)
     try {
       sails.config.globals.scores = {
         status: 200,
