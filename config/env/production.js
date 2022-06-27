@@ -194,9 +194,7 @@ module.exports = {
     // ```
     //
     //--------------------------------------------------------------------------
-
-
-    // secure: true,
+    
     /***************************************************************************
     *                                                                          *
     * Production configuration for the session ID cookie.                      *
@@ -248,9 +246,9 @@ module.exports = {
     * > Be sure to use the right protocol!  ("http://" vs. "https://")         *
     *                                                                          *
     ***************************************************************************/
-    // onlyAllowOrigins: [
-    //   'www.allthingsgreat.com',
-    // ],
+    onlyAllowOrigins: [
+      'https://www.allthingsgreat.com',
+    ],
 
 
     /***************************************************************************
@@ -319,7 +317,7 @@ module.exports = {
     * (https://sailsjs.com/config/http)                                        *
     *                                                                          *
     ***************************************************************************/
-    trustProxy: true,
+    // trustProxy: true,
 
   },
 
