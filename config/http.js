@@ -37,19 +37,22 @@
      'router',
      'www',
      'favicon',
-    //  'forceSSL'
+     'forceSSL'
    ],
  
-//    forceSSL: function (req, res, next) {
+   forceSSL: function (req, res, next) {
  
-//     if (req.isSocket) {
-//       return res.redirect('wss://' + req.headers.host + req.url);
-//     } else if (req.headers["x-forwarded-proto"] == "http") {
-//       return res.redirect('https://' + req.headers.host + req.url);
-//     } else {
-//       next(); //it's already secure
-//     }
-// },
+    if (req.isSocket) {
+      console.log("Connection Is Websocket, apend wss://")
+      return res.redirect('wss://' + req.headers.host + req.url);
+    } else if (req.headers["x-forwarded-proto"] == "http") {
+      console.log("Connection Is http, apend https://")
+      return res.redirect('https://' + req.headers.host + req.url);
+    } else {
+      console.log("Connection Is Secure, moving along...")
+      next(); //it's already secure
+    }
+},
  
  
  
