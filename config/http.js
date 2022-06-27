@@ -45,16 +45,16 @@
     console.log("Inside of force SSL")
     return function (req,res,next) {
       console.log(req.headers)
-      // if(req.headers["X-Forwarded-Proto"] != "https"){ 
-      //   console.log("Connection Is http, apend https://")
-      //   console.log('https://'+req.headers.host + req.url)
-      //   return res.redirect('https://' + req.headers.host + req.url);
-      // } else {
-      //   console.log("Connection Is Secure, moving along...")
-      //   next();
-      // };
+      if(req.headers["x-forwarded-proto"] != "https"){ 
+        console.log("Connection Is http, apend https://")
+        console.log('https://'+req.headers.host + req.url)
+        return res.redirect('https://' + req.headers.host + req.url);
+      } else {
+        console.log("Connection Is Secure, moving along...")
+        next();
+      };
       
-      
+
     } 
   })(),
 
