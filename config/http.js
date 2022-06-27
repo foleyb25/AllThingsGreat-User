@@ -11,7 +11,6 @@
  const fs = require('fs-extra')
  module.exports.http = {
  
-  // trustProxy: true,
    /****************************************************************************
    *                                                                           *
    * Sails/Express middleware to run for every HTTP request.                   *
@@ -38,9 +37,17 @@
      'router',
      'www',
      'favicon',
+     'forceSSL'
    ],
  
-  
+   forceSSL: function (req, res, next) {
+ 
+    if(req.headers['x-forwarded-proto']!='https') {
+      return res.redirect('https://www.allthingsgeat.com'+req.url)
+    } else {
+      next()
+    }
+},
  
  
  
