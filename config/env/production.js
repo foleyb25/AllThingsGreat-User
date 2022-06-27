@@ -332,7 +332,7 @@ module.exports = {
   * this, just try deploying without setting it and see if it works.)       *
   *                                                                         *
   ***************************************************************************/
-  // port: 80,
+  port: 443,
 
 
 
@@ -353,7 +353,7 @@ module.exports = {
   * > https://sailsjs.com/config/*#?sailsconfigssl                          *
   *                                                                         *
   **************************************************************************/
-  // ssl: undefined,
+  ssl: true,
 
 
 

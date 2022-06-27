@@ -9,6 +9,7 @@
  * https://sailsjs.com/config/http
  */
  const fs = require('fs-extra')
+ const express = require('express');
  module.exports.http = {
  
    /****************************************************************************
@@ -37,7 +38,8 @@
      'router',
      'www',
      'favicon',
-     'forceSSL'
+     'forceSSL',
+     'forceSSLOnExpress'
    ],
 
   forceSSL: (function (){
@@ -56,6 +58,21 @@
       
     } 
   })(),
+
+  forceSSLOnExpress: (function (){
+    console.log("force SSL on Express app")
+    return function(req,res,next) {
+      const app = express()
+      app.use((req, res, next) => {
+        if (req.header('x-forwarded-proto') !== 'https')
+          res.redirect(`https://${req.header('host')}${req.url}`)
+        else
+          next()
+      })
+  }
+  })(),
+
+
  
  
  
