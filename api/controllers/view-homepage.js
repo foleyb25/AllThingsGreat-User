@@ -8,8 +8,8 @@ module.exports = async function (req,res) {
     const sanitizedBlogs = JSON.parse(JSON.stringify(blogs))
     //compute pctg of blogs here and pass it to homepage
     const isMore = sanitizedBlogs.length == 25 ? true : false
-    console.log('x-forwarded-proto: '+req.headers["x-forwarded-protos"])
-    console.log('X-Forwarded-Proto: '+req.headers["X-Forwarded-protos"])
+    console.log('x-forwarded-proto: '+req.headers["x-forwarded-proto"])
+    console.log('X-Forwarded-Proto: '+req.headers["X-Forwarded-proto"])
     console.log('headers '+JSON.stringify(req.headers))
     try {
       sails.config.globals.scores = {
