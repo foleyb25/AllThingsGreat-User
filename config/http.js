@@ -39,7 +39,7 @@
      'www',
      'favicon',
      'forceSSL',
-    //  'forceSSLOnExpress'
+     'forceSSLOnExpress'
    ],
 
   forceSSL: (function (){
@@ -53,24 +53,24 @@
         return res.redirect('https://' + req.headers.host + req.url);
       } else {
         console.log("Connection Is Secure, moving along...")
-        next(); //it's already secure
+        next();
     };
       
     } 
   })(),
 
-  // forceSSLOnExpress: (function (){
-  //   console.log("force SSL on Express app")
-  //   return function(req,res,next) {
-  //     const app = express()
-  //     app.use((req, res, next) => {
-  //       if (req.header('x-forwarded-proto') !== 'https')
-  //         res.redirect(`https://${req.header('host')}${req.url}`)
-  //       else
-  //         next()
-  //     })
-  // }
-  // })(),
+  forceSSLOnExpress: (function (){
+    console.log("force SSL on Express app")
+    return function(req,res,next) {
+      const app = express()
+      app.use((req, res, next) => {
+        if (req.header('x-forwarded-proto') !== 'https')
+          res.redirect(`https://${req.header('host')}${req.url}`)
+        else
+          next()
+      })
+  }
+  })(),
 
 
  
