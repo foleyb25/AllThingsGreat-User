@@ -29,36 +29,41 @@
      *                                                                          *
      ***************************************************************************/
  
-    order: [
-     'cookieParser',
-     'session',
-     'bodyParser',
-     'compress',
-     'poweredBy',
-     'router',
-     'forceSSL',
-     'www',
-     'favicon',
-   ],
+    // order: [
+    //  'cookieParser',
+    //  'session',
+    //  'bodyParser',
+    //  'compress',
+    //  'poweredBy',
+    //  'router',
+    //  'www',
+    //  'favicon',
+  //  ],
 
-  forceSSL: (function (){
-    console.log("Inside of force SSL")
-    return function (req,res,next) {
-      console.log(req.headers)
-      if(req.headers["x-forwarded-proto"] != "https"){ 
-        console.log("Connection Is http, apend https://")
-        console.log('https://'+req.headers.host + req.url)
-        return res.redirect('https://' + req.headers.host + req.url);
-      } else if(req.headers["X-Forwarded-Proto"] != "https"){
-        console.log("Connection Is http, apend https://")
-        console.log('https://'+req.headers.host + req.url)
-        return res.redirect('https://' + req.headers.host + req.url);
-      } else {
-        console.log("Connection Is Secure, moving along...")
-        next();
-      }
-    } 
-  })(),
+  // forceSSL: (function (){
+  //   console.log("Inside of force SSL")
+  //   return function (req,res,next) {
+  //     // console.log(req.headers)
+  //     if(req.headers["x-forwarded-proto"] != "https"){ 
+  //       console.log("Connection Is http, apend https://")
+  //       console.log('https://'+req.headers.host + req.url)
+  //       return res.redirect('https://' + req.headers.host + req.url);
+  //     } else if(req.headers["X-Forwarded-Proto"] != "https"){
+  //       // console.log("Connection Is http, apend https://")
+  //       // console.log('https://'+req.headers.host + req.url)
+  //       // return res.redirect('https://' + req.headers.host + req.url);
+  //     } else {
+  //       console.log("Connection Is Secure, moving along...")
+  //       next();
+  //     }
+  //   } 
+  // })(),
+
+  // forceSSL: function(req, res, next){
+  //   console.log(req.headers["x-forwarded-proto"]+req.headers.host+req.url)
+  //   console.log(req.isSocket)
+  // }
+
 
  
  
