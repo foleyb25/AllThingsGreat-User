@@ -1,7 +1,11 @@
+<%- partial('../partials/screenplay-nav', {}) %>
+
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
 <div id="homepage" v-cloak>
 <div id="blog-list">
     <div class="container-fluid pt-5 pb-5">
+        
             <div>
                 <div v-for="blog in blogs" class="article-container">
                     <a :href="'/blog/view/'+blog.id">

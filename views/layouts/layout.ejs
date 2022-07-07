@@ -76,6 +76,7 @@
         <a class="navbar-brand mr-0" href="/"><img class="logo" alt="All Things Great logo" src="/images/logo.png"/></a>
         <div class="navbar-nav flex-row" style="font-family: Revans-medium;">
           <a class="nav-item nav-link ml-2 ml-md-0 mr-2 mr-md-0" href="/">Home</a>
+          <a class="nav-item nav-link ml-2 ml-md-0 mr-2 mr-md-0" href="/review/screenplays">Screenplay Reviews</a>
           <a class="nav-item nav-link ml-2 ml-md-0 mr-2 mr-md-0" href="/about">About</a>
           <a class="nav-item nav-link ml-2 ml-md-0 mr-2 mr-md-0" href="/bloggers">Bloggers</a>
           <% if(me) { %>
@@ -112,7 +113,6 @@
         MLSScores: sails.config.globals.filteredMLS,
         NBAScores: sails.config.globals.filteredNBA,
       }) %>
-
       <!-- Alert if email has not been confirmed -->
       <% if(me&&me.emailChangeCandidate) { %>
       <div class="container-fluid">
@@ -194,6 +194,8 @@
     <script src="/js/pages/homepage.page.js"></script>
     <script src="/js/pages/legal/privacy.page.js"></script>
     <script src="/js/pages/legal/terms.page.js"></script>
+    <script src="/js/pages/reviews/screenplay-review-details.page.js"></script>
+    <script src="/js/pages/reviews/screenplay-review-list-view.page.js"></script>
     <!--SCRIPTS END-->
     <script async src="//www.instagram.com/embed.js"></script>
     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>

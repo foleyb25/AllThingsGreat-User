@@ -17,6 +17,7 @@ module.exports.routes = {
   //CUSTOM
   'GET /':                   { action: 'view-homepage'},
   'PUT /paginate':           { action: 'view-homepage-paginate', csrf: false},
+  'PUT /entertainment/search': {action: 'entertainment/search', csrf: false},
   'GET /blog/view/:blogId':  { action: 'blog/view'},
   'GET /welcome/:unused?':   { action: 'dashboard/view-welcome' },
 
@@ -75,12 +76,15 @@ module.exports.routes = {
   'PUT /comment/downvote': {action: 'comment/downvote', csrf: false},
 
   'GET /blog/allthingsgreat': 'blog/allthingsgreat',
-  'GET /blog/entertainment': 'blog/entertainment',
+  'GET /entertainment/entertainment': 'entertainment/entertainment',
   'GET /blog/gaming': 'blog/gaming',
   'GET /blog/investments': 'blog/investments',
   'GET /blog/outdoors': 'blog/outdoors',
   'GET /blog/sports': 'blog/sports',
   'GET /blog/history': 'blog/history',
+
+  'GET /review/screenplays': 'reviews/screenplay-review-list',
+  'GET /review/screenplay/details/:id': 'reviews/screenplay-review-details',
 
   'POST /comment/blog/:id': {action: 'comment/create', csrf: false},
 

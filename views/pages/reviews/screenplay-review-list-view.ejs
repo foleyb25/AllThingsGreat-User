@@ -1,0 +1,202 @@
+<%- partial('../../partials/screenplay-nav', {}) %>
+<div class="container-fluid pt-5 pb-5">
+    <div id="screenplay-review-list-view" v-cloak>
+        <div id="screenplay-review-list">
+            <div v-for="screenplay in screenplays">
+                <a :href="'/review/screenplay/details/'+screenplay.id">
+                <%- partial('../../partials/screenplay-review') %>
+              </a>
+            </div>
+        </div>
+        <div class='paginate-container'>
+            <button v-if="screenplays!=undefined && isMore"class="btn btn-info"v-on:click="search()">Load More</button>
+        </div>
+        <div class='paginate-container'>
+            <div v-if="!isMore && pageNum!=0" >
+                No More Movies To Show
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- exposeLocalsToBrowser({keys: ['screenplays', 'pageNum', 'isMore']}) %>
+
+<style scoped>
+ 
+</style>
+
+<style>
+  [v-cloak] { display:none; }
+
+  :root {
+    --deg: 0deg;
+    --bg-color: #ba2200;
+    --bg-gradient: '',
+  }
+
+    .paginate-container {
+        text-align: center;
+    }
+
+    #screenplay-review-list {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .screenplay-review-container {
+        margin: 10px;
+        height: 392px;
+        width: 259px;
+        transition: transform .2s;
+        border: 1px solid black;
+        border-radius: 8px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .screenplay-review-container:hover {
+      transform: scale(1.02);
+    }
+
+    .screenplay-image-box {
+        width: 145px;
+        height: 220px;
+        margin: 20px auto;
+        border: 1px solid black
+    }
+
+    .box-button {
+      height: 50px;
+      width: 50px;
+    }
+
+    .screenplay-title-box {
+        text-align: center;
+        width: 95%;
+        height: 50px;
+        margin: 4px;
+        word-wrap: break-word;
+        font-size: .87rem;
+        font-weight: 700;
+    }
+
+    .poster-image {
+        width: 100%;
+        height: 100%;
+    }
+
+    .button-box {
+        text-align: center;
+        width: 45%;
+        height: auto;
+        margin:auto
+    }
+
+    .screenplay-reviewers-container {
+        background-color: rgb(255, 255, 255);
+        overflow-y: hidden;
+        overflow-x: auto;
+        white-space: nowrap;
+        height: 52px;
+        align-items: center;
+        margin: auto;
+        width: 100%;
+    }
+
+    .reviewer-container {
+      height: 100%;
+      width: 50px;
+      display: inline-block;
+      justify-content: center;
+      margin: 0px 5px;
+    }
+
+    .reviewer-box {
+      position: relative;
+      height: 100%;
+    }
+
+    .reviewer-image-box {
+        height: 100%;
+        width: 100%;
+        border-radius: 100%;
+    }
+  
+  .screenplay-container {
+    display: inline-block;
+    text-align: center;
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 8px;
+    font-size: .5rem;
+    margin: 2px;
+    justify-content: center;
+  }
+  
+  .circle-wrap {
+    position: absolute;
+    color:white;
+    margin: auto;
+    width: 50px;
+    height: 100%;
+    background: #cdcdcd;
+    border-radius: 100%;
+    border: 1px solid #000000;
+  }
+
+  
+  .circle-wrap .circle .mask,
+  .circle-wrap .circle .fill {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    border-radius: 100%;
+    bottom: .1px;
+  }
+  
+  .mask .fill {
+    clip: rect(0px, 25px, 50px, 0px);
+    background-image: var(--bg-gradient)
+  }
+  
+  .mask.full,
+  .circle .fill {
+    animation: fill ease-in-out 3s;
+    transform: rotate(var(--deg));
+  }
+  
+  .circle-wrap .circle .mask {
+    clip: rect(0px, 50px, 50px, 24px);
+  }
+  
+  .circle-wrap .inside-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #d2eaf1;
+    line-height: 40px;
+    text-align: center;
+    margin-top: 4px;
+    margin-left: 4px;
+    color: #dbdbdb;
+    position: absolute;
+    z-index: 100;
+    font-weight: 700;
+    font-size: 1.1em;
+    background-repeat: no-repeat; 
+    background-size: 50px 50px; 
+    background-color: rgba(0, 0, 0, 0.27);
+    background-blend-mode: multiply;
+    background-position: center;
+  }
+  
+  @keyframes fill{
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(var(--deg));
+    }
+  }
+  
+</style>
