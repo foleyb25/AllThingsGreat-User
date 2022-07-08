@@ -1,101 +1,103 @@
-<div class="scoreboard-nav" v-cloak>
-    <% if(NHLScores.length > 0) { 
-        for(var i = 0; i<NHLScores.length; i++) { %>
-    <div class="box-score">
-        <div class="box-score-container">
-            <div class="team-logos">
-                <div class="logo-container">
-                    <img class="home-logo" src="https://all-things-great.s3.us-west-2.amazonaws.com/NHL_Logos/<%=NHLScores[i].teams.home.abbreviation%>.png" onerror="this.onerror=null; this.src='/images/hockey_default_image.png'">
+<div id="scoreboard-nav">
+    <div class="scoreboard-nav" v-cloak>
+        <% if(NHLScores.length > 0) { 
+            for(var i = 0; i<NHLScores.length; i++) { %>
+        <div class="box-score">
+            <div class="box-score-container">
+                <div class="team-logos">
+                    <div class="logo-container">
+                        <img class="home-logo" src="https://all-things-great.s3.us-west-2.amazonaws.com/NHL_Logos/<%=NHLScores[i].teams.home.abbreviation%>.png" onerror="this.onerror=null; this.src='/images/hockey_default_image.png'">
+                    </div>
+                    <div class="logo-container">
+                        <img class="away-logo" src="https://all-things-great.s3.us-west-2.amazonaws.com/NHL_Logos/<%=NHLScores[i].teams.away.abbreviation%>.png" onerror="this.onerror=null; this.src='/images/hockey_default_image.png'">
+                    </div>
                 </div>
-                <div class="logo-container">
-                    <img class="away-logo" src="https://all-things-great.s3.us-west-2.amazonaws.com/NHL_Logos/<%=NHLScores[i].teams.away.abbreviation%>.png" onerror="this.onerror=null; this.src='/images/hockey_default_image.png'">
+                <div class="team-names">
+                    <div class="home-team"><%= NHLScores[i].teams.home.abbreviation %>: </div>
+                    <div class="away-team"><%= NHLScores[i].teams.away.abbreviation %>: </div>
                 </div>
-            </div>
-            <div class="team-names">
-                <div class="home-team"><%= NHLScores[i].teams.home.abbreviation %>: </div>
-                <div class="away-team"><%= NHLScores[i].teams.away.abbreviation %>: </div>
-            </div>
-            <% if(NHLScores[i].status!='scheduled') { %>
-            <div class="team-scores">
-                <div class="home-score"><%=NHLScores[i].scoreboard.score.home %></div>
-                <div class="away-score"><%=NHLScores[i].scoreboard.score.away %></div>
-            </div>
-            <% } %>
-            <div class="team-spreads">
-                <div class="home-spread"><%=NHLScores[i].odds[0].spread.current.homeOdds %></div>
-                <div class="away-spread"><%=NHLScores[i].odds[0].spread.current.awayOdds %></div>
-            </div>
-        </div>
-       
-        <div class="game-status">
-            <% if(NHLScores[i].status!='scheduled') { %>
-
-                <% if(NHLScores[i].status == 'final') { %>
-                    <%=NHLScores[i].status.charAt(0).toUpperCase() +NHLScores[i].status.slice(1)%>
-                <% } else { %>
-                    <%=NHLScores[i].scoreboard.periodTimeRemaining%> P<%=NHLScores[i].scoreboard.currentPeriod%>
+                <% if(NHLScores[i].status!='scheduled') { %>
+                <div class="team-scores">
+                    <div class="home-score"><%=NHLScores[i].scoreboard.score.home %></div>
+                    <div class="away-score"><%=NHLScores[i].scoreboard.score.away %></div>
+                </div>
                 <% } %>
-            <% } else { %>
-                <%=new Date(NHLScores[i].schedule.date).toLocaleString()%>
-            <% } %>
-        </div>
-    </div>
-    <% }
-    } %>
-
-    <% if(MLBScores.length > 0) { 
-        for(var i = 0; i<MLBScores.length; i++) {
-        %>
-    <div class="box-score">
-        <div class="box-score-container">
-            <div class="team-logos">
-                <div class="logo-container">
-                    <img class="home-logo" src="https://all-things-great.s3.us-west-2.amazonaws.com/MLB_Logos/<%=MLBScores[i].teams.home.abbreviation%>.png" onerror="this.onerror=null; this.src='/images/baseball_default_image.png'">
-                </div>
-                <div class="logo-container">
-                    <img class="away-logo" src="https://all-things-great.s3.us-west-2.amazonaws.com/MLB_Logos/<%=MLBScores[i].teams.away.abbreviation%>.png" onerror="this.onerror=null; this.src='/images/baseball_default_image.png'">
+                <div class="team-spreads">
+                    <div class="home-spread"><%=NHLScores[i].odds[0].spread.current.homeOdds %></div>
+                    <div class="away-spread"><%=NHLScores[i].odds[0].spread.current.awayOdds %></div>
                 </div>
             </div>
-            <div class="team-names">
-                <div class="home-team"><%= MLBScores[i].teams.home.abbreviation %>: </div>
-                <div class="away-team"><%= MLBScores[i].teams.away.abbreviation %>: </div>
-            </div>
-            <% if(MLBScores[i].status!='scheduled') { %>
-            <div class="team-scores">
-                <div class="home-score"><%=MLBScores[i].scoreboard.score.home %></div>
-                <div class="away-score"><%=MLBScores[i].scoreboard.score.away %></div>
-            </div>
-            <% } %>
-            <div class="team-spreads">
-                <div class="home-spread"><%=MLBScores[i].odds[0].spread.current.home >0 ? '+'+MLBScores[i].odds[0].spread.current.home : MLBScores[i].odds[0].spread.current.home%></div>
-                <div class="away-spread"><%=MLBScores[i].odds[0].spread.current.away >0 ? '+'+MLBScores[i].odds[0].spread.current.away : MLBScores[i].odds[0].spread.current.away%></div>
-            </div>
-            <div class="team-odds">
-                <div class="home-odds"><%=MLBScores[i].odds[0].spread.current.homeOdds >0 ? '+'+MLBScores[i].odds[0].spread.current.homeOdds : MLBScores[i].odds[0].spread.current.homeOdds%></div>
-                <div class="away-odds"><%=MLBScores[i].odds[0].spread.current.awayOdds >0 ? '+'+MLBScores[i].odds[0].spread.current.awayOdds : MLBScores[i].odds[0].spread.current.awayOdds%></div>
-            </div>
-            
-        </div>
-       
-        <div class="game-status">
-            <% if(MLBScores[i].status!='scheduled') { %>
+        
+            <div class="game-status">
+                <% if(NHLScores[i].status!='scheduled') { %>
 
-            <% if(MLBScores[i].status == 'final') { %>
-                <%=MLBScores[i].status.charAt(0).toUpperCase()  +MLBScores[i].status.slice(1) %>
-            <% } else { %>
-                <% if(MLBScores[i].scoreboard.score.awayPeriods.length == MLBScores[i].scoreboard.score.homePeriods.length) { %>
-                    BOT
+                    <% if(NHLScores[i].status == 'final') { %>
+                        <%=NHLScores[i].status.charAt(0).toUpperCase() +NHLScores[i].status.slice(1)%>
+                    <% } else { %>
+                        <%=NHLScores[i].scoreboard.periodTimeRemaining%> P<%=NHLScores[i].scoreboard.currentPeriod%>
+                    <% } %>
                 <% } else { %>
-                    TOP
+                    <%=new Date(NHLScores[i].schedule.date).toLocaleString()%>
                 <% } %>
-                <%=MLBScores[i].scoreboard.currentPeriod %>
-            <% } %>
-            <% } else { %>
-            <%=new Date(MLBScores[i].schedule.date).toLocaleString()%>
-            <% } %>
+            </div>
         </div>
+        <% }
+        } %>
+
+        <% if(MLBScores.length > 0) { 
+            for(var i = 0; i<MLBScores.length; i++) {
+            %>
+        <div class="box-score">
+            <div class="box-score-container">
+                <div class="team-logos">
+                    <div class="logo-container">
+                        <img class="home-logo" src="https://all-things-great.s3.us-west-2.amazonaws.com/MLB_Logos/<%=MLBScores[i].teams.home.abbreviation%>.png" onerror="this.onerror=null; this.src='/images/baseball_default_image.png'">
+                    </div>
+                    <div class="logo-container">
+                        <img class="away-logo" src="https://all-things-great.s3.us-west-2.amazonaws.com/MLB_Logos/<%=MLBScores[i].teams.away.abbreviation%>.png" onerror="this.onerror=null; this.src='/images/baseball_default_image.png'">
+                    </div>
+                </div>
+                <div class="team-names">
+                    <div class="home-team"><%= MLBScores[i].teams.home.abbreviation %>: </div>
+                    <div class="away-team"><%= MLBScores[i].teams.away.abbreviation %>: </div>
+                </div>
+                <% if(MLBScores[i].status!='scheduled') { %>
+                <div class="team-scores">
+                    <div class="home-score"><%=MLBScores[i].scoreboard.score.home %></div>
+                    <div class="away-score"><%=MLBScores[i].scoreboard.score.away %></div>
+                </div>
+                <% } %>
+                <div class="team-spreads">
+                    <div class="home-spread"><%=MLBScores[i].odds[0].spread.current.home >0 ? '+'+MLBScores[i].odds[0].spread.current.home : MLBScores[i].odds[0].spread.current.home%></div>
+                    <div class="away-spread"><%=MLBScores[i].odds[0].spread.current.away >0 ? '+'+MLBScores[i].odds[0].spread.current.away : MLBScores[i].odds[0].spread.current.away%></div>
+                </div>
+                <div class="team-odds">
+                    <div class="home-odds"><%=MLBScores[i].odds[0].spread.current.homeOdds >0 ? '+'+MLBScores[i].odds[0].spread.current.homeOdds : MLBScores[i].odds[0].spread.current.homeOdds%></div>
+                    <div class="away-odds"><%=MLBScores[i].odds[0].spread.current.awayOdds >0 ? '+'+MLBScores[i].odds[0].spread.current.awayOdds : MLBScores[i].odds[0].spread.current.awayOdds%></div>
+                </div>
+                
+            </div>
+        
+            <div class="game-status">
+                <% if(MLBScores[i].status!='scheduled') { %>
+
+                <% if(MLBScores[i].status == 'final') { %>
+                    <%=MLBScores[i].status.charAt(0).toUpperCase()  +MLBScores[i].status.slice(1) %>
+                <% } else { %>
+                    <% if(MLBScores[i].scoreboard.score.awayPeriods.length == MLBScores[i].scoreboard.score.homePeriods.length) { %>
+                        BOT
+                    <% } else { %>
+                        TOP
+                    <% } %>
+                    <%=MLBScores[i].scoreboard.currentPeriod %>
+                <% } %>
+                <% } else { %>
+                <%=new Date(MLBScores[i].schedule.date).toLocaleString()%>
+                <% } %>
+            </div>
+        </div>
+        <% }
+        } %>
     </div>
-    <% }
-    } %>
 </div>
 <%- exposeLocalsToBrowser({keys: ['NFLScores', 'MLBScores', 'NHLScores', 'MLSScores']}) %>

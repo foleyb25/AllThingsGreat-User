@@ -7,7 +7,7 @@
             <div>
                 <div v-for="blog in blogs" class="article-container">
                     <a :href="'/blog/view/'+blog.id">
-                        <%- partial('../partials/blog') %>
+                        <%- partial('../../partials/blog') %>
                     </a>
                 </div>
                 <div v-if="isMore" style="margin: auto; text-align: center;">

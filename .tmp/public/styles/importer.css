@@ -352,218 +352,6 @@ body {
     display: block;
   }
 }
-.scoreboard-nav {
-  background-color: #ffffff;
-  overflow: auto;
-  white-space: nowrap;
-  height: 120px;
-  align-items: center;
-  display: flex;
-}
-.screenplay-nav {
-  background-color: #ffffff;
-  overflow: auto;
-  white-space: nowrap;
-  height: 182px;
-  align-items: center;
-  display: flex;
-  margin: auto 25px;
-}
-#screenplay-nav .screenplay-box {
-  display: inline-block;
-  text-align: center;
-  border: 1px solid #000000;
-  border-radius: 8px;
-  font-size: .5rem;
-  margin: 2px;
-  justify-content: center;
-}
-#screenplay-nav .screenplay-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  height: 175px;
-  width: 115px;
-}
-#screenplay-nav .screenplay-title {
-  color: #000000;
-  height: 40px;
-  font-style: italic;
-  font-weight: 700;
-  word-wrap: break-all;
-  white-space: normal;
-  margin: 4px 5px;
-}
-#screenplay-nav .poster-div {
-  margin: 6px auto;
-  position: relative;
-  height: 100px;
-}
-#screenplay-nav .poster-nav-img {
-  height: 100px;
-  width: 66px;
-}
-#screenplay-nav .circle-wrap {
-  position: absolute;
-  top: 0px;
-  left: 7px;
-  color: white;
-  margin: 25px auto;
-  width: 50px;
-  height: 50px;
-  background: #cdcdcd;
-  border-radius: 100%;
-  border: 1px solid #000000;
-}
-#screenplay-nav .circle-wrap .circle .mask,
-#screenplay-nav .circle-wrap .circle .fill {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  border-radius: 100%;
-  bottom: .1px;
-}
-#screenplay-nav .mask .fill {
-  clip: rect(0px, 25px, 50px, 0px);
-  background-color: #227ded;
-}
-#screenplay-nav .mask.full,
-#screenplay-nav .circle .fill {
-  animation: fill ease-in-out 3s;
-  transform: rotate(90deg);
-}
-#screenplay-nav .circle-wrap .circle .mask {
-  clip: rect(0px, 50px, 50px, 24px);
-}
-#screenplay-nav .circle-wrap .inside-circle {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: #d2eaf1;
-  line-height: 40px;
-  text-align: center;
-  margin-top: 4px;
-  margin-left: 4px;
-  color: #dbdbdb;
-  position: absolute;
-  z-index: 100;
-  font-weight: 700;
-  font-size: 2em;
-}
-.box-score {
-  display: inline-block;
-  color: #000000;
-  text-align: center;
-  text-decoration: none;
-  border: 1px solid #000000;
-  border-radius: 8px;
-  font-size: .5rem;
-  margin: 2px;
-  justify-content: center;
-}
-.box-score-container {
-  height: 60px;
-  width: 100px;
-  display: flex;
-  justify-content: center;
-}
-.team-names {
-  display: inline-block;
-  width: 25px;
-  padding-top: 8px;
-}
-.team-scores {
-  display: inline-block;
-  width: 10px;
-  padding-top: 8px;
-}
-.team-spreads {
-  display: inline-block;
-  width: 20px;
-  padding-top: 8px;
-}
-.team-odds {
-  width: 20px;
-  display: inline-block;
-  padding-top: 8px;
-}
-.team-logos {
-  width: 25px;
-  display: inline-block;
-  padding-top: 4px;
-}
-.logo-container {
-  display: flex;
-  justify-content: center;
-  width: 25px;
-  height: 25px;
-  background-position: center center;
-  background-repeat: no-repeat;
-}
-.home-logo {
-  width: 18px;
-  height: 18px;
-}
-.away-logo {
-  width: 18px;
-  height: 18px;
-}
-.home-stats {
-  width: 100px;
-  display: flex;
-  text-align: center;
-  justify-content: center;
-  margin: 4px;
-  height: 25px;
-}
-.away-stats {
-  width: 100px;
-  display: flex;
-  text-align: center;
-  justify-content: center;
-  margin: 4px;
-  height: 25px;
-}
-.home-team {
-  font-weight: 700;
-  height: 25px;
-}
-.home-score {
-  height: 25px;
-  width: 10px;
-}
-.home-spread {
-  height: 25px;
-  width: 20px;
-}
-.home-odds {
-  height: 25px;
-  width: 20px;
-}
-.away-odds {
-  height: 25px;
-  width: 20px;
-}
-.away-team {
-  font-weight: 700;
-  height: 25px;
-}
-.away-score {
-  height: 25px;
-  width: 10px;
-}
-.away-spread {
-  height: 25px;
-  width: 20px;
-}
-.scoreboard-nav div:hover {
-  background-color: #777;
-}
-.game-status {
-  width: 100%;
-  height: 25px;
-  font-weight: 700;
-}
 /**
  * <ajax-button>
  *
@@ -1408,5 +1196,394 @@ body {
   }
   [id='498'] .mobile-spacer {
     display: inline;
+  }
+}
+#screenplay-review-list [v-cloak] {
+  display: none;
+}
+#screenplay-review-list .paginate-container {
+  text-align: center;
+}
+#screenplay-review-list :root {
+  --deg: 0deg;
+  --bg-color: #ba2200;
+  --bg-gradient: '';
+}
+#screenplay-nav .horizontal-scroller {
+  background-color: #ffffff;
+  overflow-y: hidden;
+  overflow-x: auto;
+  white-space: nowrap;
+  height: 182px;
+  align-items: center;
+  margin: auto;
+  width: 100%;
+}
+#screenplay-nav .screenplay-container {
+  display: inline-block;
+  text-align: center;
+  border: 1px solid #000000;
+  border-radius: 8px;
+  font-size: .5rem;
+  margin: 2px;
+  justify-content: center;
+}
+#screenplay-nav .screenplay-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 175px;
+  width: 115px;
+}
+#screenplay-nav .title-box {
+  color: #000000;
+  height: 40px;
+  font-style: italic;
+  font-weight: 700;
+  word-wrap: break-all;
+  white-space: normal;
+  margin: 4px 5px;
+}
+#screenplay-nav .poster-div {
+  margin: 6px auto;
+  position: relative;
+  height: 100px;
+}
+#screenplay-nav .poster-img {
+  height: 100px;
+  width: auto;
+}
+#screenplay-nav .circle-wrap {
+  position: absolute;
+  top: 0px;
+  left: 7px;
+  color: white;
+  margin: 25px auto;
+  width: 50px;
+  height: 50px;
+  background: #cdcdcd;
+  border-radius: 100%;
+  border: 1px solid #000000;
+}
+#screenplay-nav .circle-wrap .circle .mask,
+#screenplay-nav .circle-wrap .circle .fill {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  border-radius: 100%;
+  bottom: .1px;
+}
+#screenplay-nav .mask .fill {
+  clip: rect(0px, 25px, 50px, 0px);
+  background-color: #227ded;
+}
+#screenplay-nav .mask.full,
+#screenplay-nav .circle .fill {
+  animation: nav-fill ease-in-out 3s;
+  transform: rotate(90deg);
+}
+#screenplay-nav .circle-wrap .circle .mask {
+  clip: rect(0px, 50px, 50px, 24px);
+}
+#screenplay-nav .circle-wrap .inside-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #d2eaf1;
+  line-height: 40px;
+  text-align: center;
+  margin-top: 4px;
+  margin-left: 4px;
+  color: #dbdbdb;
+  position: absolute;
+  z-index: 100;
+  font-weight: 700;
+  font-size: 2em;
+}
+@keyframes nav-fill {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(90deg);
+  }
+}
+#scoreboard-nav .scoreboard-nav {
+  background-color: #ffffff;
+  overflow: auto;
+  white-space: nowrap;
+  height: 120px;
+  align-items: center;
+  display: flex;
+}
+#scoreboard-nav .box-score {
+  display: inline-block;
+  color: #000000;
+  text-align: center;
+  text-decoration: none;
+  border: 1px solid #000000;
+  border-radius: 8px;
+  font-size: .5rem;
+  margin: 2px;
+  justify-content: center;
+}
+#scoreboard-nav .box-score-container {
+  height: 60px;
+  width: 100px;
+  display: flex;
+  justify-content: center;
+}
+#scoreboard-nav .team-names {
+  display: inline-block;
+  width: 25px;
+  padding-top: 8px;
+}
+#scoreboard-nav .team-scores {
+  display: inline-block;
+  width: 10px;
+  padding-top: 8px;
+}
+#scoreboard-nav .team-spreads {
+  display: inline-block;
+  width: 20px;
+  padding-top: 8px;
+}
+#scoreboard-nav .team-odds {
+  width: 20px;
+  display: inline-block;
+  padding-top: 8px;
+}
+#scoreboard-nav .team-logos {
+  width: 25px;
+  display: inline-block;
+  padding-top: 4px;
+}
+#scoreboard-nav .logo-container {
+  display: flex;
+  justify-content: center;
+  width: 25px;
+  height: 25px;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+#scoreboard-nav .home-logo {
+  width: 18px;
+  height: 18px;
+}
+#scoreboard-nav .away-logo {
+  width: 18px;
+  height: 18px;
+}
+#scoreboard-nav .home-stats {
+  width: 100px;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  margin: 4px;
+  height: 25px;
+}
+#scoreboard-nav .away-stats {
+  width: 100px;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  margin: 4px;
+  height: 25px;
+}
+#scoreboard-nav .home-team {
+  font-weight: 700;
+  height: 25px;
+}
+#scoreboard-nav .home-score {
+  height: 25px;
+  width: 10px;
+}
+#scoreboard-nav .home-spread {
+  height: 25px;
+  width: 20px;
+}
+#scoreboard-nav .home-odds {
+  height: 25px;
+  width: 20px;
+}
+#scoreboard-nav .away-odds {
+  height: 25px;
+  width: 20px;
+}
+#scoreboard-nav .away-team {
+  font-weight: 700;
+  height: 25px;
+}
+#scoreboard-nav .away-score {
+  height: 25px;
+  width: 10px;
+}
+#scoreboard-nav .away-spread {
+  height: 25px;
+  width: 20px;
+}
+#scoreboard-nav .scoreboard-nav div:hover {
+  background-color: #777;
+}
+#scoreboard-nav .game-status {
+  width: 100%;
+  height: 25px;
+  font-weight: 700;
+}
+#screenplay-review .horizontal-scroller {
+  background-color: #ffffff;
+  overflow-y: hidden;
+  overflow-x: auto;
+  white-space: nowrap;
+  height: 182px;
+  align-items: center;
+  margin: 25px auto;
+  width: 75%;
+}
+#screenplay-review .screenplay-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 175px;
+  width: 115px;
+}
+#screenplay-review .screenplay-title-box {
+  text-align: center;
+  width: 95%;
+  height: 50px;
+  margin: 4px;
+  word-wrap: break-word;
+  font-size: .87rem;
+  font-weight: 700;
+}
+#screenplay-review #screenplay-review-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+#screenplay-review .screenplay-review-container {
+  margin: 10px;
+  height: 392px;
+  width: 259px;
+  transition: transform .2s;
+  border: 1px solid black;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+}
+#screenplay-review .screenplay-review-container:hover {
+  transform: scale(1.02);
+}
+#screenplay-review .screenplay-image-box {
+  width: 145px;
+  height: 220px;
+  margin: 20px auto;
+  border: 1px solid black;
+}
+#screenplay-review .box-button {
+  height: 50px;
+  width: 50px;
+}
+#screenplay-review .poster-image {
+  width: 100%;
+  height: 100%;
+}
+#screenplay-review .button-box {
+  text-align: center;
+  width: 45%;
+  height: auto;
+  margin: auto;
+}
+#screenplay-review .screenplay-reviewers-container {
+  background-color: #ffffff;
+  overflow-y: hidden;
+  overflow-x: auto;
+  white-space: nowrap;
+  height: 52px;
+  align-items: center;
+  margin: auto;
+  width: 100%;
+}
+#screenplay-review .reviewer-container {
+  height: 100%;
+  width: 50px;
+  display: inline-block;
+  justify-content: center;
+  margin: 0px 5px;
+}
+#screenplay-review .reviewer-box {
+  position: relative;
+  height: 100%;
+}
+#screenplay-review .reviewer-image-box {
+  height: 100%;
+  width: 100%;
+  border-radius: 100%;
+}
+#screenplay-review .screenplay-container {
+  display: inline-block;
+  text-align: center;
+  border: 1px solid #000000;
+  border-radius: 8px;
+  font-size: .5rem;
+  margin: 2px;
+  justify-content: center;
+}
+#screenplay-review .circle-wrap {
+  position: absolute;
+  color: white;
+  margin: auto;
+  width: 50px;
+  height: 100%;
+  background: #cdcdcd;
+  border-radius: 100%;
+  border: 1px solid #000000;
+}
+#screenplay-review .circle-wrap .circle .mask,
+#screenplay-review .circle-wrap .circle .fill {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  border-radius: 100%;
+  bottom: .1px;
+}
+#screenplay-review .mask .fill {
+  clip: rect(0px, 25px, 50px, 0px);
+  background-image: var(--bg-gradient);
+}
+#screenplay-review .mask.full,
+#screenplay-review .circle .fill {
+  animation: fill ease-in-out 3s;
+  transform: rotate(var(--deg));
+}
+#screenplay-review .circle-wrap .circle .mask {
+  clip: rect(0px, 50px, 50px, 24px);
+}
+#screenplay-review .circle-wrap .inside-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #d2eaf1;
+  line-height: 40px;
+  text-align: center;
+  margin-top: 4px;
+  margin-left: 4px;
+  color: #dbdbdb;
+  position: absolute;
+  z-index: 100;
+  font-weight: 700;
+  font-size: 1.1em;
+  background-repeat: no-repeat;
+  background-size: 50px 50px;
+  background-color: rgba(0, 0, 0, 0.27);
+  background-blend-mode: multiply;
+  background-position: center;
+}
+@keyframes fill {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(var(--deg));
   }
 }

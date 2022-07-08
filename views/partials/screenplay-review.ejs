@@ -1,36 +1,35 @@
-<div class="screenplay-review-container">
-    
-    <div class="screenplay-image-box">
-        <img class="poster-image" :src="screenplay.poster_path" alt="">
-    </div>
-    <div class="screenplay-title-box">
-        {{screenplay.title}}
-    </div>
-    <div class="screenplay-reviewers-container">
-        <div class="reviewer-container" v-for="review in screenplay.reviews">
-            <div class="reviewer-box" >
-                <div class="circle-wrap" >
-                    <div class="circle" :style="addkeyframes(review)">
-                        <div class="mask full">
-                            <div class="fill" v-if="review.score > 8"></div>
-                            <div class="fill" v-if="review.score < 8 && review.score > 6"></div>
-                            <div class="fill" v-if="review.score < 6"></div>
+<div id="screenplay-review">
+    <div class="screenplay-review-container">
+        <div class="screenplay-image-box">
+            <img class="poster-image" :src="screenplay.poster_path" alt="">
+        </div>
+        <div class="screenplay-title-box">
+            {{screenplay.title}}
+        </div>
+        <div class="screenplay-reviewers-container">
+            <div class="reviewer-container" v-for="review in screenplay.reviews">
+                <div class="reviewer-box" >
+                    <div class="circle-wrap" >
+                        <div class="circle" :style="addkeyframes(review)">
+                            <div class="mask full">
+                                <div class="fill" v-if="review.score > 8"></div>
+                                <div class="fill" v-if="review.score < 8 && review.score > 6"></div>
+                                <div class="fill" v-if="review.score < 6"></div>
+                            </div>
+                            <div class="mask half">
+                                <div class="fill" v-if="review.score > 8"></div>
+                                <div class="fill" v-if="review.score < 8 && review.score > 6"></div>
+                                <div class="fill" v-if="review.score < 6"></div>
+                            </div>
                         </div>
-                        <div class="mask half">
-                            <div class="fill" v-if="review.score > 8"></div>
-                            <div class="fill" v-if="review.score < 8 && review.score > 6"></div>
-                            <div class="fill" v-if="review.score < 6"></div>
+                        <div class="inside-circle" :style="'background-image: url('+review.writer.profileImageUrl+'), url(/images/startup.png);'">
+                            {{review.score}}
                         </div>
-                    </div>
-                    <div class="inside-circle" :style="'background-image: url('+review.writer.profileImageUrl+'), url(/images/startup.png);'">
-                        {{review.score}}
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    
-    
 </div>
 
 
