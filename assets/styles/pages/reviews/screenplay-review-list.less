@@ -1,12 +1,19 @@
 #screenplay-review-list {
     [v-cloak] { display:none; }
-    .paginate-container {
-        text-align: center;
-    }
     
   :root {
     --deg: 0deg;
     --bg-color: #ba2200;
     --bg-gradient: '',
   }
+
+  #screenplay-review-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .paginate-container {
+    text-align: center;
+}
 }

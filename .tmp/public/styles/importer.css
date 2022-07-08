@@ -1201,13 +1201,18 @@ body {
 #screenplay-review-list [v-cloak] {
   display: none;
 }
-#screenplay-review-list .paginate-container {
-  text-align: center;
-}
 #screenplay-review-list :root {
   --deg: 0deg;
   --bg-color: #ba2200;
   --bg-gradient: '';
+}
+#screenplay-review-list #screenplay-review-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+#screenplay-review-list .paginate-container {
+  text-align: center;
 }
 #screenplay-nav .horizontal-scroller {
   background-color: #ffffff;
@@ -1455,11 +1460,6 @@ body {
   word-wrap: break-word;
   font-size: .87rem;
   font-weight: 700;
-}
-#screenplay-review #screenplay-review-list {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
 }
 #screenplay-review .screenplay-review-container {
   margin: 10px;
