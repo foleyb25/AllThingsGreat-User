@@ -1,36 +1,84 @@
-<div id="category-layout">
-
-  <div class="desktop-wrapper" style="background-color: black;">
-    <h5 class="allthingstext">
-      <a href="/" style="color: inherit;">All Things</a> 
-    </h5>
-    <div class="divider-desktop"></div>
-  </div>
-
-<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #000000;">
-    <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarsExample08" aria-controls="navbarsExample08" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="navbar-collapse justify-content-md-center collapse" id="navbarsExample08">
-      
-      <section>
-        <ul class="navbar-nav" style="font-family: Revans-medium;">
-
-          <div class="mobile-wrapper">
-            <h4 class="allthingstext-mobile">
-              <a href="/" style="color: inherit;">All Things</a> 
-            </h4>
+<header id="page-header" class="navbar navbar-expand-lg navbar-dark bg-dark flex-column flex-md-row justify-content-between">
+  <a class="navbar-brand mr-0" href="/"><img class="logo" alt="All Things Great logo" src="/images/logo.png"></a>
+  <div class="nav-button-container">
+  <button class="btn btn-sm btn-outline-info collapsed" type="button" data-toggle="collapse" data-target="#navbar-info" aria-controls="navbarsExample08" aria-expanded="false" aria-label="Toggle navigation">
+    Info
+  </button>
+  <button class="btn btn-sm btn-outline-info collapsed" type="button" data-toggle="collapse" data-target="#navbar-category" aria-controls="navbarsExample08" aria-expanded="false" aria-label="Toggle navigation">
+    Categories
+  </button>
+  <button class="btn btn-sm btn-outline-info collapsed" type="button" data-toggle="collapse" data-target="#navbar-rating" aria-controls="navbarsExample08" aria-expanded="false" aria-label="Toggle navigation">
+    Ratings
+  </button>
+  <button class="btn btn-sm btn-outline-info collapsed" type="button" data-toggle="collapse" data-target="#navbar-account" aria-controls="navbarsExample08" aria-expanded="false" aria-label="Toggle navigation">
+    Account
+  </button>
+</div>
+</header>
+<header class="navbar-dark bg-dark">
+  <div class="navbar-collapse justify-content-end collapse" id="navbar-info">
+    <div class="navbar-nav flex-row">
+      <ul class="nav-ul navbar-nav" style="font-family: Revans-medium;">
+        <li class="li-text">
+          <div>Info</div>
           <div class="divider"></div>
-          </div>
-          <a href="/allthingsgreat" class="allthingslink nav-item nav-link ml-2 ml-md-0 mr-2">Great</a>
+        </li>
+        <a class="nav-item nav-link ml-2 ml-md-0 mr-2 mr-0" href="/about">About</a>
+        <a class="nav-item nav-link ml-2 ml-md-0 mr-2 mr-md-0" href="/bloggers">Bloggers</a>
+      </ul>
+    </div>
+  </div>
+</header>
+  <header class="navbar-dark bg-dark">
+    <div class="navbar-collapse justify-content-end collapse" id="navbar-category">
+      <div class="navbar-nav flex-row">
+        <ul class="nav-ul navbar-nav" style="font-family: Revans-medium;">
+          <li class="li-text">
+            <div>All Things</div>
+            <div class="divider"></div>
+          </li>
+          <a href="/allthingsgreat" class="nav-item nav-link ml-2 ml-md-0 mr-2">Great</a>
           <a href="/sports" class="nav-item nav-link ml-2 ml-md-0 mr-2">Sports</a>
           <a href="/history" class="nav-item nav-link ml-2 ml-md-0 mr-2">History</a>
-          <a href="/entertainment/entertainment" class="nav-item nav-link ml-2 ml-md-0 mr-2">Entertainment</a>
+          <a href="/entertainment" class="nav-item nav-link ml-2 ml-md-0 mr-2">Entertainment</a>
           <a href="/gaming" class="nav-item nav-link ml-2 ml-md-0 mr-2">Gaming</a>
           <a href="/outdoors" class="nav-item nav-link ml-2 ml-md-0 mr-2">Outdoors</a>
           <a href="/investments" class="nav-item nav-link ml-2 ml-md-0 mr-2">Investment</a>   
         </ul>
-    </section>
+      </div>
     </div>
-</nav>
-</div>
+  </header>
+  <header class="navbar-dark bg-dark">
+    <div class="navbar-collapse justify-content-end collapse" id="navbar-rating">
+      <div class="navbar-nav flex-row">
+        <ul class="nav-ul navbar-nav" style="font-family: Revans-medium;">
+          <li class="li-text">
+            <div>Ratings</div>
+            <div class="divider"></div>
+          </li>
+          <a href="/review/screenplays" class="nav-item nav-link ml-2 ml-md-0 mr-2">Screenplays</a>
+        </ul>
+      </div>
+    </div>
+  </header>
+  <header class="navbar-dark bg-dark">
+    <div class="navbar-collapse justify-content-end collapse" id="navbar-account">
+      <div class="navbar-nav flex-row">
+        <ul class="nav-ul navbar-nav" style="font-family: Revans-medium;">
+          <li class="li-text">
+            <div>Account</div>
+            <div class="divider"></div>
+          </li>
+          <% if(me) { %>
+            <a class="nav-item nav-link ml-2 ml-md-0 mr-2" href="/account/profile">Profile</a>
+            <a class="nav-item nav-link ml-2 ml-md-0 mr-2" href="/account">Account Settings</a>
+            <a class="nav-item nav-link ml-2 ml-md-0 mr-2" href="/logout">Sign out</a>
+            <% } else { %>
+            <!-- LOGGED-OUT NAVIGATION -->
+            <a class="nav-item nav-link ml-2 ml-md-0 mr-2" href="/login">Login</a>
+            <a class="nav-item nav-link ml-2 ml-md-0 mr-2 text-info" href="/signup">Sign up</a>  
+            <% } %>   
+        </ul>
+      </div>
+    </div>
+  </header>

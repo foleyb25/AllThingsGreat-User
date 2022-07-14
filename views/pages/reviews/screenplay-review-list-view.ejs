@@ -1,27 +1,25 @@
-<%- partial('../../partials/screenplay-nav', {}) %>
-<div class="container-fluid pt-5 pb-5">
+<div id="screenplay-review-list-view" v-cloak>
+  <%- partial('../../partials/screenplay-nav', {}) %>
   <div id="screenplay-review-list">
-    <div id="screenplay-review-list-view" v-cloak>
-        <div id="screenplay-review-list">
-            <div v-for="screenplay in screenplays">
-                <a :href="'/review/screenplay/details/'+screenplay.id">
-                <%- partial('../../partials/screenplay-review') %>
-              </a>
-            </div>
+    <div id="flex-wrap-row">
+        <div v-for="screenplay in screenplays">
+            <a :href="'/review/screenplay/details/'+screenplay.id">
+            <%- partial('../../partials/screenplay-review') %>
+          </a>
         </div>
-        <div class='paginate-container'>
-            <button v-if="screenplays!=undefined && isMore"class="btn btn-info"v-on:click="search()">Load More</button>
-        </div>
-        <div class='paginate-container'>
-            <div v-if="!isMore && pageNum!=0" >
-                No More Movies To Show
-            </div>
-        </div>
+    </div>
+    <div class='paginate-container'>
+        <button v-if="screenplays!=undefined && isMore"class="btn btn-info"v-on:click="search()">Load More</button>
+    </div>
+    <div class='paginate-container'>
+      <div v-if="!isMore && pageNum!=0" >
+        No More Movies To Show
+      </div>
     </div>
   </div>
 </div>
 
-<%- exposeLocalsToBrowser({keys: ['screenplays', 'pageNum', 'isMore']}) %>
+<%- exposeLocalsToBrowser({keys: ['screenplays', 'pageNum', 'isMore', 'navScreenplays']}) %>
   
 
   

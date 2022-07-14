@@ -1,20 +1,21 @@
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-<%- partial('../../partials/screenplay-nav', {}) %>
-<div id="homepage" v-cloak>
-<div id="blog-list">
-    <div class="container-fluid pt-5 pb-5">
-        
-            <div>
-                <div v-for="blog in blogs" class="article-container">
-                    <a :href="'/blog/view/'+blog.id">
-                        <%- partial('../../partials/blog') %>
-                    </a>
+
+<div id="entertainment" v-cloak>
+    <%- partial('../../partials/screenplay-nav', {}) %>
+    <div id="blog-list">
+        <div class="container-fluid pt-5 pb-5">
+            
+                <div>
+                    <div v-for="blog in blogs" class="article-container">
+                        <a :href="'/blog/view/'+blog.id">
+                            <%- partial('../../partials/blog') %>
+                        </a>
+                    </div>
+                    <div v-if="isMore" style="margin: auto; text-align: center;">
+                        <button class="btn btn-info" v-on:click="paginate()">Load More</button>
+                    </div>
                 </div>
-                <div v-if="isMore" style="margin: auto; text-align: center;">
-                    <button class="btn btn-info" v-on:click="paginate()">Load More</button>
-                </div>
-            </div>
+        </div>
     </div>
 </div>
-</div>
-<%- exposeLocalsToBrowser({keys: ['blogs', 'pageNum', 'moreBlogs', 'isMore']}) %>
+<%- exposeLocalsToBrowser({keys: ['blogs', 'pageNum', 'moreBlogs', 'isMore', 'navScreenplays']}) %>

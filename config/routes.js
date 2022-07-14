@@ -76,7 +76,7 @@ module.exports.routes = {
   'PUT /comment/downvote': {action: 'comment/downvote', csrf: false},
 
   'GET /allthingsgreat': 'allthingsgreat/home',
-  'GET /entertainment/entertainment': 'entertainment/entertainment',
+  'GET /entertainment': 'entertainment/entertainment',
   'GET /gaming': 'gaming/home',
   'GET /investments': 'investments/home',
   'GET /outdoors': 'outdoors/home',

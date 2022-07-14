@@ -26,6 +26,14 @@ module.exports = {
             updatedAt: this.updatedAt,
             reviews: this.reviews,
             services: this.services,
+            releasedate: this.releasedate,
+            firstairdate: this.firstairdate,
+            lastairdate: this.lastairdate,
+            genre: this.genre,
+            director: this.director,
+            writers: this.writers,
+            actors: this.actors,
+            awards: this.awards,
           }
     },
 
@@ -37,6 +45,7 @@ module.exports = {
 
         services: {
             collection: 'watchservice',
+            via: 'screenplay',
         },
 
         tmdb_id: {
@@ -60,7 +69,7 @@ module.exports = {
         },
 
         num_seasons: {
-            type: 'number'
+            type: 'string'
         },
 
         runtime: {
@@ -122,6 +131,38 @@ module.exports = {
         awards: {
             type: 'string'
         },
+
+        releasedate: {
+            type: 'string'
+        },
+
+        firstairdate: {
+            type: 'string'
+        },
+
+        lastairdate: {
+            type: 'string'
+        },
+
+        genre: {
+            type: 'string'
+        },
+
+        director: {
+            type: 'string'
+        },
+
+        writers: {
+            type: 'string'
+        },
+
+        actors: {
+            type: 'string'
+        },
+
+        awards: {
+            type: 'string'
+        }
 
     }
 }

@@ -1,9 +1,12 @@
-parasails.registerPage('screenplay-review-list-view', {
+parasails.registerPage('entertainment', {
     //  ╦╔╗╔╦╔╦╗╦╔═╗╦    ╔═╗╔╦╗╔═╗╔╦╗╔═╗
     //  ║║║║║ ║ ║╠═╣║    ╚═╗ ║ ╠═╣ ║ ║╣
     //  ╩╝╚╝╩ ╩ ╩╩ ╩╩═╝  ╚═╝ ╩ ╩ ╩ ╩ ╚═╝
     data: {
-      screenplays: window.SAILS_LOCALS.screenplays,
+      blogs: window.SAILS_LOCALS.blogs,
+      pageNum: window.SAILS_LOCALS.pageNum,
+      moreBlogs: window.SAILS_LOCALS.moreBlogs,
+      isMore: window.SAILS_LOCALS.isMore,
       navScreenplays: window.SAILS_LOCALS.navScreenplays,
     },
   
@@ -36,6 +39,18 @@ parasails.registerPage('screenplay-review-list-view', {
             console.error(err.toString())
         }
     },
+  
+    search: async function() {
+      const searchString = document.querySelector("input[name=search]").value
+      const formData = new FormData()
+      formData.append('searchString', searchString)
+      try {
+        const res = await axios.put('/entertainment/search', formData)
+        this.movieList = res.data.movieList
+    } catch (err) {
+        console.error(err.toString())
+    }
+    },
 
     addkeyframes(review) {
       const score = review.score*.1*180
@@ -55,18 +70,11 @@ parasails.registerPage('screenplay-review-list-view', {
         bgColor2 = 'red'
       }
       return {
-        '--deg': score+'deg',
-        '--bg-gradient': 'linear-gradient(to bottom right, '+bgColor1+', '+bgColor2+')',
-        '--nav-bg-gradient': 'linear-gradient(to bottom right, '+bgColor1+', '+bgColor2+')',
-        '--nav-deg': score+'deg'
+        '--nav-deg': score+'deg',
+        '--nav-bg-gradient': 'linear-gradient(to bottom right, '+bgColor1+', '+bgColor2+')'
       }
     }
 
-    
-    },
-
-    computed: {
-      
     }
   });
   

@@ -4,6 +4,7 @@ parasails.registerPage('screenplay-review-details', {
     //  ╩╝╚╝╩ ╩ ╩╩ ╩╩═╝  ╚═╝ ╩ ╩ ╩ ╩ ╚═╝
     data: {
       screenplay: window.SAILS_LOCALS.screenplay,
+      navScreenplays: window.SAILS_LOCALS.navScreenplays,
     },
   
     //  ╦  ╦╔═╗╔═╗╔═╗╦ ╦╔═╗╦  ╔═╗
@@ -40,7 +41,9 @@ parasails.registerPage('screenplay-review-details', {
         }
         return {
           '--deg': score+'deg',
-          '--bg-gradient': 'linear-gradient(to bottom right, '+bgColor1+', '+bgColor2+')'
+          '--bg-gradient': 'linear-gradient(to bottom right, '+bgColor1+', '+bgColor2+')',
+          '--nav-bg-gradient': 'linear-gradient(to bottom right, '+bgColor1+', '+bgColor2+')',
+          '--nav-deg': score+'deg'
         }
       }
     

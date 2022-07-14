@@ -1,5 +1,21 @@
 #screenplay-nav {
 
+  :root {
+    --nav-deg: 0deg;
+    --nav-bg-color: #ba2200;
+    --nav-bg-gradient: '',
+  }
+
+  .arrow {
+    display: inline-block;
+    text-align: center;
+    position: relative;
+    bottom: 5%;
+    margin-left: 10px;
+    color: #000000;
+  }
+  
+
     .horizontal-scroller {
         background-color: rgb(255, 255, 255);
         overflow-y: hidden;
@@ -29,7 +45,7 @@
         width: 115px;
       }
 
-      .title-box {
+      .nav-title-box {
         color: rgb(0, 0, 0);
         height: 40px;
         font-style: italic;
@@ -52,6 +68,7 @@
         .poster-img {
           height: 100px;
           width: auto;
+          border: 1px solid black
         }
         
         .circle-wrap {
@@ -78,13 +95,13 @@
         
         .mask .fill {
           clip: rect(0px, 25px, 50px, 0px);
-          background-color: #227ded;
+          background-image: var(--nav-bg-gradient)
         }
         
         .mask.full,
         .circle .fill {
           animation: nav-fill ease-in-out 3s;
-          transform: rotate(90deg);
+          transform: rotate(var(--nav-deg));
         }
         
         .circle-wrap .circle .mask {
@@ -105,6 +122,11 @@
           z-index: 100;
           font-weight: 700;
           font-size: 2em;
+          background-repeat: no-repeat; 
+          background-size: 50px 50px; 
+          background-color: rgba(0, 0, 0, 0.27);
+          background-blend-mode: multiply;
+          background-position: center;
         }
     
         @keyframes nav-fill{
@@ -112,7 +134,7 @@
           transform: rotate(0deg);
         }
         100% {
-          transform: rotate(90deg);
+          transform: rotate(var(--nav-deg));
         }
       }
 
