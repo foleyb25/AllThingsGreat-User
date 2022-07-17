@@ -34,6 +34,7 @@ module.exports = {
             writers: this.writers,
             actors: this.actors,
             awards: this.awards,
+            num_seasons: this.num_seasons,
           }
     },
 
@@ -69,7 +70,7 @@ module.exports = {
         },
 
         num_seasons: {
-            type: 'string'
+            type: 'number'
         },
 
         runtime: {

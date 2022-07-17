@@ -2,6 +2,7 @@ const _ = require('lodash');
 
 module.exports = async function (req,res) {
     var _ = require("underscore")
+
     try {
       const screenplay_result = await Screenplay.find({})
       .sort('title ASC')
@@ -95,7 +96,6 @@ module.exports = async function (req,res) {
       return res.view("pages/reviews/screenplay-review-list-view", {
         screenplays: sanitizedScreenplays,
         navScreenplays: sanitizedNavScreenplays,
-        pageNum: 0,
         isMore: isMore,
       });
 

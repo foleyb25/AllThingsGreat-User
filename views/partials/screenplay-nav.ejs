@@ -1,9 +1,5 @@
-<div class="reference-box" style="display: flex; flex-direction:row;">
-    <a href="https://www.themoviedb.org/" target="_blank"><img loading="lazy" src="/images/tmdb_image.svg" alt="" style="height: 50px; width: 50px; margin-left: 20px;"></a>
-</div>
-<div id="screenplay-nav">
+<div id="screenplay-nav" class="mt-2">
     <div class="horizontal-scroller">
-        
         <div class="screenplay-container" v-for="screenplay in navScreenplays">
             <a :href="'/review/screenplay/details/'+screenplay.id">
             <div class=" screenplay-box">
@@ -16,7 +12,7 @@
                             </div>
                             <div class="mask half">
                                 <div class="fill"></div>
-                            </div>
+                            </div> 
                         </div>
                         <div class="inside-circle" :style="'background-image: url('+screenplay.reviews[screenplay.reviews.length-1].writer.profileImageUrl+'), url(/images/startup.png);'">
                             {{screenplay.reviews[screenplay.reviews.length-1].score}}

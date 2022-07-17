@@ -1,0 +1,204 @@
+#screenplay-list-css {
+
+    :root {
+      --deg: 0deg;
+      --bg-color: #ba2200;
+      --bg-gradient: '',
+    }
+
+    .screenplay-review-container {
+        margin: 10px;
+        height: 392px;
+        width: 259px;
+        transition: transform .2s;
+        border: 1px solid black;
+        border-radius: 8px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .screenplay-review-container:hover {
+        transform: scale(1.02);
+    }
+
+    .screenplay-image-box {
+        width: 145px;
+        height: 220px;
+        margin: 20px auto;
+        border: 1px solid black
+    }
+  
+    .screenplay-title-box {
+      text-align: center;
+      width: 95%;
+      height: 50px;
+      margin: 4px;
+      word-wrap: break-word;
+      font-size: .87rem;
+      font-weight: 700;
+    }
+
+    .screenplay-reviewers-container {
+        background-color: rgb(255, 255, 255);
+        overflow-y: hidden;
+        overflow-x: auto;
+        white-space: nowrap;
+        height: 52px;
+        align-items: center;
+        margin: auto;
+        width: 100%;
+    }
+
+    .reviewer-container {
+        height: 100%;
+        width: 50px;
+        display: inline-block;
+        justify-content: center;
+        margin: 0px 5px;
+    }
+
+    .reviewer-box {
+        position: relative;
+        height: 100%;
+    }
+
+    .poster-image {
+        width: 100%;
+        height: 100%;
+    }
+        
+    .circle-wrap {
+      position: absolute;
+      color:white;
+      margin: auto;
+      width: 50px;
+      height: 50px;
+      background: #cdcdcd;
+      border-radius: 100%;
+      border: 1px solid black;
+    }
+  
+    
+    .circle-wrap .circle .mask,
+    .circle-wrap .circle .fill {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      border-radius: 100px;
+    }
+    
+    .mask .fill { //left half circle
+        //The lower the value the higher the clip amount
+        //Param(Clip top-to-botom, Clip right-to-left ,Clip bottom-up, Clip left-to-right
+      clip: rect(0px, 25px, 50px, 0px);
+      background-image: var(--bg-gradient)
+    }
+    
+    .mask.full,
+    .circle .fill {
+      animation: fill ease-in-out 3s;
+      transform: rotate(var(--deg));
+    }
+    
+    .circle-wrap .circle .mask { //Right half circle
+      clip: rect(0px, 50px, 50px, 25px);
+    }
+    
+    .circle-wrap .inside-circle {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #d2eaf1;
+      line-height: 40px;
+      text-align: center;
+      margin-top: 4px;
+      margin-left: 4px;
+      color: #dbdbdb;
+      position: absolute;
+      z-index: 100;
+      font-weight: 700;
+      font-size: 1.1em;
+      background-repeat: no-repeat; 
+      background-size: 50px 50px; 
+      background-color: rgba(0, 0, 0, 0.27);
+      background-blend-mode: multiply;
+      background-position: center;
+    }
+    
+    @keyframes fill{
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(var(--deg));
+      }
+    }
+
+    @media(min-width: 280px) and (max-width: 558px) {
+        .screenplay-review-container {
+            margin: 5px;
+            height: 196px;
+            width: 129.5px;
+        }
+
+        .screenplay-image-box {
+            width: 72.5px;
+            height: 110px;
+            margin: 10px auto;
+        }
+      
+        .screenplay-title-box {
+          height: 25px;
+          margin: 2px;
+          font-size: .5rem;
+        }
+    
+        .screenplay-reviewers-container {
+            height: 26px;
+        }
+    
+        .reviewer-container {
+            width: 25px;
+            margin: 0px 2.5px;
+        }
+
+        .circle-wrap {
+            width: 25px;
+            height: 25px;
+            border: .1px solid black;
+          }
+          
+          .mask .fill { //left half circle
+              //The lower the value the higher the clip amount
+              //Param(Clip top-to-botom, Clip right-to-left ,Clip bottom-up, Clip left-to-right
+            clip: rect(0px, 12.5px, 25px, 0px);
+            background-image: var(--bg-gradient)
+          }
+          
+          .circle-wrap .circle .mask { //Right half circle
+            clip: rect(0px, 25px, 25px, 12.5px);
+          }
+          
+          .circle-wrap .inside-circle {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            line-height: 20px;
+            margin-top: 2px;
+            margin-left: 2px;
+            font-size: .7em;
+            background-size: 25px 25px; 
+          }
+          
+          @keyframes fill{
+            0% {
+              transform: rotate(0deg);
+            }
+            100% {
+              transform: rotate(var(--deg));
+            }
+          }
+        }
+  }
+
+  

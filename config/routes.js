@@ -21,9 +21,9 @@ module.exports.routes = {
   'GET /blog/view/:blogId':  { action: 'blog/view'},
   'GET /welcome/:unused?':   { action: 'dashboard/view-welcome' },
 
-  'GET /faq':                { action:   'view-faq' },
-  'GET /legal/terms':        { action:   'legal/view-terms' },
-  'GET /legal/privacy':      { action:   'legal/view-privacy' },
+  // 'GET /faq':                { action:   'view-faq' },
+  // 'GET /legal/terms':        { action:   'legal/view-terms' },
+  // 'GET /legal/privacy':      { action:   'legal/view-privacy' },
   'GET /contact':            { action:   'view-contact' },
   'GET /about':              { action:   'view-about-us' },
   'GET /bloggers':           { action:   'view-bloggers' },
@@ -44,7 +44,7 @@ module.exports.routes = {
   //  ╔╦╗╦╔═╗╔═╗  ╦═╗╔═╗╔╦╗╦╦═╗╔═╗╔═╗╔╦╗╔═╗   ┬   ╔╦╗╔═╗╦ ╦╔╗╔╦  ╔═╗╔═╗╔╦╗╔═╗
   //  ║║║║╚═╗║    ╠╦╝║╣  ║║║╠╦╝║╣ ║   ║ ╚═╗  ┌┼─   ║║║ ║║║║║║║║  ║ ║╠═╣ ║║╚═╗
   //  ╩ ╩╩╚═╝╚═╝  ╩╚═╚═╝═╩╝╩╩╚═╚═╝╚═╝ ╩ ╚═╝  └┘   ═╩╝╚═╝╚╩╝╝╚╝╩═╝╚═╝╩ ╩═╩╝╚═╝
-  '/terms':                   '/legal/terms',
+  // '/terms':                   '/legal/terms',
   '/logout':                  '/api/v1/account/logout',
 
 
@@ -84,6 +84,7 @@ module.exports.routes = {
   'GET /history': 'history/home',
 
   'GET /review/screenplays': 'reviews/screenplay-review-list',
+  'GET /review/screenplays/paginate': 'reviews/screenplay-review-list-paginate',
   'GET /review/screenplay/details/:id': 'reviews/screenplay-review-details',
 
   'POST /comment/blog/:id': {action: 'comment/create', csrf: false},

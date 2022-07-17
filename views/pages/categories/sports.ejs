@@ -9,20 +9,15 @@
     NBAScores: sails.config.globals.filteredNBA,
   }) %>
 <div id="homepage" v-cloak>
-<div id="blog-list">
-    <div class="container-fluid pt-5 pb-5">
-        
-            <div>
-                <div v-for="blog in blogs" class="article-container">
-                    <a :href="'/blog/view/'+blog.id">
-                        <%- partial('../../partials/blog') %>
-                    </a>
-                </div>
-                <div v-if="isMore" style="margin: auto; text-align: center;">
-                    <button class="btn btn-info" v-on:click="paginate()">Load More</button>
-                </div>
-            </div>
+    <div class="container-fluid d-flex flex-column justify-content-center" style="max-width: 620px;">
+        <div v-for="blog in blogs" class="mt-5">
+            <a :href="'/blog/view/'+blog.id">
+                <%- partial('../../partials/blog') %>
+            </a>
+        </div>
+        <div v-if="isMore" style="margin: auto; text-align: center;">
+            <button class="btn btn-info" v-on:click="paginate()">Load More</button>
+        </div>
     </div>
-</div>
 </div>
 <%- exposeLocalsToBrowser({keys: ['blogs', 'pageNum', 'moreBlogs', 'isMore']}) %>

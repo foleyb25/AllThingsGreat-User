@@ -1,20 +1,22 @@
 <div id="app" v-cloak style="padding: 24px">
-    <h1 class="main-header">Representing</h1>
-    <p>
-        The State of Montana and the raw, crude, degenerate activities that 
-        take place here. Most of us are rooted college kids, either out of Montana 
-        State University or University of Montana. We love our state and our people.
-        We are bringing you the authentic, nitty-gritty, "get your piss hot" stories stretching
-        from Cat nation to Griz nation and everything in between (or just outside). Everyone has a story 
-        to tell and with each passing week a new story arises.
-    </p>
-    <p>
-        We also extend outside our state, capturing any blog-worthy story out there 
-        that exists in the universe. Covering sports, history, outdoors, entertainment, and even extraterrestrial-paranormal 
-        activity just to name a few. Our goal is to never let a good story go unheard.
-    </p>
-    <h4 class="h4-modify">This is All Things Great.</h3>
-    <!-- <h5 class="blockquote-h">"We are the misfits, the blue-collar, the common man"</h5> -->
+    <div class="container-fluid" style="max-width: 500px;">
+        <h1 class="main-header">Representing</h1>
+        <p>
+            The State of Montana and the raw, crude, degenerate activities that 
+            take place here. Most of us are rooted college kids, either out of Montana 
+            State University or University of Montana. We love our state and our people.
+            We are bringing you the authentic, nitty-gritty, "get your piss hot" stories stretching
+            from Cat nation to Griz nation and everything in between (or just outside). Everyone has a story 
+            to tell and with each passing week a new story arises.
+        </p>
+        <p>
+            We also extend outside our state, capturing any blog-worthy story out there 
+            that exists in the universe. Covering sports, history, outdoors, entertainment, and even extraterrestrial-paranormal 
+            activity just to name a few. Our goal is to never let a good story go unheard.
+        </p>
+        <h4 class="h4-modify">This is All Things Great.</h3>
+        <!-- <h5 class="blockquote-h">"We are the misfits, the blue-collar, the common man"</h5> -->
+    </div>
 </div>
 
 <%- exposeLocalsToBrowser({keys: ['writers']}) %>
@@ -47,7 +49,7 @@
 }
 
 p {
-    width: 500px;
+    width: 100%;
     margin:auto;
     margin-top: 10px;
     margin-bottom: 10px;
