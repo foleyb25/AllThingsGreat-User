@@ -1,23 +1,26 @@
 <div id="app" v-cloak style="padding: 24px">
-    <div v-for="writer in writers" class="bio-container">
-        <div class="namebox">
-            {{writer.nickName}}
-        </div>
-        <div class="pic-media-link-combo">
-            <div class="profile-image">
-                <img class="center-cropped" :src="!writer.profileImageUrl ? '/images/startup.png' : writer.profileImageUrl">
+    <div class="container-fluid">
+        <div v-for="writer in writers" class="bio-container d-block">
+            <div class="d-flex flex-row flex-wrap justify-content-center">
+                <div class="pic-media-link-combo d-flex flex-column align-items-center">
+                    <div class="namebox h-25 w-100 d-flex text-center align-items-center justify-content-center">
+                        {{writer.nickName}}
+                    </div>
+                    <div class="profile-image h-50 w-100 d-flex justify-content-center align-items-center">
+                        <img class="center-cropped" :src="!writer.profileImageUrl ? '/images/startup.png' : writer.profileImageUrl">
+                    </div>
+                    <div class="h-25 w-100 d-flex flex-row align-items-center justify-content-center">
+                        <a v-if="writer.twitterLink" :href="'https://twitter.com/' +writer.twitterLink"
+                            class="twitter-icon" target="_blank"><img src="/images/twitter_icon.png" class="social-icon" alt=""></a>
+                        <a v-if="writer.instagramLink" :href="'https://instagram.com/' +writer.instagramLink" target="_blank"><img src="/images/ig_icon.png" class="social-icon" alt=""></a>
+                        <a v-if="writer.snapchatLink" :href="'https://snapchat.com/add/' +writer.snapchatLink" target="_blank"><img src="/images/snapchat_icon.png" class="social-icon" alt=""></a>
+                        <a v-if="writer.tiktokLink" :href="'https://tiktok.com/@' +writer.tiktokLink" target="_blank"><img src="/images/tiktok_icon.png" class="social-icon" alt=""></a>
+                    </div>
+                </div>
+                <div class="bio-box d-flex align-items-center text-start">
+                    {{writer.bio}}
+                </div>
             </div>
-            <div class="social-links">
-                <a v-if="writer.twitterLink != 'undefined'" :href="'https://twitter.com/' +writer.twitterLink"
-                    class="twitter-icon" target="_blank"><img src="/images/twitter_icon.png" class="social-icon" alt=""></a>
-                <a v-if="writer.instagramLink != 'undefined'" :href="'https://instagram.com/' +writer.instagramLink" target="_blank"><img src="/images/ig_icon.png" class="social-icon" alt=""></a>
-                <a v-if="writer.snapchatLink != 'undefined'" :href="'https://snapchat.com/add/' +writer.snapchatLink" target="_blank"><img src="/images/snapchat_icon.png" class="social-icon" alt=""></a>
-                <a v-if="writer.tiktokLink != 'undefined'" :href="'https://tiktok.com/@' +writer.tiktokLink" target="_blank"><img src="/images/tiktok_icon.png" class="social-icon" alt=""></a>
-            </div>
-        </div>
-
-        <div class="bio-box">
-            {{writer.bio}}
         </div>
     </div>
 </div>
@@ -40,129 +43,59 @@
 .center-cropped {
     object-position: center; /* Center the image within the element */
     object-fit: cover;
-    width: 128px;
-    height: 128px;
+    width: 100px;
+    height: 100px;
     border-radius: 100px;
     border: solid 1px rgb(94, 94, 94);
-    float: left;
-}
-
-.pic-media-link-combo {
-    display: block;
-    width: 145px;
-    float: left;
-    height: 75%;
 }
 
 .bio-container {
-    width: 800px;
-    height: 215px;
-    background-color: white; 
+    width: 100%;
     margin-top: 32px;
     margin-bottom: 32px;
-    margin-left: auto;
-    margin-right: auto;
 }
 
-.profile-image {
-    height: 80%;
-    width: 100%;
-}
-
-.social-links {
-    height: 20%;
-    width: 100%;
-    float: right;
+.pic-media-link-combo {
+    width: 145px;
+    height: 215px
 }
 
 .bio-box {
     margin-left: 16px; 
-    justify-content: center;
-    float: left;
-    height: 75%;
+    height: 215px;
     width: 500px;
     font-weight: bold;
-    display: block;
 }
 
 .namebox {
-  height: 20%;
-  width: 800px;
-  font-size: 36px;
+  font-size: 1.7rem;
   font-weight: 700;
-  margin-bottom: 8px;
 }
 
 .social-icon {
     height: 25px;
     width: 25px;
-    float: left;
     margin: 3px;
 }
 
-@media (max-width: 475px) {
-
-    .bio-container {
-        width: 100%;
-        height: 465px;
-        background-color: white; 
-        margin-top: 32px;
-        margin-bottom: 32px;
-        display: block;
-        justify-content: center;
-    }
-
-    .namebox {
-        height: 50px;
-        width: 100%;
-        padding-left: 0px;
-        font-size: 36px;
-        font-weight: 700;
-        margin-bottom: 8px;
-        text-align: center;
-    }
-
+@media (min-width: 0px) and (max-width: 350px) {
     .center-cropped {
-        object-position: center; /* Center the image within the element */
-        object-fit: cover;
-        width: 128px;
-        height: 128px;
-        border-radius: 100px;
-        border: solid 1px rgb(94, 94, 94);
-    }
-
-    .pic-media-link-combo {
-        width: 100%;
-        height: 165px;
-        margin-bottom: 50px;
-    }
-
-    .profile-image {
-        height: 128px;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-    }
-
-    .social-links {
-        height: 37px;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-    }
-
-    .bio-box {
-        margin-left: 0px; 
-        height: 200px;
-        width: 100%;
-        font-weight: bold;
-        text-align: center;
-    }
-
-    .social-icon {
-        height: 25px;
-        width: 25px;
-        margin: 6px;
-    }
+    object-position: center; /* Center the image within the element */
+    object-fit: cover;
+    width: 100px;
+    height: 100px;
+    border-radius: 100px;
+    border: solid 1px rgb(94, 94, 94);
 }
+
+.bio-container {
+    font-size: .7rem;
+}
+
+.namebox {
+  font-size: 1rem;
+}
+
+}
+
 </style>

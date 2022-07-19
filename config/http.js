@@ -29,16 +29,16 @@
      *                                                                          *
      ***************************************************************************/
  
-    // order: [
-    //  'cookieParser',
-    //  'session',
-    //  'bodyParser',
-    //  'compress',
-    //  'poweredBy',
-    //  'router',
-    //  'www',
-    //  'favicon',
-  //  ],
+    order: [
+     'cookieParser',
+     'session',
+     'bodyParser',
+     'compress',
+     'poweredBy',
+     'router',
+     'www',
+     'favicon',
+   ],
 
   // forceSSL: (function (){
   //   console.log("Inside of force SSL")

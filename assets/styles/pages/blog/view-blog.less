@@ -3,74 +3,49 @@
         font-family: 'Revans-medium';
     }
 
-    .mobile-timestamp {
-        display: none;
-    }
-    
-    .author-image {
-        height: 100%;
-        width: 40px;
-        float: left;
+    .author-image-box {
+        height: 47px;
+        width: 20%;
     }
     
     .author-namebox {
-        height: 100%;
-        width: 200px;
-        float: left;
-        padding-top: 8px;
-        text-align: left;
-        padding-left: 8px;
-        font-style: italic;
-        font-weight: 200;
-    }
-    
-    .timestamp-box {
-        font-style: italic;
-        font-weight: 200;
-        height: 100%;
-        width: 200px;
-        float: right;
-        padding-top: 8px;
-        color: rgb(134, 134, 134);
+        height: 47px;
+        width: 20%;
     }
     
     .share-box {
-        padding-top: 8px;
-        height: 100%;
-        width: 200px;
-        float: right;
-    }
-    
-    .blog-header {
+        width: 20%;
         height: 47px;
-        width: 100%;
-        margin: auto;
-        text-align: center;
-        overflow: hidden;
     }
-    
+
     .score-box {
-        height: 100%;
-        width: 200px;
-        display: inline-block;
-        padding-top: 8px;
-        font-style: italic;
-        font-weight: 200;
+        width: 20%;
+        height: 47px;
+        a {
+            text-decoration: underline;
+            color: #0000EE;
+        }
+    }
+
+    .timestamp-box {
+        height: 47px;
+        width: 20%;
+        color: rgb(144, 144, 144);
+    }
+
+    .blog-title {
+        font-size: 1.75em;
+        font-weight: 700;
     }
     
     .profile-center-cropped {
         object-position: center; /*Center the image within the element*/
         object-fit: cover;
-        width: 100%;
-        height: 100%;
-        border-radius: 24px;
+        width: 45px;
+        height: 45px;
+        border-radius: 100%;
         border: solid 1px rgb(94, 94, 94);
         float: left;
-    }
-    
-    .share-box > * {
-        height: 25px;
-        width: 25px;
     }
     
     .vote-box {
@@ -81,6 +56,10 @@
         display: block;
         justify-content: center;
         text-align: center;
+        a {
+            text-decoration: underline;
+            color: #0000EE;
+        }
     }
     
     .rate {
@@ -137,133 +116,184 @@
         margin-top: 16px
     }
     
-        @media (max-width: 475px) {
-        .mobile-timestamp {
-            display: block;
-            height: 87px;
-            width: 200px;
-            font-weight: 200;
-            font-style: italic;
-            font-size: .65em;
-            padding-top: 2px;
+    iframe{
+        max-width: 100%;
+    }
+
+    .twitter-tweet[style] {
+        max-width: 100% !important;
+        width: 100% !important;
+    }
+
+    .twitter-tweet[style] *{
+        max-width: 100% !important;
+        width: 100% !important;
+    }
+
+    img[style] {
+        width: 100% !important;
+        height: auto !important;
+    }
+
+    img {
+        width: 100%;
+        height: auto !important;
+    }
+
+    table[style] {
+        width: 100% !important;
+        height: auto !important;
+    }
+
+    iframe.instagram-media {
+        height: 470px !important;
+        max-width: 100% !important;
+        width: 100% !important;
+        min-width: auto !important;
+    }
+
+    @media (min-width: 0px) and (max-width: 279px){
+        iframe[height] {
+            height: 130px;
         }
-    
+
+        table[style] {
+            font-size: .4rem;
+        }
+
+        .author-image-box {
+            font-size: .4rem;
+        }
+        
         .author-namebox {
-            padding-top: 0px;
-            width: 200px;
+            font-size: .4rem;
         }
     
         .score-box {
-        height: 100%;
-        width: 80px;
-        float: left;
-        padding-top: 8px;
-        font-style: italic;
-        font-weight: 200;
-        font-size: 0.65em;
-        margin-left: 8px;
-        margin:auto;
+            font-size: .4rem;
         }
     
         .timestamp-box {
-            display: none;
-        }
-    
-        .share-box {
-            padding-top: 8px;
-            height: 100%;
-            width: 35px;
-            float: right;
-        }
-    
-        .submit-box {
-            margin-top: 15px
-        }
-    
-        .comment-box {
-            margin-top: 15px;
-        }
-    
-        iframe[width] {
-            width: 100%;
-        }
-    
-        iframe[height] {
-            height: 196px;
-        }
-    
-        img[style] {
-            max-width: 100% !important;
-            height:auto !important;
-        }
-
-        img {
-            max-width: 100% !important;
-            height:auto !important;
-        }
-
-        iframe.instagram-media {
-            height: 470px !important;
-            max-width: 100% !important;
-            width: 100% !important;
-            min-width: auto !important;
-        }
-
-        table {
-            width: 100% !important;
-        }
-
-        .blog-title {
-            font-size: 1.75em;
-            font-weight: 700;
+            font-size: .4rem;
         }
     }
 
-    @media (max-width: 320px) {
+    @media (min-width: 279px) and (max-width: 345px){
         iframe[height] {
-            height: 140px;
+            height: 130px;
         }
 
-        .blog-header {
-            height: 50px;
+        table[style] {
+            font-size: .4rem;
         }
 
-        .mobile-timestamp {
-            width: 25px;
-            font-size: .75em;
-        }
-
-        .author-image {
-            width: 40px;
+        .author-image-box {
+            font-size: .4rem;
         }
         
         .author-namebox {
-            width: 100px;
-            padding-top: 8px;
-            padding-left: 8px;
-            font-size: .75em;
+            font-size: .4rem;
         }
-        
-        .mobile-timestamp {
-            width: 100px;
-            padding-top: 2px;
-            font-size: .70em;
-        }
-        
-        .share-box {
-            padding-top: 8px;
-            width: 25px;
-            font-size: .875em;
-        }
-
+    
+    
         .score-box {
-            width: 75px;
-            text-align: right;
+            font-size: .4rem;
+        }
+    
+        .timestamp-box {
+            font-size: .4rem;
+        }
+    }
+
+    @media (min-width: 345px) and (max-width: 460px){
+        iframe[height] {
+            height: 180px;
         }
 
-        .blog-title {
-            font-size: 1.75em;
-            font-weight: 700;
+        table[style] {
+            font-size: .5rem;
         }
+
+        .author-image-box {
+            font-size: .5rem;
+        }
+        
+        .author-namebox {
+            font-size: .5rem;
+        }
+    
+    
+        .score-box {
+            font-size: .5rem;
+        }
+    
+        .timestamp-box {
+            font-size: .5rem;
+        }
+    }
+
+    @media (min-width: 460px) and (max-width: 576px) {
+        iframe[height] {
+            height: 220px;
+        }
+
+        .author-image-box {
+            font-size: .55rem;
+        }
+        
+        .author-namebox {
+            font-size: .55rem;
+        }
+    
+    
+        .score-box {
+            font-size: .55rem;
+        }
+    
+        .timestamp-box {
+            font-size: .55rem;
+        }
+    }
+
+    @media (min-width: 576px) and (max-width: 882px) {
+
+        .author-image-box {
+            font-size: .6rem;
+        }
+        
+        .author-namebox {
+            font-size: .6rem;
+        }
+    
+    
+        .score-box {
+            font-size: .6rem;
+        }
+    
+        .timestamp-box {
+            font-size: .6rem;
+        }
+        
+    }
+
+    @media (min-width: 882px) and (max-width: 1051px) {
+
+        .author-image-box {
+            font-size: .8rem;
+        }
+        
+        .author-namebox {
+            font-size: .8rem;
+        }
+    
+        .score-box {
+            font-size: .8rem;
+        }
+    
+        .timestamp-box {
+            font-size: .8rem;
+        }
+
+        
     }
 }

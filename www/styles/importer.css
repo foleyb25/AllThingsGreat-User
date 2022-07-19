@@ -49,7 +49,7 @@ p small > a:not(.btn),
 li small > a:not(.btn),
 blockquote small > a:not(.btn),
 label small > a:not(.btn) {
-  color: #14acc2;
+  color: #13ceff;
   border-bottom: 1px solid #000;
 }
 h1 > a:not(.btn):hover,
@@ -164,7 +164,7 @@ blockquote {
   margin-bottom: 10px;
   width: 100px;
   height: 2px;
-  border-top: 2px solid #14acc2;
+  border-top: 2px solid #13ceff;
 }
 .modal .modal-content .modal-body {
   padding-top: 10px;
@@ -227,7 +227,7 @@ body {
   padding-bottom: 40px;
 }
 #page-wrap header .logo {
-  height: 35px;
+  height: 20px;
   display: block;
 }
 #page-wrap header a {
@@ -247,11 +247,11 @@ body {
 }
 #page-footer {
   border-top: 1px solid rgba(0, 0, 0, 0.1);
-  height: 40px;
   width: 100%;
   position: absolute;
   left: 0px;
   bottom: 0px;
+  background-color: rgb(255, 255, 255);
 }
 #page-footer .xs-only {
   display: none;
@@ -261,7 +261,7 @@ body {
     padding-bottom: 75px;
   }
   #page-wrap #page-footer {
-    height: 75px;
+    height: auto;
   }
   #page-wrap #page-footer .copy,
   #page-wrap #page-footer .nav {
@@ -283,14 +283,9 @@ body {
     padding-bottom: 85px;
   }
   #page-wrap #page-footer {
-    height: 85px;
+    height: auto;
   }
   #page-wrap #page-footer .xs-only {
-    display: block;
-  }
-  header .logo {
-    height: 38px !important;
-    width: 100%;
     display: block;
   }
 }
@@ -299,18 +294,10 @@ body {
     padding-bottom: 85px;
   }
   #page-wrap #page-footer {
-    height: 85px;
+    height: auto;
   }
   #page-wrap #page-footer .xs-only {
     display: block;
-  }
-  header .logo {
-    height: 30px !important;
-    width: 100%;
-    display: block;
-  }
-  .nav-item {
-    font-size: .875rem;
   }
 }
 #category-layout .divider {
@@ -500,10 +487,6 @@ body {
 }
 #blog-list .article-box:hover {
   transform: scale(1.02);
-}
-#blog-list a {
-  color: black;
-  text-decoration: none;
 }
 #blog-list .article-box > div {
   vertical-align: top;
@@ -989,7 +972,7 @@ body {
   width: 150px;
 }
 #account-overview .remove-button {
-  color: #14acc2;
+  color: #13ceff;
   text-decoration: "underline";
   cursor: pointer;
 }

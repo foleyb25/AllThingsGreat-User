@@ -1,195 +1,112 @@
-<div id="view-blog">
-    <div id="app" v-cloak style="padding: 24px">
-        <!-- Blog posts -->
-        <div class="blog-header">
-            <div class="author-image">
-                <img class="profile-center-cropped" :src="blog.writer.profileImageUrl" alt="profile-image">
+
+<div id="view-blog" v-cloak style="padding: 24px">
+    <!-- Blog posts -->
+    <div class="w-100 d-flex flex-row justify-content-center">
+        <div class="author-image-box mr-2 d-flex justify-content-end align-items-center">
+            <img class="profile-center-cropped" :src="blog.writer.profileImageUrl" alt="profile-image">
+        </div>
+        <div class="author-namebox ml-2 d-flex flex-row justify-content-start align-items-center">
+            <div v-if="!blog.writer.nickName == '' ">{{blog.writer.nickName}}</div>
+            <div v-if="blog.writer.nickName == '' ">{{blog.writer.fullName}}</div>
+        </div>
+        <div class="timestamp-box font-italic text-center d-flex justify-content-start align-items-center">
+            Updated {{blog.updatedFromNow}}
+        </div>
+        <div class="score-box d-flex flex-row text-center justify-content-end align-items-center">
+            <div v-if="blog.numberOfRatings > 0">
+                {{score}}/5 <span class="fa fa-star checked"></span>
             </div>
-            <div class="author-namebox">
-                <div v-if="!blog.writer.nickName == '' ">{{blog.writer.nickName}}</div>
-                <div v-if="blog.writer.nickName == '' ">{{blog.writer.fullName}}</div>
-                <div class="mobile-timestamp">Updated {{blog.updatedFromNow}}</div>
+            <div v-if="!(blog.numberOfRatings > 0)">
+                Be the first to <a href="#submit-id">rate this post</a>
             </div>
-            <div class="score-box">
-                <div v-if="blog.numberOfRatings > 0">
-                    {{score}}/5 <span class="fa fa-star checked"></span>
-                </div>
-                <div v-if="!(blog.numberOfRatings > 0)">
-                    Be the first to <a href="#submit-id">rate this post</a>
+        </div>
+        <div class="share-box d-flex flex-row justify-content-center align-items-center">
+            <a :href="'https://twitter.com/intent/tweet?text=' +blog.title +'\n&url=https://www.allthingsgreat.com/blog/view/' +blog.id +' %23allthingsgreat'"
+                data-url='https://www.allthingsgreat.com/blog/view/' 
+                class="fab fa-twitter-square fa-2x"></a>
+            <a src="" alt="" class="facebook"></a>
+        </div>
+    </div>
+
+    <hr style="border: 1px solid rgb(190, 190, 190);">
+
+    <div class="container-fluid pt-5 pb-5">  
+        <H1 class="blog-title">{{blog.title}}</H1>
+        <div id="preview">
+            <%- blog.bodyHTML %>
+        </div>
+    </div>
+    <div class="container-fluid d-block d-flex justify-content-center">
+        <div class="rate" id="rating-container">
+            <input type="radio" id="star5" name="rate" value="5"/>
+            <label for="star5" title="text">5 stars</label>
+            <input type="radio" id="star4" name="rate" value="4" />
+            <label for="star4" title="text">4 stars</label>
+            <input type="radio" id="star3" name="rate" value="3" />
+            <label for="star3" title="text">3 stars</label>
+            <input type="radio" id="star2" name="rate" value="2" />
+            <label for="star2" title="text">2 stars</label>
+            <input type="radio" id="star1" name="rate" value="1" />
+            <label for="star1" title="text">1 star</label>
+            <Button class="btn btn-info btn-sm" v-on:click="clear()" type="radio" id="clear" name="rate" value="0" style="margin-top: 8px; margin-right:8px">
+                <span class="fas fa-sync-alt btn-info" aria-hidden="true"></span>
+            </Button>
+        </div>
+    </div>
+    <div class="submit-box" id="submit-id">
+        <div v-if="isRated">
+            <p>Rating Submitted</p>
+        </div>
+        <div v-if="!isRated">
+            <button class="btn btn-info" v-on:click="submitRating()" :disabled="!isLoggedIn || isRated">Submit</button>
+        </div>
+        <div v-if="!isLoggedIn">
+            <span><a href="/signup">Sign up</a> or <a href="/login">Log in</a> to submit a rating {{isLoggedIn}}</span>
+        </div>
+    </div>
+    
+    <!-- COMMENTS -->
+    <div class="comment-section">
+        <div style="margin-bottom: 12px">
+            Comments ({{blog.comments.length}})
+        </div>
+        <form :action="'/comment/blog/' +blog.id" method="POST">
+            <div class="form-group">
+                <textarea class="form-control" name="comment" :placeholder="isLoggedIn ? 'Start typing...':'Sign up or login to submit a comment.'" :disabled="!isLoggedIn" rows="3"></textarea>
+                <br>
+                <button class="btn btn-info" :disabled="!isLoggedIn">Submit</button>
+            </div>
+        </form>
+        <div v-for="c in blog.comments"
+        style="background-color: white; padding: 16px; margin-bottom: 16px">
+
+            <div style="display: flex">
+                <img class="center-cropped" id="center-cropped":src="!c.user.profileImageUrl ? '/images/startup.png' : c.user.profileImageUrl">
+                <div style="margin-left: 16px; justify-content: center">
+                    <div style="font-weight: bold">
+                            {{c.user.username}}
+                    </div>
+                    <div>
+                        Posted {{c.fromNow}}
+                    </div>
                 </div>
                 
             </div>
-            <div class="share-box">
-                <a :href="'https://twitter.com/intent/tweet?text=' +blog.title +'\n&url=https://www.allthingsgreat.com/blog/view/' +blog.id +' %23allthingsgreat'"
-                    data-url='https://www.allthingsgreat.com/blog/view/' 
-                    class="fab fa-twitter-square fa-2x"></a>
-                <a src="" alt="" class="facebook">
-                <a src="" alt="" class="link-share">
+            <div class="c-text">
+                {{c.text}}
             </div>
-            <div class="timestamp-box">
-                Updated {{blog.updatedFromNow}}
-            </div>
-        </div>
-
-        <hr style="border: 1px solid rgb(190, 190, 190);">
-
-        <div class="container-fluid pt-5 pb-5">  
-            <H1 class="blog-title">{{blog.title}}</H1>
-            <div id="preview">
-                <%- blog.bodyHTML %>
-            </div>
-        </div>
-        <div class="container-fluid d-block d-flex justify-content-center">
-            <div class="rate" id="rating-container">
-                <input type="radio" id="star5" name="rate" value="5"/>
-                <label for="star5" title="text">5 stars</label>
-                <input type="radio" id="star4" name="rate" value="4" />
-                <label for="star4" title="text">4 stars</label>
-                <input type="radio" id="star3" name="rate" value="3" />
-                <label for="star3" title="text">3 stars</label>
-                <input type="radio" id="star2" name="rate" value="2" />
-                <label for="star2" title="text">2 stars</label>
-                <input type="radio" id="star1" name="rate" value="1" />
-                <label for="star1" title="text">1 star</label>
-                <Button class="btn btn-info btn-sm" v-on:click="clear()" type="radio" id="clear" name="rate" value="0" style="margin-top: 8px; margin-right:8px">
-                    <span class="fas fa-sync-alt btn-info" aria-hidden="true"></span>
+            <div class="vote-box" :disabled=true>
+                <Button class="btn btn-info btn-sm" v-on:click="upvote(c.id)" :id="'upvote'+c.id" style="margin-top: 8px; margin-right:8px">
+                    <span class="fas fa-thumbs-up btn-info" aria-hidden="true"></span>
+                    <div :id="'upvotecount'+c.id" style="display: inline-block;">{{c.upVotes}}</div>
                 </Button>
-            </div>
-        </div>
-        <div class="submit-box" id="submit-id">
-            <div v-if="isRated">
-                <p>Rating Submitted</p>
-            </div>
-            <div v-if="!isRated">
-                <button class="btn btn-info" v-on:click="submitRating()" :disabled="!isLoggedIn || isRated">Submit</button>
-            </div>
-            <div v-if="!isLoggedIn">
-                <span><a href="/signup">Sign up</a> or <a href="/login">Log in</a> to submit a rating {{isLoggedIn}}</span>
-            </div>
-        </div>
-        
-        
-        
-        
-        <!-- COMMENTS -->
-        <div class="comment-section">
-            <div style="margin-bottom: 12px">
-                Comments ({{blog.comments.length}})
-            </div>
-            <form :action="'/comment/blog/' +blog.id" method="POST">
-                <div class="form-group">
-                    <textarea class="form-control" name="comment" :placeholder="isLoggedIn ? 'Start typing...':'Sign up or login to submit a comment.'" :disabled="!isLoggedIn" rows="3"></textarea>
-                    <br>
-                    <button class="btn btn-info" :disabled="!isLoggedIn">Submit</button>
-                </div>
-            </form>
-            <div v-for="c in blog.comments"
-            style="background-color: white; padding: 16px; margin-bottom: 16px">
-
-                <div style="display: flex">
-                    <img class="center-cropped" id="center-cropped":src="!c.user.profileImageUrl ? '/images/startup.png' : c.user.profileImageUrl">
-                    <div style="margin-left: 16px; justify-content: center">
-                        <div style="font-weight: bold">
-                                {{c.user.username}}
-                        </div>
-                        <div>
-                            Posted {{c.fromNow}}
-                        </div>
-                    </div>
-                    
-                </div>
-                <div class="c-text">
-                    {{c.text}}
-                </div>
-                <div class="vote-box" :disabled=true>
-                    <Button class="btn btn-info btn-sm" v-on:click="upvote(c.id)" :id="'upvote'+c.id" style="margin-top: 8px; margin-right:8px">
-                        <span class="fas fa-thumbs-up btn-info" aria-hidden="true"></span>
-                        <div :id="'upvotecount'+c.id" style="display: inline-block;">{{c.upVotes}}</div>
-                    </Button>
-                    <Button class="btn btn-info btn-sm" v-on:click="downvote(c.id)" :id="'downvote'+c.id" style="margin-top: 8px; margin-right:8px">
-                        <span class="fas fa-thumbs-down btn-info" aria-hidden="true"></span>
-                        <div :id="'downvotecount'+c.id" style="display: inline-block;">{{c.downVotes}}</div>
-                    </Button>
-                </div>
+                <Button class="btn btn-info btn-sm" v-on:click="downvote(c.id)" :id="'downvote'+c.id" style="margin-top: 8px; margin-right:8px">
+                    <span class="fas fa-thumbs-down btn-info" aria-hidden="true"></span>
+                    <div :id="'downvotecount'+c.id" style="display: inline-block;">{{c.downVotes}}</div>
+                </Button>
             </div>
         </div>
     </div>
 </div>
 
 <%- exposeLocalsToBrowser({keys: ['blog', 'isRated', 'isLoggedIn']}) %>
-
-<script>
-        const App = new Vue({
-            el: '#app',
-            data: {
-                blog: window.SAILS_LOCALS.blog,
-                isRated: window.SAILS_LOCALS.isRated,
-                isLoggedIn: window.SAILS_LOCALS.isLoggedIn,
-                date: new Date(window.SAILS_LOCALS.blog.updatedAt).toLocaleDateString(),
-                time: new Date(window.SAILS_LOCALS.blog.updatedAt).toLocaleTimeString(),
-                score: window.SAILS_LOCALS.blog.rating / window.SAILS_LOCALS.blog.numberOfRatings
-            },
-            methods: {
-                submitRating: async function() {
-                    var score = 0;
-                    $('#rating-container').find('input').each(function () {
-                        if(!this.checked && this.value == '1') {
-                            score = 0;
-                        }
-                        if(this.checked) {
-                            score = parseInt(this.value)
-                            return false
-                        } 
-                    });
-                    const formData = new FormData()
-                    formData.append("userRating", score)
-                    formData.append('blogRating', this.blog.rating)
-                    formData.append('numberOfRatings', this.blog.numberOfRatings)
-                    formData.append('blogId', this.blog.id)
-                    try {
-                        await axios.put('/blog/submitrating', formData)
-                        location.reload()
-                        $("#rating-container :input").attr("disabled", this.isRated);
-                    } catch (err) {
-                        console.error(err.toString())
-                    }
-                },
-                clear: function() {
-                    $('#rating-container').find('input').each(function () {
-                        this.checked = false
-                    });
-                },
-                upvote: async function(commentid) {
-                    const formData = new FormData()
-                    formData.append('commentid', commentid)
-                    try {
-                        $("#upvote"+commentid).attr("disabled", true);
-                        await axios.put('/comment/upvote', formData)
-                        const downval = $("#upvotecount"+commentid).text();
-                        var val = parseInt(downval)
-                        val += 1
-                        $("#upvotecount"+commentid).text(val);
-                    } catch (err) {
-                        console.error(err.toString())
-                    }
-                },
-                downvote: async function(commentid) {
-                    const formData = new FormData()
-                    formData.append('commentid', commentid)
-                    try {
-                        $("#downvote"+commentid).attr("disabled", true);
-                        await axios.put('/comment/downvote', formData)
-                        const downval = $("#downvotecount"+commentid).text();
-                        var val = parseInt(downval)
-                        val += 1
-                        $("#downvotecount"+commentid).text(val);
-                    } catch (err) {
-                        console.error(err.toString())
-                    }
-                }
-
-            },
-            computed: {
-            }
-        })
-    </script>

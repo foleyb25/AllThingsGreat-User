@@ -161,14 +161,14 @@ sup {
 }
 
 a {
-  color: #007bff;
+  color: #000000;
   text-decoration: none;
   background-color: transparent;
   -webkit-text-decoration-skip: objects;
 }
 
 a:hover {
-  color: #0056b3;
+  color: black;
   text-decoration: "underline";
 }
 
@@ -4035,7 +4035,7 @@ input[type="button"].btn-block {
 
 .navbar-toggler {
   padding: 0.25rem 0.75rem;
-  font-size: 1.25rem;
+  font-size: 1rem;
   line-height: 1;
   background-color: transparent;
   border: 1px solid transparent;
