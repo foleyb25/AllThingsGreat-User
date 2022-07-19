@@ -10,11 +10,11 @@
                         <img class="center-cropped" :src="!writer.profileImageUrl ? '/images/startup.png' : writer.profileImageUrl">
                     </div>
                     <div class="h-25 w-100 d-flex flex-row align-items-center justify-content-center">
-                        <a v-if="writer.twitterLink != 'undefined'" :href="'https://twitter.com/' +writer.twitterLink"
+                        <a v-if="writer.twitterLink" :href="'https://twitter.com/' +writer.twitterLink"
                             class="twitter-icon" target="_blank"><img src="/images/twitter_icon.png" class="social-icon" alt=""></a>
-                        <a v-if="writer.instagramLink != 'undefined'" :href="'https://instagram.com/' +writer.instagramLink" target="_blank"><img src="/images/ig_icon.png" class="social-icon" alt=""></a>
-                        <a v-if="writer.snapchatLink != 'undefined'" :href="'https://snapchat.com/add/' +writer.snapchatLink" target="_blank"><img src="/images/snapchat_icon.png" class="social-icon" alt=""></a>
-                        <a v-if="writer.tiktokLink != 'undefined'" :href="'https://tiktok.com/@' +writer.tiktokLink" target="_blank"><img src="/images/tiktok_icon.png" class="social-icon" alt=""></a>
+                        <a v-if="writer.instagramLink" :href="'https://instagram.com/' +writer.instagramLink" target="_blank"><img src="/images/ig_icon.png" class="social-icon" alt=""></a>
+                        <a v-if="writer.snapchatLink" :href="'https://snapchat.com/add/' +writer.snapchatLink" target="_blank"><img src="/images/snapchat_icon.png" class="social-icon" alt=""></a>
+                        <a v-if="writer.tiktokLink" :href="'https://tiktok.com/@' +writer.tiktokLink" target="_blank"><img src="/images/tiktok_icon.png" class="social-icon" alt=""></a>
                     </div>
                 </div>
                 <div class="bio-box d-flex align-items-center text-start">

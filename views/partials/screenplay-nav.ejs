@@ -4,7 +4,7 @@
             <a :href="'/review/screenplay/details/'+screenplay.id">
             <div class=" screenplay-box">
                 <div class="poster-div">
-                    <img class="poster-img" :src="screenplay.poster_path" alt="">
+                    <img class="poster-img" :src="screenplay.poster_path" alt="" loading="lazy">
                     <div class="circle-wrap">
                         <div class="circle" :style="addkeyframes(screenplay.reviews[screenplay.reviews.length-1])">
                             <div class="mask full">

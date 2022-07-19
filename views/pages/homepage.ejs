@@ -1,9 +1,9 @@
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
-<div id="homepage" v-cloak class="d-flex flex-column justify-content-center">
+<div id="homepage" v-cloak>
     <div class="container-fluid d-flex flex-column justify-content-center" style="max-width: 620px;">
         <div v-for="blog in blogs" class="mt-5">
-            <a :href="'/blog/edit/' +blog.id">
+            <a :href="'/blog/view/' +blog.id">
                 <%- partial('../partials/blog') %>
             </a>
         </div>

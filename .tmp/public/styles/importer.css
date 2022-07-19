@@ -682,67 +682,44 @@ body {
 #view-blog p {
   font-family: 'Revans-medium';
 }
-#view-blog .mobile-timestamp {
-  display: none;
-}
-#view-blog .author-image {
-  height: 100%;
-  width: 40px;
-  float: left;
+#view-blog .author-image-box {
+  height: 47px;
+  width: 20%;
 }
 #view-blog .author-namebox {
-  height: 100%;
-  width: 200px;
-  float: left;
-  padding-top: 8px;
-  text-align: left;
-  padding-left: 8px;
-  font-style: italic;
-  font-weight: 200;
-}
-#view-blog .timestamp-box {
-  font-style: italic;
-  font-weight: 200;
-  height: 100%;
-  width: 200px;
-  float: right;
-  padding-top: 8px;
-  color: #868686;
+  height: 47px;
+  width: 20%;
 }
 #view-blog .share-box {
-  padding-top: 8px;
-  height: 100%;
-  width: 200px;
-  float: right;
-}
-#view-blog .blog-header {
+  width: 20%;
   height: 47px;
-  width: 100%;
-  margin: auto;
-  text-align: center;
-  overflow: hidden;
 }
 #view-blog .score-box {
-  height: 100%;
-  width: 200px;
-  display: inline-block;
-  padding-top: 8px;
-  font-style: italic;
-  font-weight: 200;
+  width: 20%;
+  height: 47px;
+}
+#view-blog .score-box a {
+  text-decoration: underline;
+  color: #0000EE;
+}
+#view-blog .timestamp-box {
+  height: 47px;
+  width: 20%;
+  color: #909090;
+}
+#view-blog .blog-title {
+  font-size: 1.75em;
+  font-weight: 700;
 }
 #view-blog .profile-center-cropped {
   object-position: center;
   /*Center the image within the element*/
   object-fit: cover;
-  width: 100%;
-  height: 100%;
-  border-radius: 24px;
+  width: 45px;
+  height: 45px;
+  border-radius: 100%;
   border: solid 1px #5e5e5e;
   float: left;
-}
-#view-blog .share-box > * {
-  height: 25px;
-  width: 25px;
 }
 #view-blog .vote-box {
   margin-top: 8px;
@@ -751,6 +728,10 @@ body {
   display: block;
   justify-content: center;
   text-align: center;
+}
+#view-blog .submit-box a {
+  text-decoration: underline;
+  color: #0000EE;
 }
 #view-blog .rate {
   float: left;
@@ -802,111 +783,138 @@ body {
 #view-blog .c-text {
   margin-top: 16px;
 }
-@media (max-width: 475px) {
-  #view-blog .mobile-timestamp {
-    display: block;
-    height: 87px;
-    width: 200px;
-    font-weight: 200;
-    font-style: italic;
-    font-size: .65em;
-    padding-top: 2px;
+#view-blog iframe {
+  max-width: 100%;
+}
+#view-blog .twitter-tweet[style] {
+  max-width: 100% !important;
+  width: 100% !important;
+}
+#view-blog .twitter-tweet[style] * {
+  max-width: 100% !important;
+  width: 100% !important;
+}
+#view-blog img[style] {
+  width: 100% !important;
+  height: auto !important;
+}
+#view-blog img {
+  width: 100%;
+  height: auto !important;
+}
+#view-blog table[style] {
+  width: 100% !important;
+  height: auto !important;
+}
+#view-blog iframe.instagram-media {
+  height: 470px !important;
+  max-width: 100% !important;
+  width: 100% !important;
+  min-width: auto !important;
+}
+@media (min-width: 0px) and (max-width: 279px) {
+  #view-blog iframe[height] {
+    height: 130px;
+  }
+  #view-blog table[style] {
+    font-size: .4rem;
+  }
+  #view-blog .author-image-box {
+    font-size: .4rem;
   }
   #view-blog .author-namebox {
-    padding-top: 0px;
-    width: 200px;
+    font-size: .4rem;
   }
   #view-blog .score-box {
-    height: 100%;
-    width: 80px;
-    float: left;
-    padding-top: 8px;
-    font-style: italic;
-    font-weight: 200;
-    font-size: 0.65em;
-    margin-left: 8px;
-    margin: auto;
+    font-size: .4rem;
   }
   #view-blog .timestamp-box {
-    display: none;
-  }
-  #view-blog .share-box {
-    padding-top: 8px;
-    height: 100%;
-    width: 35px;
-    float: right;
-  }
-  #view-blog .submit-box {
-    margin-top: 15px;
-  }
-  #view-blog .comment-box {
-    margin-top: 15px;
-  }
-  #view-blog iframe[width] {
-    width: 100%;
-  }
-  #view-blog iframe[height] {
-    height: 196px;
-  }
-  #view-blog img[style] {
-    max-width: 100% !important;
-    height: auto !important;
-  }
-  #view-blog img {
-    max-width: 100% !important;
-    height: auto !important;
-  }
-  #view-blog iframe.instagram-media {
-    height: 470px !important;
-    max-width: 100% !important;
-    width: 100% !important;
-    min-width: auto !important;
-  }
-  #view-blog table {
-    width: 100% !important;
-  }
-  #view-blog .blog-title {
-    font-size: 1.75em;
-    font-weight: 700;
+    font-size: .4rem;
   }
 }
-@media (max-width: 320px) {
+@media (min-width: 279px) and (max-width: 345px) {
   #view-blog iframe[height] {
-    height: 140px;
+    height: 130px;
   }
-  #view-blog .blog-header {
-    height: 50px;
+  #view-blog table[style] {
+    font-size: .4rem;
   }
-  #view-blog .mobile-timestamp {
-    width: 25px;
-    font-size: .75em;
-  }
-  #view-blog .author-image {
-    width: 40px;
+  #view-blog .author-image-box {
+    font-size: .4rem;
   }
   #view-blog .author-namebox {
-    width: 100px;
-    padding-top: 8px;
-    padding-left: 8px;
-    font-size: .75em;
-  }
-  #view-blog .mobile-timestamp {
-    width: 100px;
-    padding-top: 2px;
-    font-size: .70em;
-  }
-  #view-blog .share-box {
-    padding-top: 8px;
-    width: 25px;
-    font-size: .875em;
+    font-size: .4rem;
   }
   #view-blog .score-box {
-    width: 75px;
-    text-align: right;
+    font-size: .4rem;
   }
-  #view-blog .blog-title {
-    font-size: 1.75em;
-    font-weight: 700;
+  #view-blog .timestamp-box {
+    font-size: .4rem;
+  }
+}
+@media (min-width: 345px) and (max-width: 460px) {
+  #view-blog iframe[height] {
+    height: 180px;
+  }
+  #view-blog table[style] {
+    font-size: .5rem;
+  }
+  #view-blog .author-image-box {
+    font-size: .5rem;
+  }
+  #view-blog .author-namebox {
+    font-size: .5rem;
+  }
+  #view-blog .score-box {
+    font-size: .5rem;
+  }
+  #view-blog .timestamp-box {
+    font-size: .5rem;
+  }
+}
+@media (min-width: 460px) and (max-width: 576px) {
+  #view-blog iframe[height] {
+    height: 220px;
+  }
+  #view-blog .author-image-box {
+    font-size: .55rem;
+  }
+  #view-blog .author-namebox {
+    font-size: .55rem;
+  }
+  #view-blog .score-box {
+    font-size: .55rem;
+  }
+  #view-blog .timestamp-box {
+    font-size: .55rem;
+  }
+}
+@media (min-width: 576px) and (max-width: 882px) {
+  #view-blog .author-image-box {
+    font-size: .6rem;
+  }
+  #view-blog .author-namebox {
+    font-size: .6rem;
+  }
+  #view-blog .score-box {
+    font-size: .6rem;
+  }
+  #view-blog .timestamp-box {
+    font-size: .6rem;
+  }
+}
+@media (min-width: 882px) and (max-width: 1051px) {
+  #view-blog .author-image-box {
+    font-size: .8rem;
+  }
+  #view-blog .author-namebox {
+    font-size: .8rem;
+  }
+  #view-blog .score-box {
+    font-size: .8rem;
+  }
+  #view-blog .timestamp-box {
+    font-size: .8rem;
   }
 }
 #welcome {
@@ -1169,7 +1177,7 @@ body {
     display: inline;
   }
 }
-#screenplay-review-list [v-cloak] {
+#screenplay-review-list-view [v-cloak] {
   display: none;
 }
 #screenplay-review-details-wrapper [v-cloak] {
@@ -1195,6 +1203,10 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+#screenplay-review-details-wrapper .blog-url-box a {
+  color: blue;
+  text-decoration: underline;
 }
 #screenplay-review-details-wrapper .review-date-box {
   height: 22%;
@@ -1963,4 +1975,7 @@ body {
   #blog-css .article-box {
     font-size: 1rem;
   }
+}
+#entertainment [v-cloak] {
+  display: none;
 }

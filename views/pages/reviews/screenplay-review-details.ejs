@@ -135,9 +135,9 @@
             </div>
         </div>
         <div class="d-flex flex-row flex-wrap justify-content-between align-items-start w-75 m-3">
-            <div v-if="screenplay.revenue"class="m-3">Revenue: ${{screenplay.revenue}}</div>
-            <div v-if="screenplay.budget" class="m-3">Budget: {{screenplay.budget}}</div>
-            <div v-if="screenplay.box_office" class="m-3">Runtime: {{screenplay.box_office}}</div>
+            <div v-if="screenplay.revenue"class="m-3">Revenue: {{Intl.NumberFormat('en-US', {style: 'currency',currency:'USD',maximumFractionDigits:0,}).format(screenplay.revenue)}}</div>
+            <div v-if="screenplay.budget" class="m-3">Budget: {{Intl.NumberFormat('en-US', {style: 'currency',currency:'USD',maximumFractionDigits:0,}).format(screenplay.budget)}}</div>
+            <div v-if="screenplay.box_office" class="m-3">Box Office: {{screenplay.box_office}}</div>
         </div>
         <div v-if="screenplay.awards" class="m-3">{{screenplay.awards}}</div>
     </div>

@@ -19,6 +19,7 @@ module.exports = {
             createdFromNow: createdFromNow,
             updatedFromNow: updatedFromNow,
             views: this.views,
+            score: this.rating/this.numberOfRatings
           }
     },
 
