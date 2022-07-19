@@ -34,27 +34,22 @@
 
     instagramLink: {
       type: 'string',
-      defaultsTo: 'undefined'
     },
 
     twitterLink: {
       type: 'string',
-      defaultsTo: 'undefined'
     },
 
     snapchatLink: {
       type: 'string',
-      defaultsTo: 'undefined'
     },
 
     tiktokLink: {
       type: 'string',
-      defaultsTo: 'undefined'
     },
 
     profileImageUrl: {
       type: 'string',
-      defaultsTo: 'undefined'
     },
 
     //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗

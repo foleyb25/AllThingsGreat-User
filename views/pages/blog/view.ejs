@@ -1,9 +1,11 @@
 
-<div id="view-blog" v-cloak style="padding: 24px">
+<div id="view-blog">
+    <div id="app" v-cloak style="padding: 24px;">
     <!-- Blog posts -->
     <div class="w-100 d-flex flex-row justify-content-center">
         <div class="author-image-box mr-2 d-flex justify-content-end align-items-center">
-            <img class="profile-center-cropped" :src="blog.writer.profileImageUrl" alt="profile-image">
+            <img v-if="blog.writer.profileImageUrl" class="profile-center-cropped" :src="blog.writer.profileImageUrl"/>
+            <img v-if="!blog.writer.profileImageUrl" class="profile-center-cropped" src="/images/startup.png"/>
         </div>
         <div class="author-namebox ml-2 d-flex flex-row justify-content-start align-items-center">
             <div v-if="!blog.writer.nickName == '' ">{{blog.writer.nickName}}</div>
@@ -32,7 +34,7 @@
 
     <div class="container-fluid pt-5 pb-5">  
         <H1 class="blog-title">{{blog.title}}</H1>
-        <div id="preview">
+        <div>
             <%- blog.bodyHTML %>
         </div>
     </div>
@@ -108,5 +110,82 @@
         </div>
     </div>
 </div>
+</div>
 
 <%- exposeLocalsToBrowser({keys: ['blog', 'isRated', 'isLoggedIn']}) %>
+
+<script>
+    //IMPORTANT: NED TO KEEP VUE APP IN SCRIPT HERE B/C Instagram media content throws error when trying to render sailsjs rendered vuejs
+const App = new Vue({
+        el: '#app',
+data: {
+        blog: window.SAILS_LOCALS.blog,
+        isRated: window.SAILS_LOCALS.isRated,
+        isLoggedIn: window.SAILS_LOCALS.isLoggedIn,
+    },
+    
+    //  ╦╔╗╔╔╦╗╔═╗╦═╗╔═╗╔═╗╔╦╗╦╔═╗╔╗╔╔═╗
+    //  ║║║║ ║ ║╣ ╠╦╝╠═╣║   ║ ║║ ║║║║╚═╗
+    //  ╩╝╚╝ ╩ ╚═╝╩╚═╩ ╩╚═╝ ╩ ╩╚═╝╝╚╝╚═╝
+    methods: {
+        submitRating: async function() {
+            var score = 0;
+            $('#rating-container').find('input').each(function () {
+                if(!this.checked && this.value == '1') {
+                    score = 0;
+                }
+                if(this.checked) {
+                    score = parseInt(this.value)
+                    return false
+                } 
+            });
+            const formData = new FormData()
+            formData.append("userRating", score)
+            formData.append('blogRating', this.blog.rating)
+            formData.append('numberOfRatings', this.blog.numberOfRatings)
+            formData.append('blogId', this.blog.id)
+            try {
+                await axios.put('/blog/submitrating', formData)
+                location.reload()
+                $("#rating-container :input").attr("disabled", this.isRated);
+            } catch (err) {
+                console.error(err.toString())
+            }
+        },
+        clear: function() {
+            $('#rating-container').find('input').each(function () {
+                this.checked = false
+            });
+        },
+        upvote: async function(commentid) {
+            const formData = new FormData()
+            formData.append('commentid', commentid)
+            try {
+                $("#upvote"+commentid).attr("disabled", true);
+                await axios.put('/comment/upvote', formData)
+                const downval = $("#upvotecount"+commentid).text();
+                var val = parseInt(downval)
+                val += 1
+                $("#upvotecount"+commentid).text(val);
+            } catch (err) {
+                console.error(err.toString())
+            }
+        },
+        downvote: async function(commentid) {
+            const formData = new FormData()
+            formData.append('commentid', commentid)
+            try {
+                $("#downvote"+commentid).attr("disabled", true);
+                await axios.put('/comment/downvote', formData)
+                const downval = $("#downvotecount"+commentid).text();
+                var val = parseInt(downval)
+                val += 1
+                $("#downvotecount"+commentid).text(val);
+            } catch (err) {
+                console.error(err.toString())
+            }
+        }
+
+    },
+})
+</script>
