@@ -1,0 +1,19 @@
+<div id="screenplay-review-list-view" v-cloak>
+  <%- partial('../../partials/screenplay-nav', {}) %>
+    <div class="d-flex flex-row flex-wrap justify-content-center mt-5">
+        <div v-for="screenplay in screenplays">
+          <a :href="'/review/screenplay/details/'+screenplay.id">
+            <%- partial('../../partials/screenplay-list') %>
+          </a>
+        </div>
+    </div>
+    <div class='paginate-container'>
+        <div v-if="!isMore" class="text-center">No More Screenplays To Show</div>
+        <button v-if="isMore"class="btn btn-info"v-on:click="paginate()">Load More</button>
+    </div>
+</div>
+
+<%- exposeLocalsToBrowser({keys: ['screenplays', 'moreScreenplays', 'pageNum', 'isMore', 'navScreenplays']}) %>
+  
+
+  

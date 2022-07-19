@@ -70,6 +70,8 @@ module.exports = {
       * https://sailsjs.com/config/datastores                                     *
       *                                                                           *
       ****************************************************************************/
+       adapter: 'sails-mongo',
+       url: 'mongodb://drsourceadmin:B184you2!@cluster0-shard-00-00.ygsuq.mongodb.net:27017,cluster0-shard-00-01.ygsuq.mongodb.net:27017,cluster0-shard-00-02.ygsuq.mongodb.net:27017/ATGDB?ssl=true&replicaSet=atlas-11hj13-shard-0&authSource=admin&retryWrites=true&w=majority',
       ssl: true,
 
     },
@@ -248,6 +250,7 @@ module.exports = {
     ***************************************************************************/
     onlyAllowOrigins: [
       'https://www.allthingsgreat.com',
+      'https://allthingsgreat.com',
     ],
 
 
@@ -367,7 +370,7 @@ module.exports = {
   ***************************************************************************/
   custom: {
     baseUrl: 'https://www.allthingsgreat.com',
-    internalEmailAddress: 'customer_service@allthingsgreat.com',
+    internalEmailAddress: 'support@allthingsgreat.com',
 
     // sendgridSecret: 'SG.fake.3e0Bn0qSQVnwb1E4qNPz9JZP5vLZYqjh7sn8S93oSHU',
     // stripeSecret: 'sk_prod__fake_Nfgh82401348jaDa3lkZ0d9Hm',

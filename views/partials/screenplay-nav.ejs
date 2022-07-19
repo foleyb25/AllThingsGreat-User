@@ -1,0 +1,32 @@
+<div id="screenplay-nav" class="mt-2">
+    <div class="horizontal-scroller">
+        <div class="screenplay-container" v-for="screenplay in navScreenplays">
+            <a :href="'/review/screenplay/details/'+screenplay.id">
+            <div class=" screenplay-box">
+                <div class="poster-div">
+                    <img class="poster-img" :src="screenplay.poster_path" alt="" loading="lazy">
+                    <div class="circle-wrap">
+                        <div class="circle" :style="addkeyframes(screenplay.reviews[screenplay.reviews.length-1])">
+                            <div class="mask full">
+                                <div class="fill"></div>
+                            </div>
+                            <div class="mask half">
+                                <div class="fill"></div>
+                            </div> 
+                        </div>
+                        <div class="inside-circle" :style="'background-image: url('+screenplay.reviews[screenplay.reviews.length-1].writer.profileImageUrl+'), url(/images/startup.png);'">
+                            {{screenplay.reviews[screenplay.reviews.length-1].score}}
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="nav-title-box">
+                    {{screenplay.title}}
+                </div>
+            </div>
+        </a>
+        </div>
+        <a class="arrow fa fa-arrow-right fa-2x" href="/review/screenplays">
+        </a>
+    </div>
+</div>

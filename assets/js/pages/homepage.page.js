@@ -7,6 +7,7 @@ parasails.registerPage('homepage', {
     pageNum: window.SAILS_LOCALS.pageNum,
     moreBlogs: window.SAILS_LOCALS.moreBlogs,
     isMore: window.SAILS_LOCALS.isMore,
+    screenplayReviewList: window.SAILS_LOCALS.screenplayList,
   },
 
   //  ╦  ╦╔═╗╔═╗╔═╗╦ ╦╔═╗╦  ╔═╗
@@ -37,7 +38,18 @@ parasails.registerPage('homepage', {
       } catch (err) {
           console.error(err.toString())
       }
-  }
+  },
 
+  search: async function() {
+    const searchString = document.querySelector("input[name=search]").value
+    const formData = new FormData()
+    formData.append('searchString', searchString)
+    try {
+      const res = await axios.put('/entertainment/search', formData)
+      this.movieList = res.data.movieList
+  } catch (err) {
+      console.error(err.toString())
+  }
+  }
   }
 });

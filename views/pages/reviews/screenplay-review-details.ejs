@@ -1,0 +1,147 @@
+<div id="screenplay-review-details-wrapper">
+<div id="screenplay-review-details" v-cloak>
+  <%- partial('../../partials/screenplay-nav', {}) %>
+  <div class="screenplay-details-view">
+    <div class="poster-box">
+        <img :src="'https://image.tmdb.org/t/p/original'+screenplay.poster_path" alt="" class="screenplay-image-box">
+    </div>
+    <div class="title-box" v-if="screenplay.title">
+        {{screenplay.title}}
+    </div>
+    <div class="horizontal-scroller">
+        <div class="scroll-item" v-for="review in screenplay.reviews">
+            <div class="scroll-item-container">
+                <div class="reviewer-box" >
+                    <div class="circle-wrap" >
+                        <div class="circle" :style="addkeyframes(review)">
+                            <div class="mask full">
+                                <div class="fill"></div>
+                            </div>
+                            <div class="mask half">
+                                <div class="fill"></div>
+                            </div>
+                        </div>
+                        <div class="inside-circle" :style="'background-image: url('+review.writer.profileImageUrl+'), url(/images/startup.png);'">
+                            {{review.score}}
+                        </div>
+                    </div>
+                </div>
+                <div v-if="review.writer.nickName!=''"class="writer-name-box">
+                    {{review.writer.nickName}}
+                </div>
+                <div v-if="review.writer.nickName==''"class="writer-name-box">
+                    {{review.writer.fullName}}
+                </div>
+                <div class="review-date-box">
+                    {{review.createdFromNow}}
+                </div>
+                <div v-if="review.blog_url!=''"class="blog-url-box">
+                    <a :href="review.blog_url" target="_blank">Blog</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="divider-category">Additional Scores:</div>
+    <hr class="divider">
+    <div class="horizontal-scroller">
+
+        <div v-if="screenplay.imdb_score" class="external-score-wrapper">
+            <div class="d-flex justify-content-center align-items-center">
+                <div class="external-score-box">
+                    <a href="https://www.imdb.com/" target="_blank">
+                        <img class="imdb-logo" src="/images/movie_website_logos/imdb_logo.png" alt="">
+                    </a>
+                    <div>{{screenplay.imdb_score}}</div>
+                </div>
+            </div>
+        </div>
+        
+        <div v-if="screenplay.tmdb_score" class="external-score-wrapper">
+            <div class="d-flex justify-content-center align-items-center">
+            <div class="external-score-box">
+                <a href="https://www.themoviedb.org/" target="_blank">
+                    <img class="tmdb-logo"src="/images/movie_website_logos/tmdb_logo.png" alt="">
+                </a>
+                <div>{{(screenplay.tmdb_score)*10}}%</div>
+            </div>
+        </div>
+        </div>
+        
+        <div v-if="screenplay.metacritic_score"class="external-score-wrapper">
+            <div class="d-flex justify-content-center align-items-center">
+            <div class="external-score-box">
+                <a href="https://www.metacritic.com/" target="_blank">
+                    <img class="metacritic-logo" src="/images/movie_website_logos/metacritic_logo.png" alt="">
+                </a>
+                <div>{{screenplay.metacritic_score}}</div>
+            </div>
+        </div>
+        </div>
+        
+        <div v-if="screenplay.rotten_score" class="external-score-wrapper">
+            <div class="d-flex justify-content-center align-items-center">
+            <div class="external-score-box">
+                <a href="https://www.rottentomatoes.com/" style="text-decoration: none;" target="_blank">
+                    <img class="rotten-logo" src="/images/movie_website_logos/rotten_tomatoes_logo.png" alt="">
+                </a>
+                <div>{{screenplay.rotten_score}}</div>
+            </div>
+        </div>
+        </div>
+    </div>
+    <div class="divider-category">Where To Watch:</div>
+    <hr class="divider">
+    <div v-if="screenplay.services.length > 0"class="service-scroller">
+        <div v-for="service in screenplay.services"class="service-item">
+                <img :src="service.logo_url" class="service-logo" alt="">
+        </div>
+    </div>
+    <div v-if="screenplay.services.length < 1">
+        Not finding any streaming services here. Check out <span><a href="https://www.justwatch.com/" target="_blank">JustWatch</a></span> For more details
+    </div>
+    <div class="divider-category">Overview:</div>
+    <hr class="divider">
+    <div class="overview-box">
+        <div>{{screenplay.overview}}</div>
+    </div>
+    <div class="divider-category">Details:</div>
+    <hr class="divider">
+    <div class="d-flex flex-column flex-wrap justify-content-center align-items-center w-75">
+        <div class="d-flex flex-row flex-wrap justify-content-between align-items-start w-75 m-3">
+            <div class="w-25"v-if="screenplay.releasedate" class="m-3">Release: {{screenplay.releasedate}}</div>
+            <div class="w-25"v-if="screenplay.runtime" class="m-3">Runtime: {{screenplay.runtime}}</div>
+            <div class="w-25"v-if="screenplay.num_seasons"class="m-3">Number of Seasons: {{screenplay.num_seasons}}</div>
+        </div>
+        <div class="d-flex flex-row flex-wrap justify-content-between align-items-start w-75 m-3">
+            <div class="w-25"v-if="screenplay.homepage_url"class="m-3"><a :href="screenplay.homepage_url" style="font-style: underline; color:blue" target="_blank">Homepage</a></div>
+            <div class="w-25"v-if="screenplay.media_type" class="m-3">Type: {{screenplay.media_type}}</div>
+            <div class="w-25"v-if="screenplay.genre" class="m-3">Genre: 
+                <div v-for="genre in screenplay.genre.split(',')">
+                    <div>{{genre}}</div>
+                </div>
+            </div>
+        </div>
+        <div class="d-flex flex-row flex-wrap justify-content-between align-items-start w-75 m-3">
+            <div class="w-25"v-if="screenplay.director || screenplay.director != 'N/A'" class="m-3">Director: {{screenplay.director}}</div>
+            <div class="w-25"v-if="screenplay.writers" class="m-3">Writers: 
+                <div v-for="name in screenplay.writers.split(',')">
+                    <div>{{name}}</div>
+                </div>
+            </div>
+            <div class="w-25"v-if="screenplay.actors" class="m-3">Actors:
+                <div v-for="name in screenplay.actors.split(',')">
+                    <div>{{name}}</div>
+                </div>
+            </div>
+        </div>
+        <div class="d-flex flex-row flex-wrap justify-content-between align-items-start w-75 m-3">
+            <div v-if="screenplay.revenue"class="m-3">Revenue: {{Intl.NumberFormat('en-US', {style: 'currency',currency:'USD',maximumFractionDigits:0,}).format(screenplay.revenue)}}</div>
+            <div v-if="screenplay.budget" class="m-3">Budget: {{Intl.NumberFormat('en-US', {style: 'currency',currency:'USD',maximumFractionDigits:0,}).format(screenplay.budget)}}</div>
+            <div v-if="screenplay.box_office" class="m-3">Box Office: {{screenplay.box_office}}</div>
+        </div>
+        <div v-if="screenplay.awards" class="m-3">{{screenplay.awards}}</div>
+    </div>
+    <hr class="w-75 divider">
+  </div>
+</div> 
+<%- exposeLocalsToBrowser({keys: ['screenplay', 'navScreenplays']}) %>

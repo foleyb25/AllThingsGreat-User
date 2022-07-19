@@ -36,7 +36,6 @@ module.exports = {
               'X-RapidAPI-Host': 'sportspage-feeds.p.rapidapi.com'
             }
           };
-          
           axios.request(options).then(function (response) {
               // console.log(response.data);
               // sails.config.globals.scores = response.data

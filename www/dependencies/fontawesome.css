@@ -744,7 +744,7 @@
 .fa-strikethrough:before {
   content: "\f0cc";
 }
-.fa-"underline":before {
+.fa-underline:before {
   content: "\f0cd";
 }
 .fa-table:before {

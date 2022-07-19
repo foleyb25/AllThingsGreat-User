@@ -1,0 +1,137 @@
+#screenplay-nav {
+
+  :root {
+    --nav-deg: 0deg;
+    --nav-bg-color: #ba2200;
+    --nav-bg-gradient: '',
+  }
+
+  .arrow {
+    display: inline-block;
+    text-align: center;
+    position: relative;
+    bottom: 5%;
+    margin-left: 10px;
+    color: #000000;
+  }
+  
+
+  .horizontal-scroller {
+      background-color: rgb(255, 255, 255);
+      overflow-y: hidden;
+      overflow-x: auto;
+      white-space: nowrap;
+      height: 182px;
+      align-items: center;
+      margin: auto;
+      width: 100%;
+    }
+    
+    .screenplay-container {
+      display: inline-block;
+      text-align: center;
+      border: 1px solid rgb(0, 0, 0);
+      border-radius: 8px;
+      font-size: .5rem;
+      margin: 2px;
+      justify-content: center;
+    }
+    
+    .screenplay-box {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 175px;
+      width: 115px;
+    }
+
+    .nav-title-box {
+      color: rgb(0, 0, 0);
+      height: 40px;
+      font-style: italic;
+      font-weight: 700;
+      word-wrap: break-all;
+      white-space: normal;
+      margin: 4px 5px;
+    }
+      
+    .poster-div {
+      margin: 6px auto;
+      position: relative;
+      height: 100px;
+    }
+    
+    .poster-img {
+      height: 100px;
+      width: auto;
+      border: 1px solid black
+    }
+    
+    .circle-wrap {
+      position: absolute;
+      top: 0px;
+      left: 7px;
+      color:white;
+      margin: 25px auto;
+      width: 50px;
+      height: 50px;
+      background: #cdcdcd;
+      border-radius: 100%;
+      border: 1px solid #000000;
+    }
+    
+    .circle-wrap .circle .mask,
+    .circle-wrap .circle .fill {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      border-radius: 100%;
+      bottom: .1px;
+    }
+    
+    .mask .fill {
+      clip: rect(0px, 25px, 50px, 0px);
+      background-image: var(--nav-bg-gradient)
+    }
+    
+    .mask.full,
+    .circle .fill {
+      animation: nav-fill ease-in-out 3s;
+      transform: rotate(var(--nav-deg));
+    }
+    
+    .circle-wrap .circle .mask {
+      clip: rect(0px, 50px, 50px, 24px);
+    }
+    
+    .circle-wrap .inside-circle {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #d2eaf1;
+      line-height: 40px;
+      text-align: center;
+      margin-top: 4px;
+      margin-left: 4px;
+      color: #dbdbdb;
+      position: absolute;
+      z-index: 100;
+      font-weight: 700;
+      font-size: 2em;
+      background-repeat: no-repeat; 
+      background-size: 50px 50px; 
+      background-color: rgba(0, 0, 0, 0.27);
+      background-blend-mode: multiply;
+      background-position: center;
+    }
+
+    @keyframes nav-fill{
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(var(--nav-deg));
+    }
+  }
+
+}

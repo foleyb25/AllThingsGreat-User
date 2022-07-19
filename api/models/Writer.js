@@ -22,6 +22,12 @@
 
   attributes: {
 
+    reviews: {
+      collection: 'screenplayreview',
+      via: 'writer',
+    },
+
+
     bio: {
       type: 'string'
     },
