@@ -1,3 +1,5 @@
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
 <div id="screenplay-review-list-view" v-cloak>
   <%- partial('../../partials/screenplay-nav', {}) %>
     <div class="d-flex flex-row flex-wrap justify-content-center mt-5">
@@ -7,7 +9,7 @@
           </a>
         </div>
     </div>
-    <div class='paginate-container'>
+    <div class='paginate-container d-flex flex-column justify-content-center align-items-center'>
         <div v-if="!isMore" class="text-center">No More Screenplays To Show</div>
         <button v-if="isMore"class="btn btn-info"v-on:click="paginate()">Load More</button>
     </div>

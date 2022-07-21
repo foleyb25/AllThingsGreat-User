@@ -84,7 +84,7 @@ module.exports.routes = {
   'GET /history': 'history/home',
 
   'GET /review/screenplays': 'reviews/screenplay-review-list',
-  'GET /review/screenplays/paginate': 'reviews/screenplay-review-list-paginate',
+  'PUT /review/screenplays/paginate': {action: 'reviews/screenplay-review-list-paginate', csrf: false},
   'GET /review/screenplay/details/:id': 'reviews/screenplay-review-details',
 
   'POST /comment/blog/:id': {action: 'comment/create', csrf: false},

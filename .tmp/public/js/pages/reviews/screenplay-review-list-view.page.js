@@ -32,7 +32,7 @@ parasails.registerPage('screenplay-review-list-view', {
         try {
             const res = await axios.put('/review/screenplays/paginate', formData)
             this.isMore = res.data.isMore
-            this.screenplays.push.apply(this.blogs, res.data.moreScreenplays)
+            this.screenplays.push.apply(this.screenplays, res.data.moreScreenplays)
             this.pageNum = nextPage
         } catch (err) {
             console.error(err.toString())

@@ -681,6 +681,7 @@ body {
 }
 #view-blog p {
   font-family: 'Revans-medium';
+  width: 100%;
 }
 #view-blog .author-image-box {
   height: 47px;
@@ -786,14 +787,6 @@ body {
 #view-blog iframe {
   max-width: 100%;
 }
-#view-blog .twitter-tweet[style] {
-  max-width: 100% !important;
-  width: 100% !important;
-}
-#view-blog .twitter-tweet[style] * {
-  max-width: 100% !important;
-  width: 100% !important;
-}
 #view-blog img[style] {
   width: 100% !important;
   height: auto !important;
@@ -806,11 +799,8 @@ body {
   width: 100% !important;
   height: auto !important;
 }
-#view-blog iframe.instagram-media {
-  height: 470px !important;
-  max-width: 100% !important;
-  width: 100% !important;
-  min-width: auto !important;
+#view-blog .instagram-media {
+  border-radius: 25px !important;
 }
 @media (min-width: 0px) and (max-width: 279px) {
   #view-blog iframe[height] {
@@ -830,6 +820,9 @@ body {
   }
   #view-blog .timestamp-box {
     font-size: .4rem;
+  }
+  #view-blog .instagram-media {
+    height: 725px !important;
   }
 }
 @media (min-width: 279px) and (max-width: 345px) {
@@ -851,6 +844,9 @@ body {
   #view-blog .timestamp-box {
     font-size: .4rem;
   }
+  #view-blog .instagram-media {
+    height: 725px !important;
+  }
 }
 @media (min-width: 345px) and (max-width: 460px) {
   #view-blog iframe[height] {
@@ -871,6 +867,9 @@ body {
   #view-blog .timestamp-box {
     font-size: .5rem;
   }
+  #view-blog .instagram-media {
+    height: 825px !important;
+  }
 }
 @media (min-width: 460px) and (max-width: 576px) {
   #view-blog iframe[height] {
@@ -888,6 +887,9 @@ body {
   #view-blog .timestamp-box {
     font-size: .55rem;
   }
+  #view-blog .instagram-media {
+    height: 970px !important;
+  }
 }
 @media (min-width: 576px) and (max-width: 882px) {
   #view-blog .author-image-box {
@@ -902,6 +904,9 @@ body {
   #view-blog .timestamp-box {
     font-size: .6rem;
   }
+  #view-blog .instagram-media {
+    height: 970px !important;
+  }
 }
 @media (min-width: 882px) and (max-width: 1051px) {
   #view-blog .author-image-box {
@@ -915,6 +920,9 @@ body {
   }
   #view-blog .timestamp-box {
     font-size: .8rem;
+  }
+  #view-blog .instagram-media {
+    height: 970px !important;
   }
 }
 #welcome {
