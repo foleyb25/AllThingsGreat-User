@@ -3,7 +3,11 @@ parasails.registerPage('homepage', {
   //  ║║║║║ ║ ║╠═╣║    ╚═╗ ║ ╠═╣ ║ ║╣
   //  ╩╝╚╝╩ ╩ ╩╩ ╩╩═╝  ╚═╝ ╩ ╩ ╩ ╩ ╚═╝
   data: {
-    heroHeightSet: false,
+    blogs: window.SAILS_LOCALS.blogs,
+    pageNum: window.SAILS_LOCALS.pageNum,
+    moreBlogs: window.SAILS_LOCALS.moreBlogs,
+    isMore: window.SAILS_LOCALS.isMore,
+    screenplayReviewList: window.SAILS_LOCALS.screenplayList,
   },
 
   //  ╦  ╦╔═╗╔═╗╔═╗╦ ╦╔═╗╦  ╔═╗
@@ -14,31 +18,38 @@ parasails.registerPage('homepage', {
     _.extend(this, SAILS_LOCALS);
   },
   mounted: async function(){
-    this._setHeroHeight();
+
   },
 
   //  ╦╔╗╔╔╦╗╔═╗╦═╗╔═╗╔═╗╔╦╗╦╔═╗╔╗╔╔═╗
   //  ║║║║ ║ ║╣ ╠╦╝╠═╣║   ║ ║║ ║║║║╚═╗
   //  ╩╝╚╝ ╩ ╚═╝╩╚═╩ ╩╚═╝ ╩ ╩╚═╝╝╚╝╚═╝
   methods: {
+    paginate: async function()  {
+      console.log("Paginate")
+      const nextPage = this.pageNum + 1
+      const formData = new FormData()
+      formData.append('pageNum', nextPage)
+      try {
+          const res = await axios.put('/paginate', formData)
+          this.isMore = res.data.isMore
+          this.blogs.push.apply(this.blogs, res.data.moreBlogs)
+          this.pageNum = nextPage
+      } catch (err) {
+          console.error(err.toString())
+      }
+  },
 
-    clickHeroButton: async function() {
-      // Scroll to the 'get started' section:
-      $('html, body').animate({
-        scrollTop: this.$find('[role="scroll-destination"]').offset().top
-      }, 500);
-    },
-
-    // Private methods not tied to a particular DOM event are prefixed with _
-    _setHeroHeight: function() {
-      var $hero = this.$find('[full-page-hero]');
-      var headerHeight = $('#page-header').outerHeight();
-      var heightToSet = $(window).height();
-      heightToSet = Math.max(heightToSet, 500);//« ensure min height of 500px - header height
-      heightToSet = Math.min(heightToSet, 1000);//« ensure max height of 1000px - header height
-      $hero.css('min-height', heightToSet - headerHeight+'px');
-      this.heroHeightSet = true;
-    },
-
+  search: async function() {
+    const searchString = document.querySelector("input[name=search]").value
+    const formData = new FormData()
+    formData.append('searchString', searchString)
+    try {
+      const res = await axios.put('/entertainment/search', formData)
+      this.movieList = res.data.movieList
+  } catch (err) {
+      console.error(err.toString())
+  }
+  }
   }
 });
