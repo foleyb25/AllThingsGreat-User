@@ -18,8 +18,7 @@ module.exports = async function(req,res) {
           cnnfeargreedData = await sails.helpers.cnn.getfeargreed()
           feargreedData = {crypto: alternativefeargreedData, stocks: cnnfeargreedData}
           feargreedData.lastUpdated = Date.now()
-          feargreedData.nextUpdate = Date.now()
-          // feargreedData.nextUpdate = Date.now() + (cacheDuration*60_000)
+          feargreedData.nextUpdate = Date.now() + (cacheDuration*60000)
 
           if (feargreedData.crypto.value > -1 && feargreedData.crypto.value < 16) {
             feargreedData.cryptoIndicator = "Extreme Fear"
@@ -55,7 +54,7 @@ module.exports = async function(req,res) {
             feargreedData.stockIndicatorColor = "darkgreen"
           }
 
-          mcache.put(cacheKey, feargreedData, cacheDuration * 60_000)
+          mcache.put(cacheKey, feargreedData, cacheDuration * 60000)
         }
         feargreedData.last_updated_moment = sails.moment(feargreedData.lastUpdated).fromNow()
         feargreedData.time_until_update_moment = sails.moment(feargreedData.nextUpdate).fromNow()
