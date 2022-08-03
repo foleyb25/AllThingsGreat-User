@@ -2019,6 +2019,7 @@ body {
   height: 28.74%;
   width: 15%;
   background-color: #13ceff;
+  color: #3c3c3c;
   border: 0.1vw solid #000000;
   border-radius: 100%;
   display: flex;
@@ -2038,8 +2039,8 @@ body {
   top: 55%;
   height: 19.44%;
   width: 10%;
-  background-color: #000000;
-  color: #ffffff;
+  background-color: white;
+  color: #3c3c3c;
   border: 0.1vw solid #606060;
   border-radius: 100%;
   display: flex;

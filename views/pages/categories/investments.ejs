@@ -13,11 +13,20 @@
             </div>
             <div v-if="!showDetails" class="fa fa-angle-down" style="height: 30px; width: 85%; text-align: center" @click="toggleDetails()"></div>
             <Transition name="bounce">
-                <div v-if="showDetails" id="fear-greed-details" class="fear-greed-details-container mt-2 pr-1 pl-1 d-flex flex-column justify-content-center align-items-start" @click="toggleDetails()">
-                    <div class="text-center"><span style="color: black; background-color: #13ceff;">Crypto:</span>      <span :style="'background-color:'+feargreedData.cryptoIndicatorColor"> {{feargreedData.cryptoIndicator}}</span></div>
-                    <div class="text-center"><span style="color: white; background-color: black">Stocks:</span>      <span :style="'background-color:'+feargreedData.stockIndicatorColor"> {{feargreedData.stockIndicator}}</span></div>
-                    <div class="text-center">Last Updated: {{feargreedData.last_updated_moment}}</div>
-                    <div class="text-center">Next Update: {{feargreedData.time_until_update_moment}}</div>
+                <div v-if="showDetails" id="fear-greed-details" class="fear-greed-details-container mt-2 pr-1 pl-1 d-flex flex-row justify-content-center align-items-start" @click="toggleDetails()">
+                    <div class="label-box d-flex flex-column justify-content-start align-items-start">
+                        <div class="text-center m-1"><span class="pl-1 pr-1" style="color: black; background-color: #13ceff; border-radius: 2px; border: 1px solid rgb(86, 86, 86);">Cryptocurrency:</span></div>
+                        <div class="text-center m-1"><span class="pl-1 pr-1" style="color: white; background-color: black; border-radius: 2px; border: 1px solid rgb(86, 86, 86);">Stock Market:</span></div>
+                        <div class="text-center m-1">Last Updated: </div>
+                        <div class="text-center m-1">Next Update: </div>
+                    </div>
+                    <div class="valuebox d-flex flex-column justify-content-start align-items-start">
+                        <div class="m-1"><span class="pl-1 pr-1" :style="'background-color:'+feargreedData.cryptoIndicatorColor" style="border-radius: 2px; border: 1px solid rgb(86, 86, 86);"> {{feargreedData.cryptoIndicator}}</span></div>
+                        <div class="m-1"><span class="pl-1 pr-1" :style="'background-color:'+feargreedData.stockIndicatorColor" style="border-radius: 2px; border: 1px solid rgb(86, 86, 86);"> {{feargreedData.stockIndicator}}</span></div>
+                        <div class="m-1" style="font-style: italic; color: #818181;">{{feargreedData.last_updated_moment}}</div>
+                        <div class="m-1" style="font-style: italic; color: #818181;">{{feargreedData.time_until_update_moment}}</div>
+                    </div>
+                          
                 </div>
             </Transition>
             
