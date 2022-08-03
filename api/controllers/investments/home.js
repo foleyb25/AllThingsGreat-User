@@ -19,6 +19,7 @@ module.exports = async function(req,res) {
           feargreedData = {crypto: alternativefeargreedData, stocks: cnnfeargreedData}
           feargreedData.lastUpdated = Date.now()
           feargreedData.nextUpdate = Date.now() + (cacheDuration*60_000)
+          
           if (feargreedData.crypto.value > -1 && feargreedData.crypto.value < 16) {
             feargreedData.cryptoIndicator = "Extreme Fear"
             feargreedData.cryptoIndicatorColor = "red"
