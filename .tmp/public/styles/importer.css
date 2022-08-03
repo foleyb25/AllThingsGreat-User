@@ -2054,7 +2054,7 @@ body {
 }
 #investments-css .fear-greed-details-container {
   border: 1px solid black;
-  width: 85%;
+  max-width: 85%;
   font-size: clamp(0.43rem, 1.5vw, 0.77rem);
 }
 #investments-css .pointer {

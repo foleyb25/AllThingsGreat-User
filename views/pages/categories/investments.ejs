@@ -13,9 +13,9 @@
             </div>
             <div v-if="!showDetails" class="fa fa-angle-down" style="height: 30px; width: 85%; text-align: center" @click="toggleDetails()"></div>
             <Transition name="bounce">
-                <div v-if="showDetails" id="fear-greed-details" class="fear-greed-details-container mt-2 pr-1 pl-1 d-flex flex-row justify-content-between align-items-center" @click="toggleDetails()">
-                    <div class="text-center"><span style="color: black; background-color: #13ceff;">Crypto:</span >  <span :style="'background-color:'+feargreedData.cryptoIndicatorColor"> {{feargreedData.cryptoIndicator}}</span></div>
-                    <div class="text-center"><span style="color: white; background-color: black">Stocks:</span>  <span :style="'background-color:'+feargreedData.stockIndicatorColor"> {{feargreedData.stockIndicator}}</span></div>
+                <div v-if="showDetails" id="fear-greed-details" class="fear-greed-details-container mt-2 pr-1 pl-1 d-flex flex-column justify-content-center align-items-start" @click="toggleDetails()">
+                    <div class="text-center"><span style="color: black; background-color: #13ceff;">Crypto:</span>      <span :style="'background-color:'+feargreedData.cryptoIndicatorColor"> {{feargreedData.cryptoIndicator}}</span></div>
+                    <div class="text-center"><span style="color: white; background-color: black">Stocks:</span>      <span :style="'background-color:'+feargreedData.stockIndicatorColor"> {{feargreedData.stockIndicator}}</span></div>
                     <div class="text-center">Last Updated: {{feargreedData.last_updated_moment}}</div>
                     <div class="text-center">Next Update: {{feargreedData.time_until_update_moment}}</div>
                 </div>
