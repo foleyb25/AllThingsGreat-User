@@ -1,0 +1,171 @@
+#investments-css {
+    :root {
+        --big-pointer-deg: 0deg;
+        --little-pointer-deg: 0deg;
+      }
+
+    .info-button {
+        position: absolute;
+        left: 90%;
+        height: 10%;
+        width: 5%;
+        background-color: black;
+        color: white;
+        border: .3vw solid rgb(104, 104, 104);
+        border-radius: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: clamp(.5rem, 3vw, 1rem);
+
+    }
+
+    .primary-value-box {
+        position: absolute;
+        left: 54%;
+        top: 50%;
+        height: 28.74%;
+        width: 15%;
+        background-color: @brand-blue;
+        border: .1vw solid rgb(0, 0, 0);
+        border-radius: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 3vw;
+    }
+
+    .primary-value-box:hover{
+        z-index: 100;
+    }
+
+    .secondary-value-box:hover {
+        z-index: 100;
+    }
+
+    .secondary-value-box {
+        position: absolute;
+        left: 30%;
+        top: 55%;
+        height: 19.44%;
+        width: 10%;
+        background-color: rgb(0, 0, 0);
+        color: rgb(255, 255, 255);
+        border: .1vw solid rgb(96, 96, 96);
+        border-radius: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 2vw;
+    }
+
+      .fear-greed-container {
+        width: 85%;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .fear-greed-details-container {
+        border: 1px solid black;
+        width: 85%;
+        font-size: clamp(.43rem, 1.5vw, .77rem);
+    }
+
+    .pointer {
+        border: 1px solid black;
+        position: absolute;
+        background-color: @brand-blue;
+        width: 35%;
+        height: 3%;
+        border-radius: 10px;
+        left: 15%;
+        top: 94%;
+        transform: rotate(var(--big-pointer-deg));
+        transform-origin: 100% 50%;
+        overflow: hidden;
+        animation: ponter-rotate ease-in-out 2s;
+    }
+
+    @keyframes ponter-rotate {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        50% {
+            transform: rotate(180deg);
+        }
+
+        100% {
+            transform: rotate(var(--big-pointer-deg));
+        }
+    }
+
+    .pointer-two {
+        border: 1px solid black;
+        position: absolute;
+        background-color: rgb(0, 0, 0);
+        width: 20%;
+        height: 3%;
+        border-radius: 10px;
+        left: 30%;
+        top: 94%;
+        transform: rotate(var(--little-pointer-deg));
+        transform-origin: 100% 50%;
+        overflow: hidden;
+        animation: ponter-two-rotate ease-in-out 2s;
+    }
+
+    @keyframes ponter-two-rotate {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        50% {
+            transform: rotate(180deg);
+        }
+
+        100% {
+            transform: rotate(var(--little-pointer-deg));
+        }
+    }
+
+    .bounce-enter-active {
+        animation: bounce-in 0.5s;
+    }
+
+    .bounce-leave-active {
+    animation: bounce-in 0.5s reverse;
+    }
+
+    @keyframes bounce-in {
+    0% {
+        transform: scale(0);
+    }
+    50% {
+        transform: scale(1.25);
+    }
+    100% {
+        transform: scale(1);
+    }
+    }
+
+    .modal-container {
+        width: 100%; height: 100%;
+        top: 0; left: 0;
+        position: fixed;
+        padding-top: 5px;
+        background-color: rgba(0, 0, 0, 0.8)
+    }
+
+    .modal-form {
+        margin: auto; background-color: white; 
+        width: 95%; padding: 16px;
+        border-radius: 5px
+    }
+
+    @media  (min-width: 0px) and (max-width: 320px) {
+        .modal-container {
+            font-size: .6rem;
+        }
+    }
+}
