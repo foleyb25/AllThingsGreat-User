@@ -1,6 +1,6 @@
 module.exports = async function(req,res) {
   var mcache = require('memory-cache')
-  let cacheKey = "cacheKey"
+  var cacheKey = "cacheKey"
   var alternativefeargreedData
   var cnnfeargreedData
   var feargreedData
@@ -18,6 +18,7 @@ module.exports = async function(req,res) {
           cnnfeargreedData = await sails.helpers.cnn.getfeargreed()
           feargreedData = {crypto: alternativefeargreedData, stocks: cnnfeargreedData}
           feargreedData.lastUpdated = Date.now()
+          feargreedData.nextUpdate = Date.now()
           // feargreedData.nextUpdate = Date.now() + (cacheDuration*60_000)
 
           if (feargreedData.crypto.value > -1 && feargreedData.crypto.value < 16) {
