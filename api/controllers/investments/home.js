@@ -7,7 +7,7 @@ module.exports = async function(req,res) {
   var cacheDuration = 60 //1 minute
     try {
         const blogs = await Blog.find({isReviewed: true, isArchived: false, category: 'Investments'})
-        .sort('updatedAt DESC')
+        .sort('createdAt DESC')
         .populate('writer')
         const sanitizedBlogs = JSON.parse(JSON.stringify(blogs))
         let cachedAPIReq = mcache.get(cacheKey)
